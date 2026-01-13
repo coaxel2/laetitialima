@@ -8,8 +8,132 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     /**
+     * ========================================
+     * CARROUSEL DE PROJETS - Boucle infinie fluide
+     * ========================================
+     */
+    const track = document.querySelector('.carousel-track');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+    const indicators = document.querySelectorAll('.indicator');
+    const originalCards = document.querySelectorAll('.project-card');
+    
+    let currentIndex = 0;
+    const totalCards = originalCards.length;
+    let isTransitioning = false;
+
+    // Cloner les cartes pour l'effet de boucle infinie
+    const firstClone = originalCards[0].cloneNode(true);
+    const lastClone = originalCards[totalCards - 1].cloneNode(true);
+    
+    track.appendChild(firstClone);
+    track.insertBefore(lastClone, originalCards[0]);
+
+    // Positionner sur le premier vrai élément (après le clone)
+    currentIndex = 1;
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    // Fonction pour mettre à jour le carrousel
+    const updateCarousel = (direction) => {
+        if (isTransitioning) return;
+        isTransitioning = true;
+
+        if (direction === 'next') {
+            currentIndex++;
+        } else if (direction === 'prev') {
+            currentIndex--;
+        }
+
+        track.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        // Mettre à jour les indicateurs
+        const realIndex = ((currentIndex - 1) % totalCards + totalCards) % totalCards;
+        indicators.forEach((indicator, i) => {
+            indicator.classList.toggle('active', i === realIndex);
+        });
+    };
+
+    // Gérer la fin de la transition pour la boucle
+    track.addEventListener('transitionend', () => {
+        if (currentIndex === 0) {
+            // On est sur le clone de la dernière carte, revenir à la vraie dernière
+            track.style.transition = 'none';
+            currentIndex = totalCards;
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        } else if (currentIndex === totalCards + 1) {
+            // On est sur le clone de la première carte, revenir à la vraie première
+            track.style.transition = 'none';
+            currentIndex = 1;
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+        
+        isTransitioning = false;
+    });
+
+    // Navigation avec les boutons
+    prevBtn.addEventListener('click', () => {
+        updateCarousel('prev');
+    });
+
+    nextBtn.addEventListener('click', () => {
+        updateCarousel('next');
+    });
+
+    // Navigation avec les indicateurs
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => {
+            if (isTransitioning) return;
+            isTransitioning = true;
+            currentIndex = index + 1; // +1 car on a le clone au début
+            track.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            indicators.forEach((ind, i) => {
+                ind.classList.toggle('active', i === index);
+            });
+        });
+    });
+
+    // Navigation au clavier
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            updateCarousel('prev');
+        } else if (e.key === 'ArrowRight') {
+            updateCarousel('next');
+        }
+    });
+
+    // Swipe sur mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    track.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    track.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+
+    const handleSwipe = () => {
+        if (touchEndX < touchStartX - 50) {
+            updateCarousel('next'); // Swipe left
+        }
+        if (touchEndX > touchStartX + 50) {
+            updateCarousel('prev'); // Swipe right
+        }
+    };
+
+    /**
+     * ========================================
+     * AUTRES ANIMATIONS
+     * ========================================
+     */
+
+    /**
      * Animation des éléments au scroll (Intersection Observer)
-     * Pour animer les éléments quand ils entrent dans le viewport
      */
     const observerOptions = {
         threshold: 0.1,
@@ -25,14 +149,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    // Observer les cartes de projet
-    document.querySelectorAll('.project-card').forEach(card => {
-        observer.observe(card);
-    });
-
     /**
      * Effet parallaxe léger sur le hero
-     * Ajoute de la profondeur à l'expérience
      */
     let ticking = false;
     
@@ -73,24 +191,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     /**
-     * Effet de hover avancé sur les cartes projet
-     * Suit le curseur pour un effet de lumière
-     */
-    document.querySelectorAll('.project-card').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            card.style.setProperty('--mouse-x', `${x}px`);
-            card.style.setProperty('--mouse-y', `${y}px`);
-        });
-    });
-
-    /**
      * Animation d'entrée de la page
      */
     document.body.classList.add('page-loaded');
 
-    console.log('✨ Page d\'accueil initialisée');
+    console.log('✨ Page d\'accueil initialisée avec carrousel');
 });

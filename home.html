@@ -17,11 +17,14 @@
         <!-- Header -->
         <header class="header">
             <nav class="nav">
-                <a href="index.html" class="logo">LL</a>
+                <a href="index.html" class="logo">
+                    <span class="logo-letter logo-dark">L</span>
+                    <span class="logo-letter logo-light">L</span>
+                </a>
                 <ul class="nav-links">
                     <li><a href="#about">À propos</a></li>
                     <li><a href="#work">Projets</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
         </header>
@@ -41,22 +44,61 @@
         <!-- Section Projets -->
         <section class="projects" id="work">
             <h3 class="section-title">Projets sélectionnés</h3>
-            <div class="projects-grid">
-                <article class="project-card">
-                    <div class="project-number">01</div>
-                    <h4>Projet Alpha</h4>
-                    <p>Design & Développement</p>
-                </article>
-                <article class="project-card">
-                    <div class="project-number">02</div>
-                    <h4>Projet Beta</h4>
-                    <p>Branding & UI/UX</p>
-                </article>
-                <article class="project-card">
-                    <div class="project-number">03</div>
-                    <h4>Projet Gamma</h4>
-                    <p>Application Web</p>
-                </article>
+            
+            <div class="carousel-container">
+                <!-- Bouton précédent -->
+                <button class="carousel-btn carousel-prev" aria-label="Projet précédent">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+
+                <!-- Carrousel -->
+                <div class="carousel">
+                    <div class="carousel-track">
+                        <article class="project-card" onclick="window.location.href='projets/joes-pizza.html'">
+                            <div class="project-number">01</div>
+                            <h4>Joe's Pizza</h4>
+                            <p>Identité visuelle & Web</p>
+                        </article>
+                        <article class="project-card" onclick="window.location.href='projets/les-nuits-elegantes.html'">
+                            <div class="project-number">02</div>
+                            <h4>Les nuits élégantes</h4>
+                            <p>Branding & Événementiel</p>
+                        </article>
+                        <article class="project-card" onclick="window.location.href='projets/province-antan.html'">
+                            <div class="project-number">03</div>
+                            <h4>Province d'antan</h4>
+                            <p>Design & Développement</p>
+                        </article>
+                        <article class="project-card" onclick="window.location.href='projets/emoi.html'">
+                            <div class="project-number">04</div>
+                            <h4>EMOI</h4>
+                            <p>Application Mobile</p>
+                        </article>
+                        <article class="project-card" onclick="window.location.href='projets/aides.html'">
+                            <div class="project-number">05</div>
+                            <h4>AIDES</h4>
+                            <p>Campagne & Communication</p>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Bouton suivant -->
+                <button class="carousel-btn carousel-next" aria-label="Projet suivant">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Indicateurs -->
+            <div class="carousel-indicators">
+                <button class="indicator active" data-index="0" aria-label="Aller au projet 1"></button>
+                <button class="indicator" data-index="1" aria-label="Aller au projet 2"></button>
+                <button class="indicator" data-index="2" aria-label="Aller au projet 3"></button>
+                <button class="indicator" data-index="3" aria-label="Aller au projet 4"></button>
+                <button class="indicator" data-index="4" aria-label="Aller au projet 5"></button>
             </div>
         </section>
 
@@ -71,13 +113,11 @@
                     <a href="mailto:hello@example.com">hello@example.com</a>
                     <div class="social-links">
                         <a href="#">LinkedIn</a>
-                        <a href="#">Dribbble</a>
-                        <a href="#">GitHub</a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 LL. Tous droits réservés.</p>
+                <p>&copy; 2026 Laëtitia Lima. Tous droits réservés.</p>
             </div>
         </footer>
     </main>

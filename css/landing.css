@@ -148,6 +148,7 @@ body {
     font-weight: 600;
     letter-spacing: 0;
     margin-bottom: var(--spacing-lg);
+    margin-top: -1rem;
     display: inline-block;
     position: relative;
     width: 1em;
@@ -227,31 +228,6 @@ body {
     50% {
         opacity: 0.4;
         transform: scale(1.05);
-    }
-}
-
-/* Ligne décorative sous les initiales */
-.initials::after {
-    content: '';
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    width: 0;
-    height: 1px;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        var(--text-dark),
-        transparent
-    );
-    animation: lineExpand 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: 1.2s;
-    transform: translateX(-50%);
-}
-
-@keyframes lineExpand {
-    to {
-        width: 120px;
     }
 }
 
