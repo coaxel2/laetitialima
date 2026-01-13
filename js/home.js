@@ -9,6 +9,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /**
      * ========================================
+     * HEADER - Effet blur au scroll
+     * ========================================
+     */
+    const header = document.querySelector('.header');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        lastScroll = currentScroll;
+    });
+
+    /**
+     * ========================================
      * CARROUSEL DE PROJETS - Boucle infinie fluide
      * ========================================
      */
@@ -186,6 +206,31 @@ document.addEventListener('DOMContentLoaded', () => {
                     behavior: 'smooth',
                     block: 'start'
                 });
+            }
+        });
+    });
+
+    /**
+     * ========================================
+     * ACCORDÉONS SKILLS
+     * ========================================
+     */
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', (e) => {
+            e.preventDefault();
+            const accordionId = header.getAttribute('data-accordion');
+            const content = document.getElementById(accordionId);
+            const isActive = header.classList.contains('active');
+
+            // Toggle uniquement l'accordéon cliqué (indépendamment des autres)
+            if (isActive) {
+                header.classList.remove('active');
+                content.classList.remove('active');
+            } else {
+                header.classList.add('active');
+                content.classList.add('active');
             }
         });
     });
