@@ -698,6 +698,170 @@ body {
     }
     
     .footer-content {
+        text-align: left;
+    }
+}
+
+/* ========================================
+   SECTION QUI SUIS-JE
+   ======================================== */
+
+.about-section {
+    padding: 8rem 2rem;
+    background: linear-gradient(to bottom, var(--color-cream) 0%, #FAF3EB 100%);
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.about-image {
+    position: relative;
+}
+
+.about-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 32px;
+    object-fit: cover;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.about-image-placeholder {
+    width: 100%;
+    padding-bottom: 125%;
+    background: linear-gradient(135deg, var(--color-peach) 0%, var(--color-coral) 100%);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-image-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.about-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.about-text {
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-medium);
+}
+
+.about-skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.skill-item h4 {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.skill-item p {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.about-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 500;
+    color: white;
+    background: linear-gradient(135deg, var(--color-coral) 0%, var(--color-rust) 100%);
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    align-self: flex-start;
+    margin-top: 1rem;
+}
+
+.about-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(232, 160, 122, 0.3);
+}
+
+.about-cta:active {
+    transform: translateY(0);
+}
+
+/* Responsive About Section */
+@media (max-width: 968px) {
+    .about-section {
+        padding: 6rem 1.5rem;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about-image-placeholder {
+        padding-bottom: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .about-skills {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+    .footer-content {
         flex-direction: column;
         gap: var(--spacing-md);
     }
@@ -714,7 +878,7 @@ body {
         padding: 0.875rem 2rem;
         font-size: 0.8rem;
     }
-}
+
 
 /* ========================================
    PAGE CONTACT
