@@ -7,20 +7,38 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const enterBtn = document.getElementById('enterBtn');
+    const customCursor = document.getElementById('customCursor');
 
     /**
-     * Effet de transition fluide vers la page d'accueil
-     * Animation de sortie avant la redirection
+     * Curseur personnalisé qui suit la souris
+     */
+    document.addEventListener('mousemove', (e) => {
+        customCursor.style.left = e.clientX + 'px';
+        customCursor.style.top = e.clientY + 'px';
+    });
+
+    /**
+     * Effet de grossissement de la clé au hover du bouton
+     */
+    enterBtn.addEventListener('mouseenter', () => {
+        customCursor.style.transform = 'translate(-50%, -50%) scale(1.3)';
+    });
+
+    enterBtn.addEventListener('mouseleave', () => {
+        customCursor.style.transform = 'translate(-50%, -50%) scale(1)';
+    });
+
+    /**
+     * Animation au clic sur le bouton
      */
     enterBtn.addEventListener('click', (e) => {
         e.preventDefault();
         
-        // Animation de sortie
+        // Animation de sortie et redirection
         document.body.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         document.body.style.opacity = '0';
         document.body.style.transform = 'scale(1.02)';
         
-        // Redirection après l'animation
         setTimeout(() => {
             window.location.href = 'home.html';
         }, 500);
