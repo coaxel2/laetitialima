@@ -240,5 +240,32 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     document.body.classList.add('page-loaded');
 
+    /**
+     * ========================================
+     * EXPERIENCE TIMELINE - Activation au scroll
+     * ========================================
+     */
+    const experienceItems = document.querySelectorAll('.experience-item');
+    
+    const checkExperienceInView = () => {
+        const windowHeight = window.innerHeight;
+        const windowCenter = windowHeight / 2;
+        
+        experienceItems.forEach(item => {
+            const rect = item.getBoundingClientRect();
+            const itemCenter = rect.top + rect.height / 2;
+            
+            // Si le centre de l'item est proche du centre de l'écran (± 150px)
+            if (Math.abs(itemCenter - windowCenter) < 150) {
+                item.classList.add('in-view');
+            } else {
+                item.classList.remove('in-view');
+            }
+        });
+    };
+    
+    window.addEventListener('scroll', checkExperienceInView);
+    checkExperienceInView(); // Vérifier au chargement
+
     console.log('✨ Page d\'accueil initialisée avec carrousel');
 });

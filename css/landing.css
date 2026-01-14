@@ -418,6 +418,11 @@ body {
         padding: 1rem 2rem;
         font-size: 0.65rem;
         letter-spacing: 0.2em;
+        min-width: auto;
+    }
+    
+    .btn-spacer {
+        width: 15px;
     }
     
     .landing-content::before,
@@ -426,7 +431,12 @@ body {
     }
     
     .custom-cursor {
-        width: 40px;
+        display: none !important;
+    }
+    
+    body.landing-page,
+    body.landing-page * {
+        cursor: auto !important;
     }
 }
 
@@ -438,10 +448,20 @@ body {
     .btn-enter {
         padding: 0.9rem 1.8rem;
         font-size: 0.6rem;
+        min-width: auto;
+    }
+    
+    .btn-spacer {
+        width: 10px;
     }
     
     .custom-cursor {
-        width: 35px;
+        display: none !important;
+    }
+    
+    body.landing-page,
+    body.landing-page * {
+        cursor: auto !important;
     }
 }
 
