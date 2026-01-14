@@ -177,6 +177,20 @@
     box-shadow: 0 20px 40px rgba(61, 40, 32, 0.15);
 }
 
+.experience-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(
+        135deg,
+        var(--color-peach) 0%,
+        var(--color-coral) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .experience-icon {
     width: 80px;
     height: 80px;
@@ -192,6 +206,23 @@
     color: var(--color-coral);
 }
 
+.experience-logo {
+    max-width: 60%;
+    max-height: 60%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.experience-image .ludosens-logo {
+    max-width: 300px !important;
+    max-height: 300px !important;
+    min-width: 300px !important;
+    min-height: 300px !important;
+    width: 300px !important;
+    height: 300px !important;
+}
+
 .experience-period-badge {
     padding: 0.75rem 1.5rem;
     background: rgba(255, 255, 255, 0.9);
@@ -200,6 +231,7 @@
     font-weight: 500;
     color: var(--text-dark);
     letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
 }
 
 .experience-content {

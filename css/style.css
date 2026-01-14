@@ -1332,7 +1332,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     gap: 4rem;
-    align-items: start;
+    align-items: center;
 }
 
 /* Contact Info */
