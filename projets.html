@@ -33,11 +33,43 @@
             </div>
         </section>
 
+        <!-- Filtres -->
+        <section class="filters-section">
+            <div class="container">
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label for="year-filter" class="filter-label">Année</label>
+                        <select id="year-filter" class="filter-select">
+                            <option value="all">Toutes les années</option>
+                            <option value="2026">2026</option>
+                            <option value="2025">2025</option>
+                            <option value="2024">2024</option>
+                        </select>
+                    </div>
+                    <div class="filter-group filter-skills">
+                        <span class="filter-label">Compétences</span>
+                        <div class="skill-filters">
+                            <button class="skill-filter" data-skill="branding">Branding</button>
+                            <button class="skill-filter" data-skill="web design">Web Design</button>
+                            <button class="skill-filter" data-skill="ui/ux">UI/UX</button>
+                            <button class="skill-filter" data-skill="print">Print</button>
+                            <button class="skill-filter" data-skill="communication">Communication</button>
+                            <button class="skill-filter" data-skill="packaging">Packaging</button>
+                        </div>
+                    </div>
+                    <div class="filter-actions">
+                        <span class="results-count">5 résultats</span>
+                        <button class="reset-filters">Réinitialiser</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="projects-grid-section">
             <div class="container">
                 <div class="projects-grid">
                     <!-- Joe's Pizza -->
-                    <article class="project-card-large">
+                    <article class="project-card-large" data-year="2025" data-skills="branding, web design, ui/ux">
                         <div class="project-image">
                             <img src="image/porfollio/logo/joespizzalogo.png" alt="Joe's Pizza" class="project-logo">
                         </div>
@@ -62,7 +94,7 @@
                     </article>
 
                     <!-- Les nuits élégantes -->
-                    <article class="project-card-large">
+                    <article class="project-card-large" data-year="2024" data-skills="branding, print, communication">
                         <div class="project-image">
                             <img src="image/porfollio/logo/nuitlogo.png" alt="Les nuits élégantes" class="project-logo">
                         </div>
@@ -87,7 +119,7 @@
                     </article>
 
                     <!-- Province d'antan -->
-                    <article class="project-card-large">
+                    <article class="project-card-large" data-year="2024" data-skills="branding, web design, packaging">
                         <div class="project-image">
                             <img src="image/porfollio/logo/provencelogo.png" alt="Province d'antan" class="project-logo">
                         </div>
@@ -112,7 +144,7 @@
                     </article>
 
                     <!-- EMOI -->
-                    <article class="project-card-large">
+                    <article class="project-card-large" data-year="2026" data-skills="branding, packaging, ui/ux">
                         <div class="project-image">
                             <img src="image/porfollio/logo/emoilogo.png" alt="EMOI" class="project-logo">
                         </div>
@@ -137,7 +169,7 @@
                     </article>
 
                     <!-- AIDES -->
-                    <article class="project-card-large">
+                    <article class="project-card-large" data-year="2025" data-skills="communication, print, branding">
                         <div class="project-image">
                             <img src="image/porfollio/logo/aideslogo.png" alt="AIDES" class="project-logo">
                         </div>
@@ -198,6 +230,7 @@
                 <p>&copy; 2026 Laëtitia Lima. Tous droits réservés.</p>
             </div>
         </footer>
+    <script src="js/filter.js"></script>
     <script>
         // Effet de scroll sur le header
         const header = document.querySelector('.header');

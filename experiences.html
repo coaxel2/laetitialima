@@ -33,11 +33,43 @@
             </div>
         </section>
 
+        <!-- Filtres -->
+        <section class="filters-section">
+            <div class="container">
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label for="year-filter" class="filter-label">Année</label>
+                        <select id="year-filter" class="filter-select">
+                            <option value="all">Toutes les années</option>
+                            <option value="2023">2023 - Présent</option>
+                            <option value="2022">2022 - 2023</option>
+                            <option value="2021">2021 - 2022</option>
+                        </select>
+                    </div>
+                    <div class="filter-group filter-skills">
+                        <span class="filter-label">Compétences</span>
+                        <div class="skill-filters">
+                            <button class="skill-filter" data-skill="marketing">Marketing</button>
+                            <button class="skill-filter" data-skill="communication">Communication</button>
+                            <button class="skill-filter" data-skill="gestion de projet">Gestion de projet</button>
+                            <button class="skill-filter" data-skill="créativité">Créativité</button>
+                            <button class="skill-filter" data-skill="design">Design</button>
+                            <button class="skill-filter" data-skill="événementiel">Événementiel</button>
+                        </div>
+                    </div>
+                    <div class="filter-actions">
+                        <span class="results-count">3 résultats</span>
+                        <button class="reset-filters">Réinitialiser</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="experiences-grid-section">
             <div class="container">
                 <div class="experiences-grid">
                     <!-- Confort Service -->
-                    <article class="experience-card-large">
+                    <article class="experience-card-large" data-year="2023" data-skills="marketing, communication, gestion de projet">
                         <div class="experience-image">
                             <img src="image/porfollio/logo/confertservicelogo.png" alt="Confort Service" class="experience-logo">
                         </div>
@@ -64,7 +96,7 @@
                     </article>
 
                     <!-- Inspire Women -->
-                    <article class="experience-card-large">
+                    <article class="experience-card-large" data-year="2022" data-skills="communication, événementiel, créativité">
                         <div class="experience-image">
                             <img src="image/porfollio/logo/inspirewomenlogo.png" alt="Inspire Women" class="experience-logo">
                         </div>
@@ -91,7 +123,7 @@
                     </article>
 
                     <!-- Ludosens -->
-                    <article class="experience-card-large">
+                    <article class="experience-card-large" data-year="2021" data-skills="créativité, design, communication">
                         <div class="experience-image">
                             <img src="image/porfollio/logo/ludosenslogo.png" alt="Ludosens" class="experience-logo ludosens-logo">
                         </div>
@@ -153,6 +185,7 @@
                 <p>&copy; 2026 Laëtitia Lima. Tous droits réservés.</p>
             </div>
         </footer>
+    <script src="js/filter.js"></script>
     <script>
         // Effet de scroll sur le header
         const header = document.querySelector('.header');
