@@ -27,10 +27,25 @@
 
     <main class="experiences-page">
         <section class="hero-experiences">
-            <div class="container">
-                <h1 class="page-title">Expériences professionnelles</h1>
-                <p class="page-subtitle">Mon parcours professionnel et les compétences développées</p>
+            <div class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 40vh;">
+                <h1 class="page-title" style="color: #6E321D; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: clamp(2.5rem, 6vw, 4.5rem); text-align: center; margin-bottom: 1.5rem;">MON UNIVERS PROFESSIONNEL</h1>
+                <p class="page-subtitle" style="font-family: 'Inter', sans-serif; font-size: 1.25rem; color: #8B6B5A; text-align: center; margin-bottom: 2rem;">Où ai-je mis en pratique mes idées ?</p>
             </div>
+            <style>
+                .hero-experiences {
+                    background: linear-gradient(120deg, #fff9f5 0%, #f5d5c0 40%, #b28069 100%);
+                    position: relative;
+                    overflow: hidden;
+                }
+                .hero-experiences .container {
+                    position: relative;
+                    z-index: 1;
+                }
+                .hero-btn:hover {
+                    background: #a06c5a;
+                    transform: translateY(-2px) scale(1.03);
+                }
+            </style>
         </section>
 
         <!-- Filtres -->
@@ -41,20 +56,25 @@
                         <label for="year-filter" class="filter-label">Année</label>
                         <select id="year-filter" class="filter-select">
                             <option value="all">Toutes les années</option>
-                            <option value="2023">2023 - Présent</option>
-                            <option value="2022">2022 - 2023</option>
-                            <option value="2021">2021 - 2022</option>
+                            <option value="2025">2025 - 2026</option>
+                            <option value="2024">2024</option>
                         </select>
                     </div>
                     <div class="filter-group filter-skills">
                         <span class="filter-label">Compétences</span>
                         <div class="skill-filters">
-                            <button class="skill-filter" data-skill="marketing">Marketing</button>
-                            <button class="skill-filter" data-skill="communication">Communication</button>
-                            <button class="skill-filter" data-skill="gestion de projet">Gestion de projet</button>
-                            <button class="skill-filter" data-skill="créativité">Créativité</button>
-                            <button class="skill-filter" data-skill="design">Design</button>
-                            <button class="skill-filter" data-skill="événementiel">Événementiel</button>
+                            <button class="skill-filter" data-skill="creation-contenu">Création de contenu</button>
+                            <button class="skill-filter" data-skill="communication-360">Communication 360°</button>
+                            <button class="skill-filter" data-skill="gestion-projet">Gestion de projet</button>
+                            <button class="skill-filter" data-skill="meta-business">Meta Business</button>
+                            <button class="skill-filter" data-skill="partenariats">Développement de partenariats</button>
+                            <button class="skill-filter" data-skill="redaction-web">Rédaction de contenu web</button>
+                            <button class="skill-filter" data-skill="strategie-communication">Stratégie de communication</button>
+                            <button class="skill-filter" data-skill="gestion-reseaux">Gestion des réseaux sociaux</button>
+                            <button class="skill-filter" data-skill="photoshop">Adobe Photoshop</button>
+                            <button class="skill-filter" data-skill="premiere-pro">Première Pro</button>
+                            <button class="skill-filter" data-skill="canva">Canva</button>
+                            <button class="skill-filter" data-skill="wordpress">Wordpress</button>
                         </div>
                     </div>
                     <div class="filter-actions">
@@ -69,22 +89,26 @@
             <div class="container">
                 <div class="experiences-grid">
                     <!-- Confort Service -->
-                    <article class="experience-card-large" data-year="2023" data-skills="marketing, communication, gestion de projet">
+                    <article class="experience-card-large" data-year="2024" data-skills="creation-contenu, gestion-reseaux, gestion-projet, partenariats, redaction-web, photoshop, canva, premiere-pro">
                         <div class="experience-image">
                             <img src="image/porfollio/logo/confertservicelogo.png" alt="Confort Service" class="experience-logo">
                         </div>
                         <div class="experience-content">
-                            <div class="experience-period-badge">2023 - Présent</div>
+                            <div class="experience-period-badge">OCTOBRE 2024 - NOVEMBRE 2024</div>
                             <h2 class="experience-company">Confort Service</h2>
-                            <p class="experience-role">Poste occupé</p>
+                            <p class="experience-role">Stage en tant que Chargée de communication</p>
                             <p class="experience-description">
-                                Développement et mise en œuvre de stratégies marketing pour améliorer la visibilité de la marque et augmenter l'engagement client. Gestion de projets transversaux et coordination d'équipe.
+                                Pilotage complet de la stratégie de contenu et des réseaux sociaux, de la création de publications et de contenu optimisées à l’animation de la communauté et aux collaborations avec des micro-influenceurs.
                             </p>
                             <div class="experience-tags">
-                                <span class="tag">Marketing</span>
-                                <span class="tag">Stratégie</span>
+                                <span class="tag">Création de contenu</span>
+                                <span class="tag">Gestion des réseaux sociaux</span>
                                 <span class="tag">Gestion de projet</span>
-                                <span class="tag">Communication</span>
+                                <span class="tag">Développement de partenariats</span>
+                                <span class="tag">Rédaction de contenu web</span>
+                                <span class="tag">Adobe Photoshop</span>
+                                <span class="tag">Canva</span>
+                                <span class="tag">Première Pro</span>
                             </div>
                             <a href="experiance/confort-service.html" class="experience-link">
                                 En savoir plus
@@ -96,22 +120,25 @@
                     </article>
 
                     <!-- Inspire Women -->
-                    <article class="experience-card-large" data-year="2022" data-skills="communication, événementiel, créativité">
+                    <article class="experience-card-large" data-year="2024" data-skills="creation-contenu, gestion-reseaux, strategie-communication, photoshop, canva, premiere-pro, meta-business">
                         <div class="experience-image">
                             <img src="image/porfollio/logo/inspirewomenlogo.png" alt="Inspire Women" class="experience-logo">
                         </div>
                         <div class="experience-content">
-                            <div class="experience-period-badge">2022 - 2023</div>
+                            <div class="experience-period-badge">MARS 2024 - MAI 2024</div>
                             <h2 class="experience-company">Inspire Women</h2>
-                            <p class="experience-role">Poste occupé</p>
+                            <p class="experience-role">Stage en tant que Community Manager</p>
                             <p class="experience-description">
-                                Contribution au développement d'initiatives pour l'autonomisation des femmes. Création de contenus engageants et organisation d'événements pour renforcer la communauté et favoriser le leadership féminin.
+                                Gestion globale de la communication digitale, incluant la création de contenus, l’animation de la communauté, la planification et l’analyse des performances afin d’optimiser l’impact en ligne et atteindre les objectifs.
                             </p>
                             <div class="experience-tags">
-                                <span class="tag">Leadership</span>
-                                <span class="tag">Communication</span>
-                                <span class="tag">Engagement social</span>
-                                <span class="tag">Événementiel</span>
+                                <span class="tag">Création de contenu</span>
+                                <span class="tag">Gestion des réseaux sociaux</span>
+                                <span class="tag">Stratégie de communication</span>
+                                <span class="tag">Adobe Photoshop</span>
+                                <span class="tag">Canva</span>
+                                <span class="tag">Première Pro</span>
+                                <span class="tag">Meta Business</span>
                             </div>
                             <a href="experiance/inspire-women.html" class="experience-link">
                                 En savoir plus
@@ -123,22 +150,28 @@
                     </article>
 
                     <!-- Ludosens -->
-                    <article class="experience-card-large" data-year="2021" data-skills="créativité, design, communication">
+                    <article class="experience-card-large" data-year="2025" data-skills="creation-contenu, communication-360, gestion-projet, redaction-web, meta-business, strategie-communication, photoshop, premiere-pro, canva, wordpress">
                         <div class="experience-image">
                             <img src="image/porfollio/logo/ludosenslogo.png" alt="Ludosens" class="experience-logo ludosens-logo">
                         </div>
                         <div class="experience-content">
-                            <div class="experience-period-badge">2021 - 2022</div>
+                            <div class="experience-period-badge">SEPTEMBRE 2025 - 2026</div>
                             <h2 class="experience-company">Ludosens</h2>
-                            <p class="experience-role">Poste occupé</p>
+                            <p class="experience-role">Alternance en tant que Chargée de communication</p>
                             <p class="experience-description">
                                 Conception d'expériences ludiques et sensorielles innovantes. Développement de concepts créatifs alliant pédagogie et plaisir pour créer des projets à fort impact éducatif et émotionnel.
                             </p>
                             <div class="experience-tags">
-                                <span class="tag">Game Design</span>
-                                <span class="tag">Créativité</span>
-                                <span class="tag">Pédagogie</span>
-                                <span class="tag">Innovation</span>
+                                <span class="tag">Création de contenu</span>
+                                <span class="tag">Communication 360°</span>
+                                <span class="tag">Gestion de projet</span>
+                                <span class="tag">Rédaction de contenu web</span>
+                                <span class="tag">Meta Business</span>
+                                <span class="tag">Stratégie de communication</span>
+                                <span class="tag">Adobe Photoshop</span>
+                                <span class="tag">Première Pro</span>
+                                <span class="tag">Canva</span>
+                                <span class="tag">Wordpress</span>
                             </div>
                             <a href="experiance/ludosens.html" class="experience-link">
                                 En savoir plus

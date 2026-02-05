@@ -27,10 +27,21 @@
 
     <main class="projects-page">
         <section class="hero-projects">
-            <div class="container">
-                <h1 class="page-title">Projets professionnels</h1>
-                <p class="page-subtitle">Une sélection de mes réalisations en design, branding et développement</p>
+            <div class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 40vh;">
+                <h1 class="page-title" style="color: #6E321D; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: clamp(2.5rem, 6vw, 4.5rem); text-align: center; margin-bottom: 1.5rem;">DES UNIVERS, UN PROJET À LA FOIS</h1>
+                <p class="page-subtitle" style="font-family: 'Inter', sans-serif; font-size: 1.25rem; color: #8B6B5A; text-align: center; margin-bottom: 2rem;">Comment je transforme une idée en expérience ?</p>
             </div>
+            <style>
+                .hero-projects {
+                    background: linear-gradient(120deg, #fff9f5 0%, #f5d5c0 40%, #b28069 100%);
+                    position: relative;
+                    overflow: hidden;
+                }
+                .hero-projects .container {
+                    position: relative;
+                    z-index: 1;
+                }
+            </style>
         </section>
 
         <!-- Filtres -->
