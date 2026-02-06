@@ -9,12 +9,8 @@
 
 /* Hero Section */
 .hero-experience {
-    background: linear-gradient(
-        135deg,
-        var(--color-cream) 0%,
-        var(--color-peach) 100%
-    );
-    padding: 4rem 0 3rem;
+    background: linear-gradient(135deg, var(--color-peach) 0%, var(--color-coral) 100%);
+    padding: 1rem 0 1rem;
     position: relative;
 }
 
@@ -44,6 +40,23 @@
     font-weight: 600;
     color: var(--text-dark);
     margin-bottom: 0.5rem;
+}
+
+.experience-logo {
+    max-width: 450px;
+    max-height: 180px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.experience-logo-large {
+    max-width: 750px;
+    max-height: 300px;
 }
 
 .experience-subtitle {
