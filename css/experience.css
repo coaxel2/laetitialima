@@ -239,6 +239,19 @@
         max-height: 120px;
     }
     
+    .back-link {
+        position: relative;
+        z-index: 1000;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+        touch-action: manipulation;
+        pointer-events: auto;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        backdrop-filter: blur(10px);
+    }
+    
     .experience-content {
         padding: 2rem 0;
     }

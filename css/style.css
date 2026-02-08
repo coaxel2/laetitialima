@@ -1275,6 +1275,8 @@ body {
 
     .logo {
         margin-top: -5px;
+        z-index: 102;
+        position: relative;
     }
 
     .hero {
@@ -1389,7 +1391,16 @@ body {
 
     /* Contact */
     .contact-content {
-        padding: 3rem 1.5rem;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contact-container {
+        min-height: 100vh;
+        padding: 2rem 1.5rem;
     }
 
     .contact-info {
@@ -1420,6 +1431,11 @@ body {
     }
 
     .contact-content {
+        padding: 0;
+        min-height: 100vh;
+    }
+
+    .contact-container {
         padding: 2rem 1rem;
     }
 

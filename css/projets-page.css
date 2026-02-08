@@ -419,6 +419,10 @@
     transform: scale(1);
 }
 
+.skills-select-mobile {
+    display: none;
+}
+
 /* Responsive filtres */
 @media (max-width: 1024px) {
     .filters-container {
@@ -443,11 +447,23 @@
     }
     
     .skill-filters {
-        gap: 0.4rem;
+        display: none;
     }
     
-    .skill-filter {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
+    .skills-select-mobile {
+        display: block;
+        width: auto;
+        min-width: 200px;
+        max-width: 300px;
+    }
+    
+    .filter-group.filter-skills {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: auto;
+    }
+    
+    .filter-group.filter-skills .filter-label {
+        margin-bottom: 0;
     }
 }
