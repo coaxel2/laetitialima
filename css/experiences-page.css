@@ -11,10 +11,6 @@
         var(--color-cream) 100%
     );
 }
-    height: 1px;
-    background: var(--color-rust);
-    transition: width var(--transition-medium);
-}
 
 .nav-link:hover,
 .nav-link.active,
