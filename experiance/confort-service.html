@@ -18,11 +18,15 @@
                 <span class="logo-letter logo-dark">L</span>
                 <span class="logo-letter logo-light">L</span>
             </a>
+            <button class="menu-toggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
                 <ul class="nav-links">
                     <li><a href="../experiences.html">Expériences</a></li>
                     <li><a href="../projets.html">Projets</a></li>
                     <li><a href="../contact.html">Contact</a></li>
                 </ul>
+            <div class="nav-overlay"></div>
         </nav>
     </header>
 
@@ -32,12 +36,6 @@
         <!-- Hero Section -->
         <section class="hero-experience">
             <div class="container">
-                <a href="../experiences.html" class="back-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M19 12H5M12 19l-7-7 7-7"/>
-                    </svg>
-                    Retour aux expériences
-                </a>
                 <img src="../image/porfollio/logo/confertservicelogo.png" alt="Confort Service" class="experience-logo">
             </div>
         </section>
@@ -45,6 +43,12 @@
         <!-- Content Section -->
         <section class="experience-content">
             <div class="container">
+                <a href="../experiences.html" class="back-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Retour aux expériences
+                </a>
                 <div class="content-grid">
                     <!-- Sidebar -->
                     <aside class="experience-sidebar">
@@ -102,7 +106,7 @@
 
                         <!-- Image principale -->
                         <div class="content-section">
-                            <img src="../image/porfollio/projet/confortservice/confortmockup.png" alt="Mockup Confort Service" style="width: 70%; display: block; margin: 0 auto;">
+                            <img src="../image/porfollio/projet/confortservice/confortmockup.png" alt="Mockup Confort Service" class="project-detail-img">
                         </div>
 
                         <!-- Missions -->
@@ -150,7 +154,7 @@
                             <p>
                                 Cette expérience chez Confort Service m’a permis de développer mes compétences en communication digitale et en marketing opérationnel. J’ai appris à valoriser des services techniques, et à collaborer avec des micro-influenceurs.
                             </p>
-                            <p style="margin-top: 1rem;">
+                            <p class="text-spacing-top">
                                 J’ai également pris conscience de l’importance d’une communication claire et rassurante pour renforcer la confiance, soutenir l’image de marque et accompagner le développement d’une entreprise de services orientée proximité et qualité.
                             </p>
                         </div>
@@ -160,7 +164,7 @@
         </section>
     </main>
 
-    <script src="../js/project.js"></script>
+    <script src="../js/main.js"></script>
         <footer class="footer" id="contact">
             <div class="footer-content">
                 <div class="footer-brand">
@@ -170,15 +174,15 @@
                     </div>
                     <p>Créons ensemble quelque chose d'exceptionnel.</p>
                     <div class="footer-contact">
-                        <a href="mailto:laetitia.lima@ynov.com">laetitia.lima@ynov.com</a>
+                        <a href="mailto:laetitialmp67@gmail.com">laetitialmp67@gmail.com</a>
                         <a href="https://www.linkedin.com/in/laetitialima">LinkedIn</a>
                     </div>
                 </div>
                 <div class="footer-links">
                     <div class="footer-nav">
-                        <a href="experiences.html">Expériences</a>
-                        <a href="projets.html">Projets</a>
-                        <a href="contact.html">Contact</a>
+                        <a href="../experiences.html">Expériences</a>
+                        <a href="../projets.html">Projets</a>
+                        <a href="../contact.html">Contact</a>
                     </div>
                 </div>
             </div>
@@ -186,7 +190,5 @@
                 <p>&copy; 2026 Laëtitia Lima. Tous droits réservés.</p>
             </div>
         </footer>
-
-    <script src="../js/home.js"></script>
 </body>
 </html>

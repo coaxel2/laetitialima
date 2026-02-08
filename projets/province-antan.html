@@ -18,11 +18,15 @@
                 <span class="logo-letter logo-dark">L</span>
                 <span class="logo-letter logo-light">L</span>
             </a>
+            <button class="menu-toggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
                 <ul class="nav-links">
                     <li><a href="../experiences.html">Expériences</a></li>
                     <li><a href="../projets.html">Projets</a></li>
                     <li><a href="../contact.html">Contact</a></li>
                 </ul>
+            <div class="nav-overlay"></div>
         </nav>
     </header>
 
@@ -31,12 +35,6 @@
         <!-- Hero Section -->
         <section class="hero-experience">
             <div class="container">
-                <a href="../projets.html" class="back-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M19 12H5M12 19l-7-7 7-7"/>
-                    </svg>
-                    Retour aux projets
-                </a>
                 <img src="../image/porfollio/logo/provencelogo.png" alt="Province d'Antan" class="experience-logo">
             </div>
         </section>
@@ -44,6 +42,12 @@
         <!-- Content Section -->
         <section class="experience-content">
             <div class="container">
+                <a href="../projets.html" class="back-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Retour aux projets
+                </a>
                 <div class="content-grid">
                     <!-- Sidebar -->
                     <aside class="experience-sidebar">
@@ -97,10 +101,7 @@
 
                         <!-- Image principale -->
                         <div class="content-section">
-                            <div style="background: linear-gradient(135deg, var(--color-peach) 0%, var(--color-cream) 100%); padding: 3rem; border-radius: 12px; text-align: center;">
-                                <h3 style="font-family: var(--font-serif); font-size: 2rem; color: var(--text-dark); margin-bottom: 1rem;">Province d'Antan</h3>
-                                <p style="color: var(--text-medium); font-style: italic;">Visuels du projet à venir</p>
-                            </div>
+                            <img src="../image/porfollio/projet/araquelle/magasin.png" alt="Province d'Antan - Mockup" class="project-detail-img">
                         </div>
 
                         <!-- Concept -->
@@ -112,6 +113,15 @@
                                 les marchés de village et le temps où les produits étaient fabriqués à la main 
                                 avec passion et savoir-faire.
                             </p>
+                        </div>
+
+                        <!-- Galerie -->
+                        <div class="content-section">
+                            <h2>Visuels du projet</h2>
+                            <div class="project-gallery">
+                                <img src="../image/porfollio/projet/araquelle/Mokup2.png" alt="Province d'Antan - Mockup packaging" class="project-detail-img project-detail-img--full">
+                                <img src="../image/porfollio/projet/araquelle/mockup.png" alt="Province d'Antan - Application magasin" class="project-detail-img project-detail-img--full">
+                            </div>
                         </div>
 
                         <!-- Réalisations -->
@@ -149,7 +159,6 @@
 
     <!-- Footer -->
 
-    <script src="../js/project.js"></script>
         <footer class="footer" id="contact">
             <div class="footer-content">
                 <div class="footer-brand">
@@ -159,7 +168,7 @@
                     </div>
                     <p>Créons ensemble quelque chose d'exceptionnel.</p>
                     <div class="footer-contact">
-                        <a href="mailto:laetitia.lima@ynov.com">laetitia.lima@ynov.com</a>
+                        <a href="mailto:laetitialmp67@gmail.com">laetitialmp67@gmail.com</a>
                         <a href="https://www.linkedin.com/in/laetitialima">LinkedIn</a>
                     </div>
                 </div>
@@ -176,6 +185,6 @@
             </div>
         </footer>
 
-    <script src="../js/home.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>

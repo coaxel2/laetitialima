@@ -17,31 +17,24 @@
                     <span class="logo-letter logo-dark">L</span>
                     <span class="logo-letter logo-light">L</span>
                 </a>
+                <button class="menu-toggle" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
                 <ul class="nav-links">
                     <li><a href="experiences.html">Expériences</a></li>
                     <li><a href="projets.html" class="active">Projets</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
+                <div class="nav-overlay"></div>
             </nav>
         </header>
 
     <main class="projects-page">
         <section class="hero-projects">
-            <div class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 40vh;">
-                <h1 class="page-title" style="color: #6E321D; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 700; font-size: clamp(2.5rem, 6vw, 4.5rem); text-align: center; margin-bottom: 1.5rem;">DES UNIVERS, UN PROJET À LA FOIS</h1>
-                <p class="page-subtitle" style="font-family: 'Inter', sans-serif; font-size: 1.25rem; color: #8B6B5A; text-align: center; margin-bottom: 2rem;">Comment je transforme une idée en expérience ?</p>
+            <div class="container">
+                <h1 class="page-title">DES UNIVERS, UN PROJET À LA FOIS</h1>
+                <p class="page-subtitle">Comment je transforme une idée en expérience ?</p>
             </div>
-            <style>
-                .hero-projects {
-                    background: linear-gradient(120deg, #fff9f5 0%, #f5d5c0 40%, #b28069 100%);
-                    position: relative;
-                    overflow: hidden;
-                }
-                .hero-projects .container {
-                    position: relative;
-                    z-index: 1;
-                }
-            </style>
         </section>
 
         <!-- Filtres -->
@@ -226,7 +219,7 @@
                     </div>
                     <p>Créons ensemble quelque chose d'exceptionnel.</p>
                     <div class="footer-contact">
-                        <a href="mailto:laetitia.lima@ynov.com">laetitia.lima@ynov.com</a>
+                    <a href="mailto:laetitialmp67@gmail.com">laetitialmp67@gmail.com</a>
                         <a href="https://www.linkedin.com/in/laetitialima">LinkedIn</a>
                     </div>
                 </div>
@@ -243,17 +236,6 @@
             </div>
         </footer>
     <script src="js/filter.js"></script>
-    <script>
-        // Effet de scroll sur le header
-        const header = document.querySelector('.header');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>

@@ -4,13 +4,12 @@
 
 .experience-page {
     min-height: 100vh;
-    padding-top: 80px;
 }
 
 /* Hero Section */
 .hero-experience {
     background: linear-gradient(135deg, var(--color-peach) 0%, var(--color-coral) 100%);
-    padding: 1rem 0 1rem;
+    padding: 7rem 0 1rem;
     position: relative;
 }
 
@@ -23,10 +22,12 @@
 .back-link {
     display: inline-flex;
     align-items: center;
+    gap: 0.4rem;
     color: var(--text-medium);
     text-decoration: none;
     font-size: 0.9rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    padding-top: 0.5rem;
     transition: color 0.3s ease;
 }
 
@@ -230,7 +231,12 @@
     }
     
     .hero-experience {
-        padding: 3rem 0 2rem;
+        padding: 5rem 0 1rem;
+    }
+
+    .experience-logo {
+        max-width: 300px;
+        max-height: 120px;
     }
     
     .experience-content {
