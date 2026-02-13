@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | LL Portfolio</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ====== ECRAN DE CONNEXION ====== -->
+    <div id="login-screen" class="login-screen">
+        <div class="login-card">
+            <h1>Administration</h1>
+            <p class="login-subtitle">Accès réservé</p>
+            <form id="login-form" class="login-form">
+                <div class="input-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" placeholder="Entrez le mot de passe" autocomplete="off" required>
+                    <p id="login-error" class="login-error" style="display:none;">Mot de passe incorrect</p>
+                </div>
+                <button type="submit" class="btn-login">Se connecter</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ====== DASHBOARD ADMIN ====== -->
+    <div id="admin-dashboard" class="admin-dashboard" style="display:none;">
+
+        <!-- Header Admin -->
+        <header class="admin-header">
+            <div class="admin-header-left">
+                <span class="admin-title">Administration</span>
+            </div>
+            <button id="btn-logout" class="btn-logout">Déconnexion</button>
+        </header>
+
+        <!-- Contenu principal -->
+        <main class="admin-main">
+            <h2 class="admin-welcome">Bienvenue, Laëtitia 👋</h2>
+            <p class="admin-description">Créez vos nouvelles pages d'expérience ou de projet en remplissant les formulaires ci-dessous.</p>
+
+            <!-- Choix du type de page -->
+            <div class="page-type-selector">
+                <button class="type-btn active" data-type="experience" id="btn-type-experience">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Z"/>
+                        <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+                    </svg>
+                    <span>Nouvelle Expérience</span>
+                </button>
+                <button class="type-btn" data-type="projet" id="btn-type-projet">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2L2 7l10 5 10-5-10-5Z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                    <span>Nouveau Projet</span>
+                </button>
+            </div>
+
+            <!-- ====== FORMULAIRE EXPERIENCE ====== -->
+            <form id="form-experience" class="admin-form">
+                <h3 class="form-title">📋 Nouvelle page Expérience</h3>
+
+                <div class="form-section">
+                    <h4>Informations générales</h4>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="exp-titre">Titre de la page (nom de l'entreprise)</label>
+                            <input type="text" id="exp-titre" placeholder="Ex : Confort Service" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exp-slug">Nom du fichier (sans .html)</label>
+                            <input type="text" id="exp-slug" placeholder="Ex : confort-service">
+                        </div>
+                        <div class="form-group">
+                            <label for="exp-logo">Chemin du logo</label>
+                            <input type="text" id="exp-logo" placeholder="Ex : ../image/porfollio/logo/monlogo.png">
+                        </div>
+                        <div class="form-group">
+                            <label for="exp-alt-logo">Texte alternatif du logo</label>
+                            <input type="text" id="exp-alt-logo" placeholder="Ex : Confort Service">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4>Sidebar — Informations</h4>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="exp-entreprise">Entreprise</label>
+                            <input type="text" id="exp-entreprise" placeholder="Ex : Confort Service">
+                        </div>
+                        <div class="form-group">
+                            <label for="exp-secteur">Secteur</label>
+                            <input type="text" id="exp-secteur" placeholder="Ex : Services à la personne">
+                        </div>
+                        <div class="form-group">
+                            <label for="exp-poste">Poste</label>
+                            <input type="text" id="exp-poste" placeholder="Ex : Stage, Chargée de communication">
+                        </div>
+                        <div class="form-group">
+                            <label for="exp-periode">Période</label>
+                            <input type="text" id="exp-periode" placeholder="Ex : Octobre - Novembre 2024">
+                        </div>
+                        <div class="form-group">
+                            <label for="exp-lieu">Lieu</label>
+                            <input type="text" id="exp-lieu" placeholder="Ex : Paris, Télétravail">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4>Carte sur la page Expériences</h4>
+                    <p class="form-hint">Ces infos servent à créer la carte visible sur la page listing.</p>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="exp-periode-badge">Badge de période (ex : OCTOBRE 2024 - NOVEMBRE 2024)</label>
+                            <input type="text" id="exp-periode-badge" placeholder="Ex : OCTOBRE 2024 - NOVEMBRE 2024">
+                        </div>
+                        <div class="form-group">
+                            <label for="exp-annee-data">Année pour le filtre (ex : 2024)</label>
+                            <input type="text" id="exp-annee-data" placeholder="Ex : 2024">
+                        </div>
+                        <div class="form-group">
+                            <label for="exp-role">Rôle affiché sur la carte</label>
+                            <input type="text" id="exp-role" placeholder="Ex : Stage en tant que Chargée de communication">
+                        </div>
+                        <div class="form-group">
+                            <label for="exp-logo-carte">Chemin du logo (depuis la racine, sans ../)</label>
+                            <input type="text" id="exp-logo-carte" placeholder="Ex : image/porfollio/logo/monlogo.png">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exp-desc-courte">Description courte pour la carte (1-2 lignes)</label>
+                        <textarea id="exp-desc-courte" rows="2" placeholder="Courte description visible sur la carte..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="exp-skills-data">Skills pour le filtre (séparées par des virgules, en minuscules avec tirets)</label>
+                        <input type="text" id="exp-skills-data" placeholder="Ex : creation-contenu, gestion-reseaux, photoshop, canva">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4>Compétences développées</h4>
+                    <div class="form-group">
+                        <label for="exp-competences">Compétences (séparées par des virgules)</label>
+                        <input type="text" id="exp-competences" placeholder="Ex : Création de contenu, Gestion des réseaux sociaux, Adobe Photoshop">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4>Contenu principal</h4>
+                    <div class="form-group">
+                        <label for="exp-description-titre">Titre de présentation</label>
+                        <input type="text" id="exp-description-titre" value="L'entreprise">
+                    </div>
+                    <div class="form-group">
+                        <label for="exp-description">Description de l'entreprise</label>
+                        <textarea id="exp-description" rows="5" placeholder="Décrivez l'entreprise..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="exp-image">Chemin de l'image principale (mockup)</label>
+                        <input type="text" id="exp-image" placeholder="Ex : ../image/porfollio/projet/confortservice/mockup.png">
+                    </div>
+                    <div class="form-group">
+                        <label for="exp-alt-image">Texte alternatif de l'image</label>
+                        <input type="text" id="exp-alt-image" placeholder="Ex : Mockup Confort Service">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4>Mes missions</h4>
+                    <div class="form-group">
+                        <label for="exp-missions">Missions (une par ligne)</label>
+                        <textarea id="exp-missions" rows="6" placeholder="Mission 1&#10;Mission 2&#10;Mission 3"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4>Réalisations clés</h4>
+                    <div id="exp-realisations-container">
+                        <div class="realisation-block">
+                            <div class="form-group">
+                                <label>Titre de la réalisation 1</label>
+                                <input type="text" class="exp-real-titre" placeholder="Ex : Création de contenus pour les réseaux sociaux">
+                            </div>
+                            <div class="form-group">
+                                <label>Description de la réalisation 1</label>
+                                <textarea class="exp-real-desc" rows="3" placeholder="Décrivez cette réalisation..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add" id="btn-add-exp-realisation">+ Ajouter une réalisation</button>
+                </div>
+
+                <div class="form-section">
+                    <h4>Ce que j'ai appris</h4>
+                    <div class="form-group">
+                        <label for="exp-apprentissage">Apprentissages (paragraphes séparés par une ligne vide)</label>
+                        <textarea id="exp-apprentissage" rows="5" placeholder="Ce que j'ai appris durant cette expérience..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-generate">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="12" y1="18" x2="12" y2="12"/>
+                            <line x1="9" y1="15" x2="15" y2="15"/>
+                        </svg>
+                        Générer la page Expérience
+                    </button>
+                </div>
+            </form>
+
+            <!-- ====== FORMULAIRE PROJET ====== -->
+            <form id="form-projet" class="admin-form" style="display:none;">
+                <h3 class="form-title">📋 Nouvelle page Projet</h3>
+
+                <div class="form-section">
+                    <h4>Informations générales</h4>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="proj-titre">Titre du projet</label>
+                            <input type="text" id="proj-titre" placeholder="Ex : AIDES" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="proj-slug">Nom du fichier (sans .html)</label>
+                            <input type="text" id="proj-slug" placeholder="Ex : aides">
+                        </div>
+                        <div class="form-group">
+                            <label for="proj-logo">Chemin du logo</label>
+                            <input type="text" id="proj-logo" placeholder="Ex : ../image/porfollio/logo/aideslogo.png">
+                        </div>
+                        <div class="form-group">
+                            <label for="proj-alt-logo">Texte alternatif du logo</label>
+                            <input type="text" id="proj-alt-logo" placeholder="Ex : AIDES">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4>Sidebar — Informations</h4>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="proj-client">Client</label>
+                            <input type="text" id="proj-client" placeholder="Ex : AIDES">
+                        </div>
+                        <div class="form-group">
+                            <label for="proj-type">Type de projet</label>
+                            <input type="text" id="proj-type" placeholder="Ex : Projet scolaire">
+                        </div>
+                        <div class="form-group">
+                            <label for="proj-domaine">Domaine</label>
+                            <input type="text" id="proj-domaine" placeholder="Ex : Communication & Sensibilisation">
+                        </div>
+                        <div class="form-group">
+                            <label for="proj-annee">Année</label>
+                            <input type="text" id="proj-annee" placeholder="Ex : 2024">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4>Carte sur la page Projets</h4>
+                    <p class="form-hint">Ces infos servent à créer la carte visible sur la page listing.</p>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="proj-categorie">Catégorie (ex : Stratégie de marque & Branding)</label>
+                            <input type="text" id="proj-categorie" placeholder="Ex : Stratégie de marque & Branding">
+                        </div>
+                        <div class="form-group">
+                            <label for="proj-logo-carte">Chemin du logo (depuis la racine, sans ../)</label>
+                            <input type="text" id="proj-logo-carte" placeholder="Ex : image/porfollio/logo/monlogo.png">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="proj-desc-courte">Description courte pour la carte (1-2 lignes)</label>
+                        <textarea id="proj-desc-courte" rows="2" placeholder="Courte description visible sur la carte..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="proj-skills-data">Skills pour le filtre (séparées par des virgules, en minuscules)</label>
+                        <input type="text" id="proj-skills-data" placeholder="Ex : stratégie de communication, branding, figma, canva">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4>Compétences utilisées</h4>
+                    <div class="form-group">
+                        <label for="proj-competences">Compétences (séparées par des virgules)</label>
+                        <input type="text" id="proj-competences" placeholder="Ex : Stratégie de communication, Adobe Photoshop, Figma">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4>Contenu principal</h4>
+                    <div class="form-group">
+                        <label for="proj-description-titre">Titre de présentation</label>
+                        <input type="text" id="proj-description-titre" value="Le projet">
+                    </div>
+                    <div class="form-group">
+                        <label for="proj-description">Description du projet</label>
+                        <textarea id="proj-description" rows="5" placeholder="Décrivez le projet..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="proj-image">Chemin de l'image principale</label>
+                        <input type="text" id="proj-image" placeholder="Ex : ../image/porfollio/projet/aides/visuel.png">
+                    </div>
+                    <div class="form-group">
+                        <label for="proj-alt-image">Texte alternatif de l'image</label>
+                        <input type="text" id="proj-alt-image" placeholder="Ex : Campagne AIDES">
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4>Concept</h4>
+                    <div class="form-group">
+                        <label for="proj-concept-titre">Titre du concept</label>
+                        <input type="text" id="proj-concept-titre" value="Le concept">
+                    </div>
+                    <div class="form-group">
+                        <label for="proj-concept">Description du concept</label>
+                        <textarea id="proj-concept" rows="4" placeholder="Décrivez le concept du projet..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h4>Galerie d'images</h4>
+                    <div id="proj-galerie-container">
+                        <div class="galerie-block">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>Chemin de l'image 1</label>
+                                    <input type="text" class="proj-galerie-src" placeholder="Ex : ../image/porfollio/projet/aides/visuel1.png">
+                                </div>
+                                <div class="form-group">
+                                    <label>Texte alternatif 1</label>
+                                    <input type="text" class="proj-galerie-alt" placeholder="Ex : Visuel campagne">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add" id="btn-add-proj-galerie">+ Ajouter une image</button>
+                </div>
+
+                <div class="form-section">
+                    <h4>Réalisations</h4>
+                    <div id="proj-realisations-container">
+                        <div class="realisation-block">
+                            <div class="form-group">
+                                <label>Titre de la réalisation 1</label>
+                                <input type="text" class="proj-real-titre" placeholder="Ex : Communication 360">
+                            </div>
+                            <div class="form-group">
+                                <label>Description de la réalisation 1</label>
+                                <textarea class="proj-real-desc" rows="3" placeholder="Décrivez cette réalisation..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add" id="btn-add-proj-realisation">+ Ajouter une réalisation</button>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-generate">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="12" y1="18" x2="12" y2="12"/>
+                            <line x1="9" y1="15" x2="15" y2="15"/>
+                        </svg>
+                        Générer la page Projet
+                    </button>
+                </div>
+            </form>
+
+            <!-- Zone de résultat -->
+            <div id="result-zone" class="result-zone" style="display:none;">
+                <h3 class="result-title">✅ Fichiers générés avec succès !</h3>
+                <div class="result-steps">
+                    <div class="result-step">
+                        <div class="step-icon">📄</div>
+                        <div class="step-info">
+                            <strong>Page créée</strong>
+                            <span id="result-filename"></span>
+                        </div>
+                        <button id="btn-download-page" class="btn-download-sm">Télécharger</button>
+                    </div>
+                    <div class="result-step">
+                        <div class="step-icon">🗂️</div>
+                        <div class="step-info">
+                            <strong>Page listing mise à jour</strong>
+                            <span id="result-listing-filename"></span>
+                        </div>
+                        <button id="btn-download-listing" class="btn-download-sm">Télécharger</button>
+                    </div>
+                </div>
+                <div class="result-instructions-box">
+                    <h4>📌 Instructions</h4>
+                    <ol>
+                        <li>Téléchargez les deux fichiers ci-dessus</li>
+                        <li>Placez <strong id="instr-page"></strong> dans le dossier <strong id="instr-folder"></strong></li>
+                        <li>Remplacez <strong id="instr-listing"></strong> à la racine du site</li>
+                    </ol>
+                </div>
+                <details class="result-preview">
+                    <summary>Voir le code de la page</summary>
+                    <pre id="result-code" class="result-code"></pre>
+                </details>
+                <details class="result-preview">
+                    <summary>Voir le code de la page listing</summary>
+                    <pre id="result-listing-code" class="result-code"></pre>
+                </details>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
