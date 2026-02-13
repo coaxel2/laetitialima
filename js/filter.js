@@ -13,6 +13,7 @@ function initFilters() {
 
     const yearFilter = document.getElementById('year-filter');
     const skillFilters = document.querySelectorAll('.skill-filter');
+    const skillsSelectMobile = document.getElementById('skills-filter');
     const resetBtn = document.querySelector('.reset-filters');
     
     // Détecter si on est sur la page projets ou expériences
@@ -38,7 +39,7 @@ function initFilters() {
         });
     }
 
-    // Filtres par compétences
+    // Filtres par compétences (boutons)
     skillFilters.forEach(filter => {
         filter.addEventListener('click', function() {
             const skill = this.dataset.skill;
@@ -57,6 +58,35 @@ function initFilters() {
             updateActiveState();
         });
     });
+
+    // Filtre par compétences (select mobile)
+    if (skillsSelectMobile) {
+        skillsSelectMobile.addEventListener('change', function() {
+            const selectedSkill = this.value;
+            
+            if (selectedSkill === 'all') {
+                // Réinitialiser les compétences
+                activeFilters.skills = [];
+                skillFilters.forEach(filter => filter.classList.remove('active'));
+            if (skillsSelectMobile) skillsSelectMobile.value = 'all';
+            } else {
+                // Ajouter la compétence si elle n'est pas déjà présente
+                if (!activeFilters.skills.includes(selectedSkill)) {
+                    activeFilters.skills = [selectedSkill];
+                    skillFilters.forEach(filter => {
+                        if (filter.dataset.skill === selectedSkill) {
+                            filter.classList.add('active');
+                        } else {
+                            filter.classList.remove('active');
+                        }
+                    });
+                }
+            }
+            
+            applyFilters(items, activeFilters);
+            updateActiveState();
+        });
+    }
 
     // Reset des filtres
     if (resetBtn) {
