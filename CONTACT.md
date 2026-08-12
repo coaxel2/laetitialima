@@ -6,65 +6,75 @@ messagerie du visiteur. Tout se passe sur la page.
 ## Comment ça marche
 
 1. `assets/js/contact.js` valide les champs puis envoie le contenu en JSON à
-   `/api/contact`.
-2. `api/contact.js` — une fonction serverless Vercel — revalide côté serveur,
-   puis transmet le message à [Resend](https://resend.com), qui l'expédie.
-3. Le message arrive sur **contact@laetitialima.fr**, avec l'adresse du visiteur
-   en `Reply-To` : il suffit de répondre pour lui écrire directement.
+   `/api/contact/`.
+2. `api/contact.js` — une fonction serverless Vercel — revalide côté serveur
+   puis expédie le message.
+3. Il arrive sur **contact@laetitialima.fr**, avec l'adresse du visiteur en
+   `Reply-To` : répondre lui écrit directement.
 
-## Configuration requise
+## Ce que permet l'offre e-mail du domaine
 
-Une seule variable d'environnement est obligatoire.
+L'offre OVH rattachée à `laetitialima.fr` est **« redirect »** : quota de
+comptes e-mail **0 / 0**, uniquement des redirections.
 
-| Variable | Obligatoire | Rôle |
+Conséquence : `contact@laetitialima.fr` fonctionne très bien **en réception**
+(la redirection transmet à la vraie boîte), mais il n'existe aucun compte sur
+lequel s'authentifier pour **envoyer**. L'expédition doit donc passer par un
+compte SMTP existant ailleurs, ou par un service d'envoi.
+
+## Mode 1 — SMTP (recommandé ici)
+
+Aucun compte à créer : les identifiants SMTP déjà utilisés par le projet
+`axelcourty-portfolio` conviennent. Le message part de cette boîte, arrive sur
+`contact@laetitialima.fr`, et la réponse va au visiteur.
+
+| Variable | Obligatoire | Défaut |
 |---|---|---|
-| `RESEND_API_KEY` | oui | clé API Resend |
-| `CONTACT_TO` | non | destinataire (par défaut `contact@laetitialima.fr`) |
-| `CONTACT_FROM` | non | expéditeur (par défaut le domaine de test de Resend) |
+| `SMTP_USER` | oui | — adresse complète de la boîte d'envoi |
+| `SMTP_PASSWORD` | oui | — (`SMTP_PASS` est aussi accepté) |
+| `SMTP_HOST` | non | `ssl0.ovh.net` |
+| `SMTP_PORT` | non | `465` (SSL) — utiliser `587` pour STARTTLS |
+| `CONTACT_TO` | non | `contact@laetitialima.fr` |
 
-### Obtenir la clé et la déclarer
+```bash
+cd ~/Documents/laetitialima
+vercel env add SMTP_USER production
+vercel env add SMTP_PASSWORD production   # saisie masquée
+vercel --prod
+```
 
-1. Créer un compte sur [resend.com](https://resend.com) — l'offre gratuite
-   couvre 3 000 e-mails par mois, sans carte bancaire.
-2. Créer une clé d'API et la copier.
-3. La déclarer sur le projet Vercel, **sans la faire passer par un fichier du
-   dépôt** :
+Le mot de passe peut aussi être recopié depuis l'autre projet via
+*Vercel → Settings → Environment Variables*, sans jamais transiter par un
+fichier du dépôt.
 
-   ```bash
-   vercel env add RESEND_API_KEY production
-   ```
+## Mode 2 — Resend
 
-   La valeur est demandée en saisie masquée. Elle peut aussi être ajoutée depuis
-   l'interface : *Project → Settings → Environment Variables*.
+Si un service dédié est préféré : compte sur [resend.com](https://resend.com),
+offre gratuite de 3 000 e-mails par mois.
 
-4. Redéployer pour que la fonction voie la variable :
+```bash
+vercel env add RESEND_API_KEY production
+vercel --prod
+```
 
-   ```bash
-   vercel --prod
-   ```
+Par défaut l'expéditeur est le domaine de test de Resend, ce qui fonctionne
+sans toucher aux DNS. Pour envoyer depuis `laetitialima.fr`, vérifier le
+domaine dans Resend, ajouter les enregistrements DKIM chez OVH, puis définir
+`CONTACT_FROM`. **Le SPF existant (`v=spf1 include:mx.ovh.com -all`) doit être
+complété, pas remplacé** — sinon la réception des e-mails du domaine est
+perturbée.
 
-Tant que la clé est absente, l'API répond `503` et le formulaire affiche un
-message invitant à écrire directement à `contact@laetitialima.fr`. Rien ne
-casse, mais aucun message n'est transmis.
+## Si aucun mode n'est configuré
 
-### Envoyer depuis laetitialima.fr
-
-Par défaut, l'expéditeur est le domaine de test de Resend : cela fonctionne
-immédiatement, sans toucher aux DNS. Pour que les messages partent depuis
-`laetitialima.fr` :
-
-1. Vérifier le domaine dans Resend (*Domains → Add Domain*).
-2. Ajouter chez OVH les enregistrements DKIM que Resend indique.
-3. **Ne pas remplacer le SPF existant** (`v=spf1 include:mx.ovh.com -all`) :
-   il faut y ajouter l'inclusion de Resend, sinon la réception des e-mails du
-   domaine est perturbée.
-4. Définir `CONTACT_FROM`, par exemple `Portfolio <contact@laetitialima.fr>`.
+L'API répond `503` et le formulaire affiche un message invitant à écrire
+directement à `contact@laetitialima.fr`. Rien ne casse, mais aucun message
+n'est transmis.
 
 ## Protection anti-spam
 
 Le formulaire contient un champ « Société » invisible pour un humain. Les robots
 le remplissent, les visiteurs non : toute soumission où ce champ est rempli est
-ignorée. Le serveur répond alors `200` pour ne pas signaler le filtrage.
+ignorée, avec une réponse `200` pour ne pas signaler le filtrage.
 
 La validation est faite deux fois — dans le navigateur pour le confort, sur le
 serveur parce qu'une requête peut contourner la page.

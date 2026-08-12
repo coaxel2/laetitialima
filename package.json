@@ -3,5 +3,8 @@
   "private": true,
   "version": "1.0.0",
   "description": "Portfolio de Laëtitia Lima — site statique + fonction d'envoi du formulaire de contact",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  }
 }
