@@ -835,3 +835,16 @@
     text-transform: uppercase;
     color: var(--ink-faint);
 }
+
+/* Même définition que sur la page projets : les deux titres avaient des
+   échelles différentes, celui des projets paraissait nettement plus gros. */
+.page-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    font-weight: 500;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-transform: none;
+    text-align: left;
+}
