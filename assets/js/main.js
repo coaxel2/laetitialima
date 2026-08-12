@@ -88,6 +88,58 @@
         }
     });
 
+    /* ── Thème clair / sombre ──
+       Le thème est déjà posé par le script du <head> avant le premier rendu.
+       Ici on ne gère que la bascule et la mémorisation du choix. */
+    (function initTheme() {
+        var root = document.documentElement;
+        var toggle = document.getElementById('themeToggle');
+
+        var libelle = function () {
+            if (!toggle) return;
+            var sombre = root.getAttribute('data-theme') === 'dark';
+            toggle.setAttribute('aria-label',
+                sombre ? 'Passer au thème clair' : 'Passer au thème sombre');
+            toggle.setAttribute('aria-pressed', String(sombre));
+        };
+
+        libelle();
+
+        // La transition n'est activée qu'après le premier rendu : sinon le
+        // chargement d'une page déjà en sombre se ferait en fondu depuis le clair.
+        requestAnimationFrame(function () {
+            root.classList.add('theme-ready');
+        });
+
+        if (toggle) {
+            toggle.addEventListener('click', function () {
+                var sombre = root.getAttribute('data-theme') === 'dark';
+                if (sombre) {
+                    root.removeAttribute('data-theme');
+                } else {
+                    root.setAttribute('data-theme', 'dark');
+                }
+                try {
+                    localStorage.setItem('theme', sombre ? 'light' : 'dark');
+                } catch (e) { /* stockage indisponible : le choix ne survit pas à la page */ }
+                libelle();
+            });
+        }
+
+        // Suivre le réglage du système tant que l'utilisateur n'a rien choisi
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+            var choix;
+            try { choix = localStorage.getItem('theme'); } catch (err) { choix = null; }
+            if (choix) return;
+            if (e.matches) {
+                root.setAttribute('data-theme', 'dark');
+            } else {
+                root.removeAttribute('data-theme');
+            }
+            libelle();
+        });
+    })();
+
     /* ── Curseur personnalisé ──
        Un point qui suit le pointeur au pixel près et un anneau qui le rattrape
        avec un léger retard. Activé uniquement sur pointeur fin : sur un écran

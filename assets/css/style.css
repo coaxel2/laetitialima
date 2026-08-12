@@ -2408,3 +2408,131 @@ img {
         margin-right: 0.5em;
     }
 }
+
+
+/* ============================================================
+   THÈME SOMBRE
+   Tout le site passe par les variables déclarées plus haut : basculer
+   l'attribut data-theme sur <html> suffit à le retourner entièrement.
+   Les teintes ne sont pas une simple inversion — l'accent terracotta est
+   éclairci, sinon il devient illisible sur fond sombre.
+   ============================================================ */
+[data-theme="dark"] {
+    --paper: #17120F;
+    --paper-warm: #221A15;
+    --ink: #F3EBE1;
+    --ink-soft: #BFAB9B;
+    --ink-faint: #8A7566;
+    --line: rgba(243, 235, 225, 0.14);
+    --line-strong: rgba(243, 235, 225, 0.30);
+    --accent: #E28B62;
+
+    /* Variables historiques encore utilisées par quelques composants */
+    --color-cream: #17120F;
+    --color-peach: #4A342A;
+    --color-coral: #C77A55;
+    --color-rust: #E28B62;
+    --text-dark: #F3EBE1;
+    --text-medium: #BFAB9B;
+    --text-light: #8A7566;
+}
+
+/* Transition douce au basculement, sur les seules propriétés concernées :
+   un `transition: all` ferait ramer les animations de survol. */
+html.theme-ready,
+html.theme-ready body,
+html.theme-ready .header,
+html.theme-ready .footer,
+html.theme-ready .btn,
+html.theme-ready .chip,
+html.theme-ready .field input,
+html.theme-ready .field textarea,
+html.theme-ready .field select,
+html.theme-ready .project-row > a,
+html.theme-ready .experience-image,
+html.theme-ready .project-image {
+    transition: background-color 0.45s var(--ease), color 0.45s var(--ease),
+                border-color 0.45s var(--ease);
+}
+
+/* Le pied de page est déjà sombre en thème clair : on l'éclaircit d'un cran
+   en thème sombre, sinon il se confond avec le corps de page. */
+[data-theme="dark"] .footer {
+    background: #221A15;
+}
+
+/* Les logos de marques gardent leur fond clair, même en thème sombre.
+   Les assombrir rendait invisibles ceux qui sont noirs (EMOI, AIDES), et un
+   filtre d'inversion aurait dénaturé les logos en couleurs. Un cadre clair
+   est à la fois plus lisible et plus fidèle aux identités présentées. */
+[data-theme="dark"] .project-image,
+[data-theme="dark"] .experience-image {
+    background: #F2EAE1;
+}
+
+[data-theme="dark"] .project-media {
+    padding: 0.55rem 0.75rem;
+    background: #F2EAE1;
+    border-radius: 4px;
+}
+
+/* Bouton de bascule */
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    margin-left: 1.25rem;
+    padding: 0;
+    background: transparent;
+    border: 1px solid var(--line-strong);
+    border-radius: 50%;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.theme-toggle:hover {
+    color: var(--ink);
+    border-color: var(--ink);
+}
+
+.theme-toggle svg {
+    width: 17px;
+    height: 17px;
+}
+
+/* Une seule des deux icônes est visible selon le thème actif */
+.theme-toggle .icon-moon { display: block; }
+.theme-toggle .icon-sun  { display: none; }
+
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+[data-theme="dark"] .theme-toggle .icon-sun  { display: block; }
+
+@media (max-width: 768px) {
+    .theme-toggle {
+        margin-left: auto;
+        margin-right: 0.75rem;
+    }
+}
+
+/* Le monogramme utilise deux bruns : sur fond sombre, le plus foncé
+   disparaissait complètement. On remonte les deux teintes. */
+[data-theme="dark"] .logo-dark,
+[data-theme="dark"] .intro-mark .logo-dark {
+    color: #E9C9B4;
+}
+
+[data-theme="dark"] .logo-light,
+[data-theme="dark"] .intro-mark .logo-light {
+    color: #9A7A66;
+}
+
+/* Le pied de page reste sombre dans les deux thèmes : son monogramme garde
+   donc ses teintes claires d'origine. */
+.footer .logo-dark { color: #E9C9B4; }
+.footer .logo-light { color: #9A7A66; }
+
+/* La navigation et le bouton de thème forment un bloc à droite */
+.nav .nav-links { margin-left: auto; }
