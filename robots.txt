@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://laetitialima.fr/sitemap.xml

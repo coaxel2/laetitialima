@@ -2,40 +2,324 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LL | Portfolio</title>
-    <link rel="stylesheet" href="css/landing.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Laëtitia Lima — Stratégie de marque &amp; Brand Content</title>
+    <meta name="description" content="Portfolio de Laëtitia Lima, chef de projet digital spécialisée en stratégie de marque et brand content. Projets de branding, identité visuelle et communication 360°.">
+    <meta name="author" content="Laëtitia Lima">
+    <link rel="canonical" href="https://laetitialima.fr/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Laëtitia Lima">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:title" content="Laëtitia Lima — Stratégie de marque & Brand Content">
+    <meta property="og:description" content="Chef de projet digital spécialisée en stratégie de marque et brand content. Découvrez mes projets de branding et de communication.">
+    <meta property="og:url" content="https://laetitialima.fr/">
+    <meta property="og:image" content="https://laetitialima.fr/assets/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Laëtitia Lima, stratégie de marque et brand content">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+    <meta name="theme-color" content="#FDF8F3">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <!-- Décide AVANT le premier rendu si l'intro doit être jouée, pour éviter
+         que le contenu n'apparaisse une fraction de seconde en dessous.
+         Sans JavaScript, la classe n'est jamais posée et l'intro reste masquée. -->
+    <script>
+        try {
+            if (sessionStorage.getItem('intro-seen') !== '1' &&
+                !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.documentElement.classList.add('intro-pending');
+            }
+        } catch (e) { /* sessionStorage indisponible : on saute l'intro */ }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Laëtitia Lima",
+      "url": "https://laetitialima.fr/",
+      "image": "https://laetitialima.fr/assets/img/laetitia-lima.webp",
+      "jobTitle": "Chef de projet digital — Stratégie de marque & Brand Content",
+      "email": "mailto:laetitialmp67@gmail.com",
+      "sameAs": ["https://www.linkedin.com/in/laetitialima"]
+    }
+    </script>
 </head>
-<body>
-    <!-- ========================================
-         LANDING PAGE - Première impression
-    ======================================== -->
-    <section id="landing" class="landing">
-        <!-- Curseur personnalisé -->
-        <img src="image/cursor/clee.svg" alt="Curseur clé" class="custom-cursor" id="customCursor">
-        
-        <div class="landing-content">
-            <!-- Initiales avec animation -->
-            <h1 class="initials">
-                <span class="letter letter-dark">L</span>
-                <span class="letter letter-light">L</span>
-            </h1>
-            
-            <!-- Bouton d'entrée -->
-            <a href="home.html" class="btn-enter" id="enterBtn">
+<body class="home-page">
+
+    <!-- Intro de marque : superposée à la page, jouée une seule fois par session.
+         Masquée par défaut en CSS et affichée uniquement quand la classe
+         intro-pending est posée ci-dessus, pour ne jamais bloquer le contenu. -->
+    <div class="intro" id="intro">
+        <div class="intro-inner">
+            <p class="intro-mark" aria-hidden="true">
+                <span class="logo-letter logo-dark">L</span><span class="logo-letter logo-light">L</span>
+            </p>
+            <button type="button" class="intro-btn" id="introBtn">
                 <span>Débloquer</span>
-                <span class="btn-spacer"></span>
+                <span class="intro-key" aria-hidden="true"></span>
                 <span>ma marque</span>
-            </a>
+            </button>
         </div>
+    </div>
 
-        <!-- Effet de texture subtile -->
-        <div class="noise-overlay"></div>
-    </section>
+    <a href="#main" class="skip-link">Aller au contenu</a>
 
-    <script src="js/landing.js"></script>
+    <header class="header">
+        <nav class="nav" aria-label="Navigation principale">
+            <a href="/" class="logo" aria-label="Laëtitia Lima — accueil">
+                <span class="logo-letter logo-dark">L</span>
+                <span class="logo-letter logo-light">L</span>
+            </a>
+            <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/experiences/">Expériences</a></li>
+                <li><a href="/projets/">Projets</a></li>
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+            <div class="nav-overlay"></div>
+        </nav>
+    </header>
+
+    <main id="main" class="home">
+
+        <section class="hero">
+            <div class="hero-content">
+                <p class="hero-eyebrow">Laëtitia Lima</p>
+                <h1 class="hero-title">Bienvenue dans les fondations<br>de mon identité</h1>
+                <p class="hero-subtitle">Stratégie de marque &amp; brand content</p>
+                <a href="#work" class="hero-btn">Commencer le parcours</a>
+            </div>
+        </section>
+
+        <section class="projects" id="work" aria-labelledby="work-title">
+            <h2 class="section-title" id="work-title">Projets sélectionnés</h2>
+
+            <div class="carousel-container">
+                <button class="carousel-btn carousel-prev" type="button" aria-label="Projet précédent">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+
+                <!-- Défilement natif avec scroll-snap : swipe, trackpad et clavier
+                     fonctionnent sans JS ; les boutons ne font que piloter le scroll. -->
+                <ul class="carousel" id="carousel">
+                    <li class="project-card">
+                        <a href="/projets/joes-pizza/" class="project-card-link">
+                            <span class="project-number">01</span>
+                            <img src="/assets/img/logos/joes-pizza.webp" alt="" width="380" height="362" loading="lazy" decoding="async" class="project-logo">
+                            <h3>Joe’s Pizza</h3>
+                            <p>Un branding et storytelling stratégique</p>
+                            <span class="project-cta">Voir le projet</span>
+                        </a>
+                    </li>
+                    <li class="project-card">
+                        <a href="/projets/les-nuits-elegantes/" class="project-card-link">
+                            <span class="project-number">02</span>
+                            <img src="/assets/img/logos/les-nuits-elegantes.webp" alt="" width="600" height="306" loading="lazy" decoding="async" class="project-logo">
+                            <h3>Les Nuits Élégantes</h3>
+                            <p>L’univers raffiné d’un événement haut de gamme</p>
+                            <span class="project-cta">Voir le projet</span>
+                        </a>
+                    </li>
+                    <li class="project-card">
+                        <a href="/projets/province-antan/" class="project-card-link">
+                            <span class="project-number">03</span>
+                            <img src="/assets/img/logos/province-antan.webp" alt="" width="409" height="409" loading="lazy" decoding="async" class="project-logo">
+                            <h3>Province d’Antan</h3>
+                            <p>Authenticité, tradition et modernité</p>
+                            <span class="project-cta">Voir le projet</span>
+                        </a>
+                    </li>
+                    <li class="project-card">
+                        <a href="/projets/emoi/" class="project-card-link">
+                            <span class="project-number">04</span>
+                            <img src="/assets/img/logos/emoi.webp" alt="" width="600" height="269" loading="lazy" decoding="async" class="project-logo">
+                            <h3>EMOI</h3>
+                            <p>Personnalisation digitale et branding sensoriel</p>
+                            <span class="project-cta">Voir le projet</span>
+                        </a>
+                    </li>
+                    <li class="project-card">
+                        <a href="/projets/aides/" class="project-card-link">
+                            <span class="project-number">05</span>
+                            <img src="/assets/img/logos/aides.webp" alt="" width="600" height="346" loading="lazy" decoding="async" class="project-logo">
+                            <h3>AIDES</h3>
+                            <p>Notre Everest à nous</p>
+                            <span class="project-cta">Voir le projet</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <button class="carousel-btn carousel-next" type="button" aria-label="Projet suivant">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="carousel-indicators" id="carouselDots"></div>
+
+            <p class="projects-all"><a href="/projets/" class="link-underline">Voir tous les projets</a></p>
+        </section>
+
+        <section class="about-section" id="about" aria-labelledby="about-title">
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="/assets/img/laetitia-lima.webp" alt="Portrait de Laëtitia Lima" width="1200" height="1697" loading="lazy" decoding="async" class="about-photo">
+                </div>
+                <div class="about-content">
+                    <h2 class="about-title" id="about-title">Qui suis-je&nbsp;?</h2>
+                    <p class="about-text">Je m’appelle Laëtitia Lima et j’ai choisi de bâtir ma marque avant d’accompagner celles des autres.</p>
+                    <p class="about-text">Depuis toujours, je suis attirée par l’univers du marketing, autant pour sa puissance visuelle que pour sa dimension stratégique. Pourtant, rien ne me prédestinait à ce parcours. Après le bac, je suis partie de zéro, sans bagage technique, mais avec une ambition claire&nbsp;: apprendre, me structurer et évoluer vers le domaine qui me passionne depuis le collège.</p>
+                    <p class="about-text">Ce chemin, je l’ai construit pas à pas. J’ai appris à identifier mes forces, à développer ma vision et à affirmer ma posture professionnelle. Avant même de penser aux marques que j’accompagnerais demain, j’ai travaillé la mienne&nbsp;: mes valeurs, mon positionnement et ma manière de raconter.</p>
+                    <p class="about-text">Aujourd’hui, après l’obtention de mon Titre RNCP de niveau 6 Chef de Projet Digital ainsi que de mon diplôme en Communication et Marketing Digital, j’entame un Mastère à l’ESP en Stratégie de Marque et Brand Content. Une suite logique, alignée avec mon ambition.</p>
+                    <a href="/contact/" class="about-cta">Discutons de votre projet</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills-section" aria-labelledby="skills-title">
+            <div class="skills-container">
+                <h2 class="skills-title" id="skills-title">Compétences</h2>
+
+                <div class="skills-wrapper">
+                    <div class="skill-accordion">
+                        <h3 class="accordion-heading">
+                            <button class="accordion-header" type="button" aria-expanded="false" aria-controls="hard-skills" id="hard-skills-btn">
+                                <span class="accordion-title">Hard Skills</span>
+                                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <path d="M6 9l6 6 6-6"/>
+                                </svg>
+                            </button>
+                        </h3>
+                        <div class="accordion-content" id="hard-skills" role="region" aria-labelledby="hard-skills-btn">
+                            <ul class="skills-grid">
+                                <li class="skill-tag">Stratégie de communication</li>
+                                <li class="skill-tag">Stratégie de marque</li>
+                                <li class="skill-tag">Gestion de projet</li>
+                                <li class="skill-tag">Branding</li>
+                                <li class="skill-tag">Photoshop</li>
+                                <li class="skill-tag">Illustrator</li>
+                                <li class="skill-tag">Premiere Pro</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="skill-accordion">
+                        <h3 class="accordion-heading">
+                            <button class="accordion-header" type="button" aria-expanded="false" aria-controls="soft-skills" id="soft-skills-btn">
+                                <span class="accordion-title">Soft Skills</span>
+                                <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <path d="M6 9l6 6 6-6"/>
+                                </svg>
+                            </button>
+                        </h3>
+                        <div class="accordion-content" id="soft-skills" role="region" aria-labelledby="soft-skills-btn">
+                            <ul class="skills-grid">
+                                <li class="skill-tag">Esprit d’équipe</li>
+                                <li class="skill-tag">Curiosité</li>
+                                <li class="skill-tag">Adaptabilité</li>
+                                <li class="skill-tag">Empathie</li>
+                                <li class="skill-tag">Organisation</li>
+                                <li class="skill-tag">Perfectionnisme</li>
+                                <li class="skill-tag">Autonomie</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="experience-section" aria-labelledby="xp-title">
+            <div class="experience-container">
+                <h2 class="experience-title" id="xp-title">Expériences professionnelles</h2>
+
+                <ol class="experience-timeline">
+                    <li class="experience-item">
+                        <div class="experience-content">
+                            <h3 class="experience-company">Alternance Ludosens, Bordeaux</h3>
+                            <p class="experience-role">Chargée de communication</p>
+                            <p class="experience-period"><time datetime="2025-09">Septembre 2025</time> – <time datetime="2026-09">Septembre 2026</time></p>
+                            <p class="experience-description">
+                                <strong>Création de contenu&nbsp;:</strong> réalisation de visuels, vidéos et textes adaptés aux différents supports de communication.<br>
+                                <strong>Stratégie social media&nbsp;:</strong> conception et mise en place de plans éditoriaux pour renforcer la visibilité et l’engagement (hausse de 60&nbsp;%).<br>
+                                <strong>Gestion de projet&nbsp;:</strong> coordination, suivi et élaboration des activités et des projets.<br>
+                                <strong>Communication 360°&nbsp;:</strong> coordination de la communication interne et externe sur plusieurs canaux (réseaux sociaux, newsletters, supports print).
+                            </p>
+                            <a href="/experiences/ludosens/" class="experience-btn">Voir plus<span class="sr-only"> sur l’alternance chez Ludosens</span></a>
+                        </div>
+                    </li>
+                    <li class="experience-item">
+                        <div class="experience-content">
+                            <h3 class="experience-company">Stage Confort Service, Paris</h3>
+                            <p class="experience-role">Chargée de communication</p>
+                            <p class="experience-period"><time datetime="2024-10">Octobre 2024</time> – <time datetime="2024-11">Novembre 2024</time></p>
+                            <p class="experience-description">
+                                <strong>Création et planification de contenus&nbsp;:</strong> Instagram et TikTok, atteignant 30&nbsp;% d’abonnés en plus par plateforme.<br>
+                                <strong>Gestion des partenariats&nbsp;:</strong> avec 5 créateurs de contenus en décoration et rénovation.<br>
+                                <strong>Rédaction de contenus optimisés&nbsp;:</strong> SEO pour augmenter le trafic vers le site web.
+                            </p>
+                            <a href="/experiences/confort-service/" class="experience-btn">Voir plus<span class="sr-only"> sur le stage chez Confort Service</span></a>
+                        </div>
+                    </li>
+                    <li class="experience-item">
+                        <div class="experience-content">
+                            <h3 class="experience-company">Stage Inspire Women, Bordeaux</h3>
+                            <p class="experience-role">Community manager</p>
+                            <p class="experience-period"><time datetime="2024-03">Mars 2024</time> – <time datetime="2024-05">Mai 2024</time></p>
+                            <p class="experience-description">
+                                <strong>Création de contenu&nbsp;:</strong> production et publication de contenus sur les réseaux sociaux.<br>
+                                <strong>Stratégie de communication&nbsp;:</strong> mise en œuvre de plans de communication.<br>
+                                <strong>Analyse stratégique&nbsp;:</strong> analyse des résultats et ajustement des stratégies pour maximiser l’impact en ligne.
+                            </p>
+                            <a href="/experiences/inspire-women/" class="experience-btn">Voir plus<span class="sr-only"> sur le stage chez Inspire Women</span></a>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <span class="logo-letter logo-dark">L</span>
+                    <span class="logo-letter logo-light">L</span>
+                </div>
+                <p>Créons ensemble quelque chose d’exceptionnel.</p>
+                <div class="footer-contact">
+                    <a href="mailto:laetitialmp67@gmail.com">laetitialmp67@gmail.com</a>
+                    <a href="https://www.linkedin.com/in/laetitialima" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <nav class="footer-nav" aria-label="Navigation de pied de page">
+                    <a href="/experiences/">Expériences</a>
+                    <a href="/projets/">Projets</a>
+                    <a href="/contact/">Contact</a>
+                </nav>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Laëtitia Lima. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js" defer></script>
+    <script src="/assets/js/home.js" defer></script>
 </body>
 </html>
