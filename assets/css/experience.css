@@ -520,3 +520,14 @@
 .hero-experience .experience-logo--boxed {
     border-radius: 10px;
 }
+
+/* En thème sombre, un logo monochrome noir tombe à un contraste de 1,1 sur le
+   fond de page : il disparaît. Même parti pris que sur la page listing — un
+   cartouche clair plutôt qu'une inversion, qui dénaturerait les logos en
+   couleurs. Les logos à fond plein portent déjà le leur et en sont exclus. */
+[data-theme="dark"] .hero-experience .experience-logo:not(.experience-logo--boxed):not([width="390"]) {
+    box-sizing: content-box;
+    padding: 0.55rem 0.75rem;
+    background: #F2EAE1;
+    border-radius: 4px;
+}
