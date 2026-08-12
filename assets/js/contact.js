@@ -12,7 +12,7 @@
 
     var status = document.getElementById('formStatus');
     var submitBtn = document.getElementById('submitBtn');
-    var endpoint = form.getAttribute('action') || '/api/contact';
+    var endpoint = form.getAttribute('action') || '/api/contact/';
 
     var fields = [
         { el: form.elements.name, error: 'name-error', test: function (v) { return v.trim().length > 1; } },
