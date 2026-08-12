@@ -98,8 +98,8 @@ function htmlHead(titre) {
     '    <meta charset="UTF-8">\n' +
     '    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n' +
     '    <title>' + esc(titre) + ' | LL Portfolio</title>\n' +
-    '    <link rel="stylesheet" href="../css/style.css">\n' +
-    '    <link rel="stylesheet" href="../css/experience.css">\n' +
+    '    <link rel="stylesheet" href="/assets/css/style.css">\n' +
+    '    <link rel="stylesheet" href="/assets/css/experience.css">\n' +
     '    <link rel="preconnect" href="https://fonts.googleapis.com">\n' +
     '    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' +
     '    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">\n' +
@@ -109,7 +109,7 @@ function htmlHead(titre) {
 function htmlNav() {
     return '    <header class="header">\n' +
     '        <nav class="nav">\n' +
-    '            <a href="../home.html" class="logo">\n' +
+    '            <a href="/" class="logo">\n' +
     '                <span class="logo-letter logo-dark">L</span>\n' +
     '                <span class="logo-letter logo-light">L</span>\n' +
     '            </a>\n' +
@@ -117,9 +117,9 @@ function htmlNav() {
     '                <span></span><span></span><span></span>\n' +
     '            </button>\n' +
     '                <ul class="nav-links">\n' +
-    '                    <li><a href="../experiences.html">Exp\u00e9riences</a></li>\n' +
-    '                    <li><a href="../projets.html">Projets</a></li>\n' +
-    '                    <li><a href="../contact.html">Contact</a></li>\n' +
+    '                    <li><a href="/experiences/">Exp\u00e9riences</a></li>\n' +
+    '                    <li><a href="/projets/">Projets</a></li>\n' +
+    '                    <li><a href="/contact/">Contact</a></li>\n' +
     '                </ul>\n' +
     '            <div class="nav-overlay"></div>\n' +
     '        </nav>\n' +
@@ -142,9 +142,9 @@ function htmlFooter() {
     '            </div>\n' +
     '            <div class="footer-links">\n' +
     '                <div class="footer-nav">\n' +
-    '                    <a href="../experiences.html">Exp\u00e9riences</a>\n' +
-    '                    <a href="../projets.html">Projets</a>\n' +
-    '                    <a href="../contact.html">Contact</a>\n' +
+    '                    <a href="/experiences/">Exp\u00e9riences</a>\n' +
+    '                    <a href="/projets/">Projets</a>\n' +
+    '                    <a href="/contact/">Contact</a>\n' +
     '                </div>\n' +
     '            </div>\n' +
     '        </div>\n' +
@@ -152,7 +152,7 @@ function htmlFooter() {
     '            <p>&copy; 2026 La\u00ebtitia Lima. Tous droits r\u00e9serv\u00e9s.</p>\n' +
     '        </div>\n' +
     '    </footer>\n\n' +
-    '    <script src="../js/main.js"><\/script>\n' +
+    '    <script src="/assets/js/main.js"><\/script>\n' +
     '</body>\n</html>';
 }
 
@@ -230,7 +230,7 @@ document.getElementById('form-experience').addEventListener('submit', function(e
     '        </section>\n\n' +
     '        <section class="experience-content">\n' +
     '            <div class="container">\n' +
-    '                <a href="../experiences.html" class="back-link">\n' +
+    '                <a href="/experiences/" class="back-link">\n' +
     '                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">\n' +
     '                        <path d="M19 12H5M12 19l-7-7 7-7"/>\n' +
     '                    </svg>\n' +
@@ -302,7 +302,7 @@ document.getElementById('form-experience').addEventListener('submit', function(e
     '                            <div class="experience-tags">\n' +
     tagsHTML +
     '                            </div>\n' +
-    '                            <a href="experiance/' + slug + '.html" class="experience-link">\n' +
+    '                            <a href="/experiences/' + slug + '/" class="experience-link">\n' +
     '                                En savoir plus\n' +
     '                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">\n' +
     '                                    <path d="M5 12h14M12 5l7 7-7 7"/>\n' +
@@ -312,13 +312,13 @@ document.getElementById('form-experience').addEventListener('submit', function(e
     '                    </article>\n';
 
     // --- Charger experiences.html, injecter la carte ---
-    fetch('../experiences.html')
+    fetch('/experiences/')
         .then(function(r) { return r.text(); })
         .then(function(listingHTML) {
             var marker = '<div class="experiences-grid">';
             var idx = listingHTML.indexOf(marker);
             if (idx === -1) {
-                alert('Erreur : impossible de trouver la grille dans experiences.html');
+                alert('Erreur : impossible de trouver la grille dans experiences/index.html');
                 return;
             }
             var insertPos = idx + marker.length;
@@ -333,11 +333,11 @@ document.getElementById('form-experience').addEventListener('submit', function(e
                 }
             );
 
-            showResults(pageHTML, slug + '.html', 'experiance/', updatedListing, 'experiences.html');
+            showResults(pageHTML, slug + '/index.html', 'experiences/', updatedListing, 'experiences/index.html');
         })
         .catch(function(err) {
             console.error(err);
-            alert('Erreur lors du chargement de experiences.html.\nOuvrez admin.html via Live Server (clic droit > Open with Live Server).');
+            alert('Erreur lors du chargement de /experiences/.\nOuvrez admin.html via Live Server (clic droit > Open with Live Server).');
         });
 });
 
@@ -408,7 +408,7 @@ document.getElementById('form-projet').addEventListener('submit', function(e) {
     '        </section>\n\n' +
     '        <section class="experience-content">\n' +
     '            <div class="container">\n' +
-    '                <a href="../projets.html" class="back-link">\n' +
+    '                <a href="/projets/" class="back-link">\n' +
     '                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">\n' +
     '                        <path d="M19 12H5M12 19l-7-7 7-7"/>\n' +
     '                    </svg>\n' +
@@ -479,7 +479,7 @@ document.getElementById('form-projet').addEventListener('submit', function(e) {
     '                            <div class="project-tags">\n' +
     tagsHTML +
     '                            </div>\n' +
-    '                            <a href="projets/' + slug + '.html" class="project-link">\n' +
+    '                            <a href="/projets/' + slug + '/" class="project-link">\n' +
     '                                Voir le projet\n' +
     '                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">\n' +
     '                                    <path d="M5 12h14M12 5l7 7-7 7"/>\n' +
@@ -489,13 +489,13 @@ document.getElementById('form-projet').addEventListener('submit', function(e) {
     '                    </article>\n';
 
     // --- Charger projets.html, injecter la carte ---
-    fetch('../projets.html')
+    fetch('/projets/')
         .then(function(r) { return r.text(); })
         .then(function(listingHTML) {
             var marker = '<div class="projects-grid">';
             var idx = listingHTML.indexOf(marker);
             if (idx === -1) {
-                alert('Erreur : impossible de trouver la grille dans projets.html');
+                alert('Erreur : impossible de trouver la grille dans projets/index.html');
                 return;
             }
             var insertPos = idx + marker.length;
@@ -510,11 +510,11 @@ document.getElementById('form-projet').addEventListener('submit', function(e) {
                 }
             );
 
-            showResults(pageHTML, slug + '.html', 'projets/', updatedListing, 'projets.html');
+            showResults(pageHTML, slug + '/index.html', 'projets/', updatedListing, 'projets/index.html');
         })
         .catch(function(err) {
             console.error(err);
-            alert('Erreur lors du chargement de projets.html.\nOuvrez admin.html via Live Server (clic droit > Open with Live Server).');
+            alert('Erreur lors du chargement de /projets/.\nOuvrez admin.html via Live Server (clic droit > Open with Live Server).');
         });
 });
 

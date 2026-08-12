@@ -387,13 +387,14 @@ body {
     box-shadow: 0 20px 60px rgba(61, 40, 32, 0.12);
 }
 
-.project-logo {
+/* Les logos sont déjà détourés (WebP avec canal alpha) : pas de mix-blend-mode,
+   qui effaçait les logos clairs sur les fonds colorés de la page projets. */
+.project-card .project-logo {
     width: auto;
     max-width: 190px;
     max-height: 96px;
     height: auto;
     object-fit: contain;
-    mix-blend-mode: multiply;
 }
 
 .project-number {
@@ -2014,4 +2015,26 @@ img {
     justify-content: center;
     gap: var(--spacing-md);
     margin-top: var(--spacing-sm);
+}
+
+/* ── Menu mobile : sortir le panneau fermé du parcours de focus ──
+   Décalé hors écran, il restait navigable au clavier et lu par les
+   lecteurs d'écran. */
+@media (max-width: 768px) {
+    .nav-links {
+        visibility: hidden;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+    }
+
+    .nav-links.open {
+        visibility: visible;
+    }
+
+    .nav-overlay {
+        pointer-events: none;
+    }
+
+    .nav-overlay.active {
+        pointer-events: auto;
+    }
 }
