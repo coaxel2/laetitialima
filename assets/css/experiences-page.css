@@ -804,3 +804,34 @@
     margin-right: 0;
     text-align: left;
 }
+
+/* Carte sans logo : bloc typographique à la place du visuel, pour ne pas
+   laisser une zone vide quand l'entreprise n'a pas de logo dans le dossier. */
+.experience-image--wordmark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--paper-warm);
+}
+
+.experience-image--wordmark .wordmark {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+}
+
+/* Le badge de période se lit mieux au-dessus du nom qu'en pastille flottante */
+.experience-period-badge {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    padding: 0;
+    background: transparent;
+    font-family: var(--font-sans);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+}

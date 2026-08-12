@@ -32,15 +32,15 @@
 <body>
     <a href="#main" class="skip-link">Aller au contenu</a>
         <header class="header">
-            <nav class="nav">
+            <nav class="nav wrap" aria-label="Navigation principale">
                 <a href="/" class="logo">
                     <span class="logo-letter logo-dark">L</span>
                     <span class="logo-letter logo-light">L</span>
                 </a>
-                <button class="menu-toggle" aria-label="Menu">
+                <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks">
                     <span></span><span></span><span></span>
                 </button>
-                <ul class="nav-links">
+                <ul class="nav-links" id="navLinks">
                     <li><a href="/experiences/" class="active">Expériences</a></li>
                     <li><a href="/projets/">Projets</a></li>
                     <li><a href="/contact/">Contact</a></li>
@@ -60,11 +60,44 @@
         <!-- Filtres -->
         
 
+        <section class="filters-section">
+            <div class="container">
+                <div class="filter-bar">
+                    <div class="filter-chips" role="group" aria-label="Filtrer par type">
+                        <button type="button" class="chip is-active" data-filter="all" aria-pressed="true">Tout</button>
+                        <button type="button" class="chip" data-filter="poste" aria-pressed="false">Poste</button>
+                        <button type="button" class="chip" data-filter="alternance" aria-pressed="false">Alternance</button>
+                        <button type="button" class="chip" data-filter="stage" aria-pressed="false">Stage</button>
+                    </div>
+                    <p class="filter-count" aria-live="polite"><span data-count>0</span> expériences</p>
+                </div>
+            </div>
+        </section>
+
         <section class="experiences-grid-section">
             <div class="container">
                 <div class="experiences-grid">
                     <!-- Ludosens -->
-                    <article class="experience-card-large" data-year="2025" data-skills="creation-contenu, communication-360, gestion-projet, redaction-web, analyse-resultats, meta-business, strategie-communication, photoshop, premiere-pro, canva, wordpress">
+                    <article data-category="poste" class="experience-card-large" data-year="2026">
+                        <div class="experience-image experience-image--wordmark">
+                            <span class="wordmark">Link</span>
+                        </div>
+                        <div class="experience-content">
+                            <div class="experience-period-badge">2026 — Aujourd’hui</div>
+                            <h2 class="experience-company">Agence Link</h2>
+                            <p class="experience-role">Chef de projet digital</p>
+                            <p class="experience-description">
+                                Pilotage de projets digitaux en agence : cadrage des besoins, coordination des équipes et suivi des livrables.
+                            </p>
+                            <div class="experience-tags">
+                                <span class="tag">Gestion de projet</span>
+                                <span class="tag">Stratégie de communication</span>
+                                <span class="tag">Communication 360</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article data-category="alternance" class="experience-card-large" data-year="2025" data-skills="creation-contenu, communication-360, gestion-projet, redaction-web, analyse-resultats, meta-business, strategie-communication, photoshop, premiere-pro, canva, wordpress">
                         <a class="card-image-link" href="/experiences/ludosens/" tabindex="-1" aria-hidden="true"><div class="experience-image">
                             <img src="/assets/img/logos/ludosens.webp" alt="Ludosens" class="experience-logo ludosens-logo" loading="lazy" decoding="async" width="600" height="600">
                         </div></a>
@@ -98,7 +131,7 @@
                     </article>
 
                     <!-- Confort Service -->
-                    <article class="experience-card-large" data-year="2024" data-skills="creation-contenu, gestion-reseaux, partenariats, redaction-web, photoshop, canva, premiere-pro">
+                    <article data-category="stage" class="experience-card-large" data-year="2024" data-skills="creation-contenu, gestion-reseaux, partenariats, redaction-web, photoshop, canva, premiere-pro">
                         <a class="card-image-link" href="/experiences/confort-service/" tabindex="-1" aria-hidden="true"><div class="experience-image">
                             <img src="/assets/img/logos/confort-service.webp" alt="Confort Service" class="experience-logo" loading="lazy" decoding="async" width="600" height="230">
                         </div></a>
@@ -129,7 +162,7 @@
                     </article>
 
                     <!-- Inspire Women -->
-                    <article class="experience-card-large" data-year="2024" data-skills="creation-contenu, gestion-reseaux, strategie-communication, analyse-resultats, photoshop, canva, premiere-pro, meta-business">
+                    <article data-category="stage" class="experience-card-large" data-year="2024" data-skills="creation-contenu, gestion-reseaux, strategie-communication, analyse-resultats, photoshop, canva, premiere-pro, meta-business">
                         <a class="card-image-link" href="/experiences/inspire-women/" tabindex="-1" aria-hidden="true"><div class="experience-image">
                             <img src="/assets/img/logos/inspire-women.webp" alt="Inspire Women" class="experience-logo" loading="lazy" decoding="async" width="491" height="491">
                         </div></a>
@@ -193,7 +226,7 @@
                 </div>
                 <div class="footer-col">
                     <span class="footer-col-title">Actuellement</span>
-                    <p class="footer-note">Mastère Stratégie de Marque &amp; Brand Content à l’ESP.<br>Alternance chez Ludosens, Bordeaux.</p>
+                    <p class="footer-note">Mastère Stratégie de Marque &amp; Brand Content à l’ESP.<br>Chef de projet digital chez l’agence Link.</p>
                 </div>
             </div>
 
