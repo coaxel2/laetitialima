@@ -48,18 +48,33 @@ function buildBodies({ name, email, subject, message }) {
 
 // Le mot de passe est accepté sous les deux noms courants : le projet
 // axelcourty utilise SMTP_PASSWORD, d'autres gabarits utilisent SMTP_PASS.
+// Les espaces et retours à la ligne sont retirés : coller une valeur dans
+// l'interface web y ajoute facilement un caractère invisible, qui suffit à
+// faire échouer l'authentification avec un « 535 » peu explicite.
 function smtpPassword() {
-    return process.env.SMTP_PASS || process.env.SMTP_PASSWORD || '';
+    return (process.env.SMTP_PASS || process.env.SMTP_PASSWORD || '').trim();
+}
+
+function smtpUser() {
+    return (process.env.SMTP_USER || '').trim();
 }
 
 async function sendWithSmtp(data) {
     const port = Number(process.env.SMTP_PORT || 465);
+    const host = (process.env.SMTP_HOST || 'ssl0.ovh.net').trim();
+    const user = smtpUser();
+
+    // Trace de diagnostic sans aucun secret : seule la longueur du mot de
+    // passe est journalisée, pour repérer une valeur vide ou tronquée.
+    console.log('SMTP →', host + ':' + port, '| user:', user,
+        '| longueur du mot de passe:', smtpPassword().length);
+
     const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST || 'ssl0.ovh.net',
+        host: host,
         port: port,
         secure: port === 465,
         auth: {
-            user: process.env.SMTP_USER,
+            user: user,
             pass: smtpPassword()
         }
     });
@@ -69,7 +84,7 @@ async function sendWithSmtp(data) {
     // L'expéditeur doit rester la boîte authentifiée, sinon OVH refuse l'envoi.
     // L'adresse du visiteur passe en Reply-To : répondre lui écrit directement.
     await transporter.sendMail({
-        from: '"Portfolio Laëtitia Lima" <' + process.env.SMTP_USER + '>',
+        from: '"Portfolio Laëtitia Lima" <' + smtpUser() + '>',
         to: TO,
         replyTo: data.name + ' <' + data.email + '>',
         subject: '[Portfolio] ' + data.subject + ' — ' + data.name,
@@ -141,7 +156,7 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: 'Champs invalides.', fields: errors });
     }
 
-    const hasSmtp = Boolean(process.env.SMTP_USER && smtpPassword());
+    const hasSmtp = Boolean(smtpUser() && smtpPassword());
     const hasResend = Boolean(process.env.RESEND_API_KEY);
 
     if (!hasSmtp && !hasResend) {
