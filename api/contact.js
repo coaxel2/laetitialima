@@ -64,9 +64,12 @@ async function sendWithSmtp(data) {
     const host = (process.env.SMTP_HOST || 'ssl0.ovh.net').trim();
     const user = smtpUser();
 
-    // Trace de diagnostic sans aucun secret : seule la longueur du mot de
-    // passe est journalisée, pour repérer une valeur vide ou tronquée.
-    console.log('SMTP →', host + ':' + port, '| user:', user,
+    // Trace de diagnostic volontairement avare : ni l'utilisateur ni le mot de
+    // passe ne sont journalisés en clair. On vérifie seulement que
+    // l'utilisateur ressemble bien à une adresse e-mail — une valeur mal
+    // renseignée est la cause la plus fréquente d'un « 535 ».
+    console.log('SMTP →', host + ':' + port,
+        '| utilisateur valide:', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(user),
         '| longueur du mot de passe:', smtpPassword().length);
 
     const transporter = nodemailer.createTransport({
