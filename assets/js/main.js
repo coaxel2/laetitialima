@@ -95,9 +95,13 @@
         var root = document.documentElement;
         var toggle = document.getElementById('themeToggle');
 
+        var barre = document.querySelector('meta[name="theme-color"]');
+
         var libelle = function () {
-            if (!toggle) return;
             var sombre = root.getAttribute('data-theme') === 'dark';
+            // La barre d'adresse mobile se colore d'après cette balise
+            if (barre) barre.setAttribute('content', sombre ? '#17120F' : '#FAF8F3');
+            if (!toggle) return;
             toggle.setAttribute('aria-label',
                 sombre ? 'Passer au thème clair' : 'Passer au thème sombre');
             toggle.setAttribute('aria-pressed', String(sombre));
@@ -137,6 +141,24 @@
                 root.removeAttribute('data-theme');
             }
             libelle();
+        });
+    })();
+
+    /* ── Choix de langue ──
+       Cliquer dans le sélecteur vaut décision : la détection automatique du
+       <head> ne doit plus jamais s'y substituer, sur cette visite comme sur
+       les suivantes. */
+    (function initLangue() {
+        var selecteur = document.querySelector('.lang-switch');
+        if (!selecteur) return;
+
+        selecteur.addEventListener('click', function (e) {
+            var lien = e.target.closest('a[lang]');
+            if (!lien) return;
+            try {
+                localStorage.setItem('lang', lien.getAttribute('lang'));
+                sessionStorage.setItem('lang-auto', '1');
+            } catch (err) { /* stockage indisponible : le choix ne survit pas à la page */ }
         });
     })();
 

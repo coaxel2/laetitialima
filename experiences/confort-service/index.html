@@ -3,6 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Oriente le visiteur vers sa langue, avant tout rendu. Ne s'applique
+         qu'aux pages francaises : une URL /en/, /es/ ou /pt/ est une demande
+         explicite, et cette regle interdit au passage toute boucle. Un choix
+         fait dans le selecteur prime sur la langue du navigateur, et survit
+         d'une visite a l'autre. -->
+    <script>
+    (function () {
+        try {
+            var chemin = location.pathname;
+            if (/^\/(en|es|pt)(\/|$)/.test(chemin)) return;
+
+            var SEGMENTS = {
+                en: { projets: 'projects', experiences: 'experience' },
+                es: { projets: 'proyectos', experiences: 'experiencia', contact: 'contacto' },
+                pt: { projets: 'projetos', experiences: 'experiencia', contact: 'contato' }
+            };
+
+            var cible = localStorage.getItem('lang');   // preference deja exprimee
+            if (cible === 'fr') return;
+
+            if (!cible) {
+                if (sessionStorage.getItem('lang-auto')) return;
+                // Les robots doivent voir la version francaise, qui est le x-default
+                if (/bot|crawl|spider|slurp|bing|duckduck|baidu|yandex|facebookexternalhit|lighthouse|headless/i
+                    .test(navigator.userAgent)) return;
+
+                var prefs = navigator.languages && navigator.languages.length
+                    ? navigator.languages : [navigator.language || 'fr'];
+                for (var i = 0; i < prefs.length; i++) {
+                    var code = String(prefs[i]).slice(0, 2).toLowerCase();
+                    if (code === 'fr') return;   // le francais est mieux place : on reste
+                    if (SEGMENTS[code]) { cible = code; break; }
+                }
+                sessionStorage.setItem('lang-auto', '1');
+            }
+            if (!cible || !SEGMENTS[cible]) return;   // langue non traduite : le francais fait defaut
+
+            var segs = chemin.split('/').filter(Boolean);
+            if (segs.length && SEGMENTS[cible][segs[0]]) segs[0] = SEGMENTS[cible][segs[0]];
+            var url = '/' + cible + '/' + (segs.length ? segs.join('/') + '/' : '');
+
+            location.replace(url + location.search + location.hash);
+        } catch (e) { /* stockage indisponible : le site reste en francais */ }
+    })();
+    </script>
     <title>Stage Confort Service — Laëtitia Lima</title>
     <meta name="description" content="Chargée de communication chez Confort Service à Paris : contenus Instagram et TikTok, partenariats créateurs et rédaction SEO.">
     <meta name="author" content="Laëtitia Lima">
@@ -37,6 +83,8 @@
                 var sombre = choix ? choix === 'dark'
                     : matchMedia('(prefers-color-scheme: dark)').matches;
                 if (sombre) document.documentElement.setAttribute('data-theme', 'dark');
+                var barre = document.querySelector('meta[name="theme-color"]');
+                if (barre) barre.setAttribute('content', sombre ? '#17120F' : '#FAF8F3');
             } catch (e) { /* stockage indisponible : thème clair par défaut */ }
         })();
     </script>
