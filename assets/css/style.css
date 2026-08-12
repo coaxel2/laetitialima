@@ -1526,11 +1526,42 @@ body {
     }
 }
 
-/* ========================================
-   REFRESH 2026 — ajouts et correctifs
-======================================== */
 
-/* ── Accessibilité de base ── */
+/* ============================================================
+   REFONTE 2026 — direction éditoriale
+   Typographie large, filets de structure, pas de cartes flottantes.
+   Cette couche vient après les styles historiques et les remplace
+   là où ils dataient (ombres portées, gros arrondis, dégradés).
+   ============================================================ */
+
+:root {
+    --paper: #FAF8F3;
+    --paper-warm: #F4EDE4;
+    --ink: #241812;
+    --ink-soft: #6B4D3E;
+    --ink-faint: #9C8677;
+    --line: rgba(61, 40, 32, 0.14);
+    --line-strong: rgba(61, 40, 32, 0.28);
+    --accent: #C45C3A;
+
+    --wrap: 1180px;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body {
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+    width: 100%;
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+}
+
+/* ── Accessibilité ── */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -1550,11 +1581,11 @@ body {
     transform: translate(-50%, -120%);
     z-index: 10000000;
     padding: 0.75rem 1.5rem;
-    background: var(--text-dark);
-    color: #fff;
+    background: var(--ink);
+    color: var(--paper);
     font-size: 0.875rem;
     text-decoration: none;
-    border-radius: 0 0 12px 12px;
+    border-radius: 0 0 10px 10px;
     transition: transform var(--transition-fast);
 }
 
@@ -1562,41 +1593,583 @@ body {
     transform: translate(-50%, 0);
 }
 
-/* Anneau de focus homogène : la navigation clavier était invisible partout. */
 a:focus-visible,
 button:focus-visible,
 select:focus-visible,
 [tabindex]:focus-visible {
-    outline: 2px solid var(--color-rust);
+    outline: 2px solid var(--accent);
     outline-offset: 3px;
-    border-radius: 4px;
 }
 
-:target {
-    scroll-margin-top: 7rem;
-}
-
-/* Les titres de section passaient sous le header fixe quand on arrivait
-   par une ancre ou en revenant en arrière. */
-section[id],
-main[id],
-.section-title,
-.about-title,
-.skills-title,
-.experience-title,
-.page-title {
-    scroll-margin-top: 7rem;
+section[id], main[id], :target {
+    scroll-margin-top: 6rem;
 }
 
 body.menu-open {
     overflow: hidden;
 }
 
-/* ── Intro de marque (ex-landing) ── */
-/* Masquée par défaut : sans le JS du <head>, l'intro n'existe tout simplement
-   pas et le visiteur arrive directement sur le contenu. Elle est opaque dès le
-   premier rendu — pas de fondu d'entrée, donc aucune superposition visible
-   entre l'intro et le hero. */
+/* ── Micro-typographie de structure ──
+   Les filets et petites capitales espacées donnent le rythme éditorial. */
+.rule-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2.5rem;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+}
+
+.rule-row .status::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin-right: 0.6em;
+    border-radius: 50%;
+    background: var(--accent);
+    vertical-align: middle;
+}
+
+.section-head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--line-strong);
+}
+
+.section-title {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    text-transform: none;
+    text-align: left;
+}
+
+.section-link,
+.link-arrow {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.section-link::after,
+.link-arrow::after {
+    content: ' →';
+    display: inline-block;
+    transition: transform 0.3s var(--ease);
+}
+
+.section-link:hover,
+.link-arrow:hover {
+    color: var(--accent);
+}
+
+.section-link:hover::after,
+.link-arrow:hover::after {
+    transform: translateX(4px);
+}
+
+/* ── Boutons ── */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.95rem 1.9rem;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border-radius: 100px;
+    border: 1px solid transparent;
+    transition: background 0.3s var(--ease), color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.btn-solid {
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.btn-solid:hover {
+    background: var(--accent);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--line-strong);
+}
+
+.btn-outline:hover {
+    border-color: var(--ink);
+    background: rgba(61, 40, 32, 0.04);
+}
+
+/* ── Header ── */
+.header {
+    padding: 1.5rem 0;
+    background: transparent;
+    z-index: 1000;
+}
+
+.header.scrolled {
+    background: rgba(250, 248, 243, 0.86);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    box-shadow: none;
+}
+
+.nav {
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.nav-links a {
+    font-size: 0.875rem;
+    color: var(--ink-soft);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--ink);
+}
+
+/* ── Hero ── */
+.home {
+    background: var(--paper);
+}
+
+.hero {
+    display: block;
+    min-height: auto;
+    padding: clamp(5rem, 12vh, 8rem) 0 clamp(3rem, 8vh, 5rem);
+    background: var(--paper);
+    text-align: left;
+    overflow: visible;
+}
+
+.hero::after {
+    display: none;
+}
+
+.hero-title {
+    margin: clamp(2.5rem, 7vw, 4.5rem) 0 0;
+    font-family: var(--font-serif);
+    font-size: clamp(3.75rem, 13vw, 10.5rem);
+    font-weight: 500;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    text-transform: none;
+}
+
+.hero-title span {
+    display: block;
+}
+
+.hero-title span:last-child {
+    padding-left: 0.12em;
+}
+
+.hero-lede {
+    margin-top: clamp(1.75rem, 4vw, 2.5rem);
+    font-family: var(--font-sans);
+    font-size: clamp(1.0625rem, 2vw, 1.375rem);
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--ink);
+}
+
+.hero-lede em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.25em;
+    color: var(--accent);
+}
+
+.hero-text {
+    margin-top: 0.75rem;
+    max-width: 42ch;
+    font-size: 1rem;
+    color: var(--ink-soft);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.875rem;
+    margin: clamp(2rem, 4vw, 2.75rem) 0 clamp(3rem, 8vw, 5rem);
+}
+
+.rule-row--bottom {
+    border-bottom: 0;
+}
+
+/* ── Projets : liste éditoriale ──
+   Chaque ligne est un lien plein cadre. Aucun conteneur ne rogne le survol :
+   c'est la teinte de fond et le décalage du titre qui portent l'interaction. */
+.projects {
+    padding: clamp(3rem, 8vw, 6rem) 0;
+    max-width: none;
+    margin: 0;
+}
+
+.project-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.project-row {
+    border-bottom: 1px solid var(--line);
+}
+
+.project-row > a {
+    display: grid;
+    grid-template-columns: 3.5rem 7.5rem 1fr auto;
+    align-items: center;
+    gap: clamp(1rem, 3vw, 2.5rem);
+    padding: clamp(1.5rem, 3vw, 2.25rem) 1rem;
+    margin-inline: -1rem;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 4px;
+    transition: background 0.4s var(--ease);
+}
+
+.project-row > a:hover,
+.project-row > a:focus-visible {
+    background: var(--paper-warm);
+}
+
+.project-index {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    color: var(--ink-faint);
+    font-variant-numeric: tabular-nums;
+}
+
+.project-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4.5rem;
+}
+
+.project-media img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.project-body {
+    display: block;
+    min-width: 0;
+}
+
+.project-name {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    transition: transform 0.4s var(--ease), color 0.4s var(--ease);
+}
+
+.project-row > a:hover .project-name {
+    transform: translateX(8px);
+    color: var(--accent);
+}
+
+.project-desc {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.9375rem;
+    color: var(--ink-soft);
+}
+
+.project-tag {
+    justify-self: end;
+    font-family: var(--font-sans);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    white-space: nowrap;
+}
+
+/* ── À propos ── */
+.about-section {
+    padding: clamp(3rem, 8vw, 6rem) 0;
+    background: var(--paper);
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: start;
+    max-width: none;
+    margin: clamp(2.5rem, 6vw, 4rem) 0 0;
+    padding: 0;
+}
+
+.about-image {
+    margin: 0;
+}
+
+.about-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 2px;
+    box-shadow: none;
+    filter: none;
+}
+
+.about-title {
+    margin: 0 0 1.5rem;
+    font-family: var(--font-serif);
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+}
+
+.about-text {
+    margin-bottom: 1.1rem;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--ink-soft);
+}
+
+.about-text--lead {
+    font-family: var(--font-serif);
+    font-size: clamp(1.25rem, 2.4vw, 1.625rem);
+    line-height: 1.45;
+    color: var(--ink);
+}
+
+.about-content .btn {
+    margin-top: 1rem;
+}
+
+/* ── Compétences : deux colonnes en listes filetées ── */
+.skills-section {
+    padding: clamp(3rem, 8vw, 6rem) 0;
+    background: var(--paper);
+}
+
+.skills-title {
+    margin: clamp(1.5rem, 4vw, 2.5rem) 0 clamp(2rem, 5vw, 3rem);
+    font-family: var(--font-serif);
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    text-align: left;
+}
+
+.skills-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(2rem, 5vw, 4rem);
+}
+
+.skill-group-title {
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--line-strong);
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+}
+
+.skills-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.skills-list li {
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--font-serif);
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    color: var(--ink);
+}
+
+/* ── Expériences ── */
+.experience-section {
+    padding: clamp(3rem, 8vw, 6rem) 0;
+    background: var(--paper);
+}
+
+.xp-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.xp-row {
+    display: grid;
+    grid-template-columns: 12rem 1fr;
+    gap: clamp(1rem, 4vw, 3rem);
+    padding: clamp(1.75rem, 4vw, 2.75rem) 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.xp-period {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    padding-top: 0.55rem;
+}
+
+.xp-company {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 3vw, 2.125rem);
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--ink);
+}
+
+.xp-company span {
+    color: var(--ink-faint);
+    font-size: 0.62em;
+}
+
+.xp-role {
+    margin-top: 0.35rem;
+    font-size: 0.9375rem;
+    color: var(--accent);
+}
+
+.xp-desc {
+    margin: 0.85rem 0 1.1rem;
+    max-width: 62ch;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+}
+
+/* ── Appel final ── */
+.cta-section {
+    padding: clamp(4rem, 10vw, 7rem) 0;
+    border-top: 1px solid var(--line);
+    background: var(--paper);
+}
+
+.cta-title {
+    margin-bottom: 2rem;
+    font-family: var(--font-serif);
+    font-size: clamp(2.25rem, 6vw, 4.5rem);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+}
+
+/* ── Pied de page ── */
+.footer {
+    padding: clamp(2.5rem, 6vw, 4rem) 0 2rem;
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.footer-contact a,
+.footer-nav a {
+    color: rgba(250, 248, 243, 0.72);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    transition: color var(--transition-fast);
+}
+
+.footer-contact a:hover,
+.footer-nav a:hover {
+    color: var(--paper);
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    text-align: right;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    margin-top: clamp(2.5rem, 6vw, 4rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(250, 248, 243, 0.16);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: rgba(250, 248, 243, 0.5);
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+/* ── Intro de marque ── */
 .intro {
     display: none;
     position: fixed;
@@ -1607,16 +2180,15 @@ body.menu-open {
     background:
         radial-gradient(ellipse at 20% 20%, rgba(253, 248, 243, 0.8) 0%, transparent 50%),
         radial-gradient(ellipse at 80% 80%, rgba(196, 92, 58, 0.4) 0%, transparent 50%),
-        linear-gradient(135deg, var(--color-cream) 0%, var(--color-peach) 30%, var(--color-coral) 60%, var(--color-rust) 100%);
+        linear-gradient(135deg, #FDF8F3 0%, var(--color-peach) 30%, var(--color-coral) 60%, var(--color-rust) 100%);
 }
 
 .intro-pending .intro {
     display: flex;
     opacity: 1;
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.7s var(--ease);
 }
 
-/* Seule la sortie est animée */
 .intro-pending .intro.is-closing {
     opacity: 0;
 }
@@ -1667,7 +2239,7 @@ body.menu-open {
 .intro-mark .logo-letter {
     position: absolute;
     opacity: 0;
-    animation: introLetter 1.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: introLetter 1.3s var(--ease) forwards;
 }
 
 .intro-mark .logo-dark {
@@ -1705,13 +2277,13 @@ body.menu-open {
     font-weight: 500;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--text-dark);
+    color: var(--ink);
     background: linear-gradient(135deg, var(--color-peach) 0%, var(--color-coral) 100%);
     border: 1px solid rgba(61, 40, 32, 0.3);
     border-radius: 60px;
     cursor: pointer;
     opacity: 0;
-    animation: introBtnIn 1s cubic-bezier(0.16, 1, 0.3, 1) 1.3s forwards;
+    animation: introBtnIn 1s var(--ease) 1.3s forwards;
     transition: background 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -1721,7 +2293,6 @@ body.menu-open {
     box-shadow: 0 10px 30px rgba(61, 40, 32, 0.15);
 }
 
-/* Trou de serrure, en écho au curseur « clé » */
 .intro-key {
     position: relative;
     width: 30px;
@@ -1733,7 +2304,7 @@ body.menu-open {
     content: '';
     position: absolute;
     left: 50%;
-    background: var(--text-dark);
+    background: var(--ink);
 }
 
 .intro-key::before {
@@ -1757,8 +2328,6 @@ body.menu-open {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Curseur « clé » : uniquement sur pointeur fin, activé par le script.
-   Sur mobile l'ancien curseur restait figé dans un coin de l'écran. */
 .intro.has-cursor,
 .intro.has-cursor * {
     cursor: none;
@@ -1778,99 +2347,11 @@ body.menu-open {
     z-index: 10;
 }
 
-/* ── Hero ── */
-.hero-eyebrow {
-    font-family: var(--font-sans);
-    font-size: 0.8125rem;
-    font-weight: 500;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--color-rust);
-    margin-bottom: var(--spacing-sm);
-}
-
-.hero-title {
-    text-transform: uppercase;
-}
-
-.hero-subtitle {
-    margin-top: var(--spacing-sm);
-    text-transform: none;
-    letter-spacing: 0.08em;
-    font-size: 1.0625rem;
-    color: var(--text-medium);
-}
-
-/* Le hero défile sous le header au lieu de passer par-dessus. */
-.hero-content {
-    will-change: transform, opacity;
-}
-
-.header {
-    isolation: isolate;
-}
-
-/* ── Carrousel : mise en page ──
-   Les boutons font partie du flux (ils étaient en absolute, collés aux bords de
-   l'écran) et l'ensemble boutons + piste est centré. */
-.carousel-container {
-    max-width: 1040px;
-    margin: 0 auto var(--spacing-md);
-    justify-content: center;
-    gap: var(--spacing-sm);
-}
-
-.carousel-btn {
-    flex-shrink: 0;
-    position: static;
-    transform: none;
-}
-
-.carousel-btn:hover:not(:disabled) {
-    transform: scale(1.08);
-}
-
-.carousel-btn:disabled {
-    opacity: 0.3;
-    cursor: default;
-}
-
-.carousel-indicators {
-    flex-wrap: wrap;
-}
-
-.indicator {
-    border-radius: 4px;
-}
-
-/* ── Compétences ── */
-.skills-grid {
-    list-style: none;
-}
-
-.accordion-heading {
-    margin: 0;
-    font: inherit;
-}
-
-.accordion-header {
-    font: inherit;
-}
-
-/* ── Frise des expériences ── */
-.experience-timeline {
-    list-style: none;
-    margin: 0;
-}
-
-/* ── Apparition au scroll ──
-   Un élément révélé le reste : l'ancien script masquait à nouveau les
-   expériences dès qu'elles s'éloignaient du centre de l'écran. */
+/* ── Apparition au scroll ── */
 .reveal {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(20px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
 }
 
 .reveal.in-view {
@@ -1878,46 +2359,79 @@ body.menu-open {
     transform: none;
 }
 
-/* ── Images ── */
 img {
     max-width: 100%;
     height: auto;
 }
 
 /* ── Responsive ── */
-@media (min-width: 900px) {
-    .project-card {
-        flex-basis: calc((100% - var(--spacing-md)) / 2);
+@media (max-width: 900px) {
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image {
+        max-width: 340px;
+    }
+
+    .xp-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .xp-period {
+        padding-top: 0;
     }
 }
 
-@media (max-width: 768px) {
-    .carousel-btn {
+@media (max-width: 720px) {
+    .project-row > a {
+        grid-template-columns: 2.5rem 1fr;
+        grid-template-areas:
+            'index media'
+            'body  body';
+        row-gap: 0.85rem;
+    }
+
+    .project-index { grid-area: index; }
+    .project-media { grid-area: media; justify-content: flex-start; height: 3.25rem; }
+    .project-body  { grid-area: body; }
+
+    .project-tag {
         display: none;
     }
 
-    .carousel {
-        max-width: none;
-        scroll-padding-inline: 1rem;
+    .project-row > a:hover .project-name {
+        transform: none;
     }
 
-    .project-card {
-        flex-basis: 88%;
+    .rule-row {
+        gap: 0.5rem 1.5rem;
     }
 
-    .intro-mark {
-        font-size: clamp(4rem, 26vw, 8rem);
+    .footer-nav {
+        text-align: left;
+    }
+}
+
+/* ── Menu mobile : sortir le panneau fermé du parcours de focus ── */
+@media (max-width: 768px) {
+    .nav-links {
+        visibility: hidden;
+        background: var(--paper);
+        transition: right 0.4s var(--ease), visibility 0.4s;
     }
 
-    .intro-btn {
-        min-width: auto;
-        padding: 1rem 2rem;
-        font-size: 0.6875rem;
-        letter-spacing: 0.18em;
+    .nav-links.open {
+        visibility: visible;
     }
 
-    .intro-key {
-        width: 18px;
+    .nav-overlay {
+        pointer-events: none;
+    }
+
+    .nav-overlay.active {
+        pointer-events: auto;
     }
 }
 
@@ -1932,109 +2446,9 @@ img {
     }
 }
 
-/* ── Page contact ── */
-.contact-container {
-    flex-direction: column;
-    gap: var(--spacing-lg);
-}
-
-.contact-heading {
-    text-align: center;
-}
-
-.contact-heading .page-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: 500;
-    color: var(--text-dark);
-}
-
-.contact-heading .page-subtitle {
-    margin-top: var(--spacing-xs);
-    font-size: 1.0625rem;
-    color: var(--text-medium);
-}
-
-/* ── Titre des pages projet et expérience ── */
-.hero-experience .page-title {
-    margin-top: var(--spacing-md);
-    font-family: var(--font-serif);
-    font-size: clamp(2.25rem, 5vw, 3.25rem);
-    font-weight: 500;
-    color: var(--text-dark);
-    text-align: center;
-}
-
-.hero-experience .page-subtitle {
-    margin-top: var(--spacing-xs);
-    font-size: 0.875rem;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--color-rust);
-    text-align: center;
-}
-
-/* ── Page 404 ── */
-.error-main {
-    min-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-sm);
-    padding: 10rem 2rem 6rem;
-    text-align: center;
-    background: linear-gradient(180deg, var(--color-cream) 0%, #FFF9F5 100%);
-}
-
-.error-code {
-    font-family: var(--font-serif);
-    font-size: clamp(4rem, 12vw, 7rem);
-    font-weight: 300;
-    line-height: 1;
-    color: var(--color-peach);
-}
-
-.error-title {
-    font-family: var(--font-serif);
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-    font-weight: 500;
-    color: var(--text-dark);
-}
-
-.error-text {
-    max-width: 46ch;
-    color: var(--text-medium);
-}
-
-.error-actions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-sm);
-}
-
-/* ── Menu mobile : sortir le panneau fermé du parcours de focus ──
-   Décalé hors écran, il restait navigable au clavier et lu par les
-   lecteurs d'écran. */
-@media (max-width: 768px) {
-    .nav-links {
-        visibility: hidden;
-        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
-    }
-
-    .nav-links.open {
-        visibility: visible;
-    }
-
-    .nav-overlay {
-        pointer-events: none;
-    }
-
-    .nav-overlay.active {
-        pointer-events: auto;
-    }
+/* Le style historique posait un filet sous .footer-content : il faisait
+   doublon avec celui de .footer-bottom et coupait le bloc de contacts. */
+.footer-content {
+    border-bottom: 0;
+    padding-bottom: 0;
 }

@@ -606,3 +606,201 @@
         margin-bottom: 0;
     }
 }
+
+/* ============================================================
+   REFONTE 2026 — alignement sur la direction éditoriale
+   ============================================================ */
+
+.experiences-page {
+    background: var(--paper);
+}
+
+.hero-experiences {
+    min-height: auto;
+    padding: clamp(5rem, 12vh, 8rem) 0 clamp(2rem, 5vh, 3rem);
+    background: var(--paper);
+    display: block;
+}
+
+.hero-experiences::before,
+.hero-experiences::after {
+    display: none;
+}
+
+.hero-experiences .container {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+    min-height: auto;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.filters-section .container,
+.experiences-grid-section .container {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.experiences-grid-section {
+    padding: clamp(3rem, 7vw, 5rem) 0;
+    background: var(--paper);
+}
+
+.experiences-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+    gap: clamp(2rem, 5vw, 3.5rem);
+    max-width: none;
+}
+
+/* Cartes sans boîte : image, filet, texte. */
+.experience-card-large {
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+    transition: none;
+}
+
+.experience-card-large:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.experience-image {
+    height: clamp(200px, 26vw, 280px);
+    border-radius: 3px;
+    background: var(--paper-warm);
+    overflow: hidden;
+}
+
+.experience-card-large .experience-logo {
+    max-width: 58%;
+    max-height: 58%;
+    transition: transform 0.5s var(--ease);
+}
+
+.experience-card-large:hover .experience-logo {
+    transform: scale(1.04);
+}
+
+.experience-period-badge {
+    padding: 0.3rem 0.75rem;
+    background: rgba(250, 248, 243, 0.92);
+    border-radius: 100px;
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    color: var(--ink-soft);
+}
+
+.experience-card-large .experience-content {
+    padding: 1.5rem 0 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.experience-card-large .experience-company {
+    font-family: var(--font-serif);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--ink);
+}
+
+.experience-card-large .experience-role {
+    margin-top: 0.4rem;
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.experience-card-large .experience-description {
+    margin-top: 0.9rem;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+}
+
+.experience-tags {
+    margin-top: 1rem;
+    gap: 0.4rem;
+}
+
+.experience-link {
+    margin-top: 1.25rem;
+    padding: 0;
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    transition: color 0.3s var(--ease);
+}
+
+.experience-link:hover {
+    background: none;
+    box-shadow: none;
+    transform: none;
+    color: var(--accent);
+}
+
+.cta-section {
+    padding: clamp(4rem, 10vw, 7rem) clamp(1.25rem, 4vw, 2.5rem);
+    border-top: 1px solid var(--line);
+    background: var(--paper);
+    text-align: left;
+}
+
+.cta-section .container {
+    max-width: var(--wrap);
+    margin: 0 auto;
+    padding: 0;
+}
+
+.cta-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.25rem, 6vw, 4rem);
+    font-weight: 500;
+    line-height: 1.05;
+    color: var(--ink);
+}
+
+.cta-text {
+    margin: 1rem 0 2rem;
+    max-width: 50ch;
+    color: var(--ink-soft);
+}
+
+.cta-button {
+    padding: 0.95rem 1.9rem;
+    background: var(--ink);
+    color: var(--paper);
+    border: 1px solid transparent;
+    border-radius: 100px;
+    font-size: 0.8125rem;
+}
+
+.cta-button:hover {
+    background: var(--accent);
+    transform: none;
+    box-shadow: none;
+}
+
+.hero-experiences .page-subtitle {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+}
