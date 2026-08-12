@@ -2598,3 +2598,82 @@ html.theme-ready .project-image {
         margin-right: 0.4rem;
     }
 }
+
+/* ============================================================
+   CORRECTIFS THÈME SOMBRE — en-tête et pied de page
+   ============================================================ */
+
+/* Le pied de page est sombre dans les DEUX thèmes. Il ne peut donc pas
+   colorer son texte avec --paper, qui s'inverse : en thème sombre, l'accroche
+   passait en #17120F sur fond #221A15, c'est-à-dire invisible.
+   On lui donne ses propres variables, indépendantes du thème. */
+.footer {
+    --footer-bg: #241812;
+    --footer-ink: #FAF8F3;
+    --footer-soft: rgba(250, 248, 243, 0.72);
+    --footer-faint: rgba(250, 248, 243, 0.45);
+    --footer-line: rgba(250, 248, 243, 0.16);
+
+    background: var(--footer-bg);
+    color: var(--footer-ink);
+}
+
+[data-theme="dark"] .footer {
+    --footer-bg: #211913;
+}
+
+.footer-word {
+    color: var(--footer-ink);
+}
+
+.footer-top {
+    border-bottom-color: var(--footer-line);
+}
+
+.footer-mail {
+    color: var(--footer-soft);
+    border-bottom-color: rgba(250, 248, 243, 0.3);
+}
+
+.footer-mail:hover,
+.footer-col a:hover {
+    color: var(--footer-ink);
+    border-bottom-color: var(--footer-ink);
+}
+
+.footer-col a,
+.footer-contact a,
+.footer-nav a {
+    color: var(--footer-soft);
+}
+
+.footer-col-title {
+    color: var(--footer-faint);
+}
+
+.footer-note {
+    color: rgba(250, 248, 243, 0.55);
+}
+
+.footer-bottom {
+    border-top-color: var(--footer-line);
+    color: rgba(250, 248, 243, 0.5);
+}
+
+/* En thème sombre, le pied de page se distingue à peine du corps de page :
+   un filet supérieur rétablit la séparation. */
+[data-theme="dark"] .footer {
+    border-top: 1px solid var(--line);
+}
+
+/* L'en-tête au défilement avait un fond crème codé en dur : en thème sombre,
+   une barre claire traversait le haut de l'écran. */
+[data-theme="dark"] .header.scrolled {
+    background: rgba(23, 18, 15, 0.88);
+    border-bottom-color: var(--line);
+}
+
+/* Le curseur personnalisé se perd sur le pied de page sombre en thème clair */
+.footer .cursor-dot {
+    background: #E9C9B4;
+}
