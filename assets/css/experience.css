@@ -317,9 +317,9 @@
     text-align: left;
 }
 
-/* Présentation en tête de page : l'accroche du projet, puis les compétences
-   mobilisées. La largeur est bornée en ch plutôt qu'en px : c'est le nombre de
-   caractères par ligne qui fait le confort de lecture, pas la largeur d'écran. */
+/* Accroche en tête de page. La largeur est bornée en ch plutôt qu'en px :
+   c'est le nombre de caractères par ligne qui fait le confort de lecture,
+   pas la largeur de l'écran. */
 .hero-experience .page-intro {
     max-width: 62ch;
     margin: clamp(1.25rem, 3vw, 1.75rem) 0 0;
@@ -327,32 +327,6 @@
     font-size: clamp(0.9375rem, 1.6vw, 1.0625rem);
     line-height: 1.7;
     color: var(--ink-soft);
-}
-
-.hero-experience .page-skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem 0.85rem;
-    max-width: 70ch;
-    margin: clamp(1.5rem, 3.5vw, 2rem) 0 0;
-    padding: 0;
-    list-style: none;
-    font-family: var(--font-sans);
-    font-size: 0.75rem;
-    letter-spacing: 0.03em;
-    color: var(--ink-faint);
-}
-
-.hero-experience .page-skills li {
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-}
-
-/* Le tiret sépare deux compétences : il n'a rien à faire après la dernière. */
-.hero-experience .page-skills li:not(:last-child)::after {
-    content: '—';
-    color: var(--line-strong);
 }
 
 .experience-content {
