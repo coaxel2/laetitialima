@@ -58,67 +58,16 @@
         </section>
 
         <!-- Filtres -->
-        <section class="filters-section">
-            <div class="container">
-                <div class="filters-container">
-                    <div class="filter-group">
-                        <label for="year-filter" class="filter-label">Année</label>
-                        <select id="year-filter" class="filter-select">
-                            <option value="all">Toutes les années</option>
-                            <option value="2025">2025 - 2026</option>
-                            <option value="2024">2024</option>
-                        </select>
-                    </div>
-                    <div class="filter-group filter-skills">
-                        <span class="filter-label">Compétences</span>
-                        <select id="skills-filter" class="filter-select skills-select-mobile">
-                            <option value="all">Toutes les compétences</option>
-                            <option value="creation-contenu">Création de contenu</option>
-                            <option value="communication-360">Communication 360°</option>
-                            <option value="gestion-projet">Gestion de projet</option>
-                            <option value="meta-business">Meta Business</option>
-                            <option value="partenariats">Développement de partenariats</option>
-                            <option value="redaction-web">Rédaction de contenu web</option>
-                            <option value="strategie-communication">Stratégie de communication</option>
-                            <option value="analyse-resultats">Analyse des résultats</option>
-                            <option value="gestion-reseaux">Gestion des réseaux sociaux</option>
-                            <option value="photoshop">Adobe Photoshop</option>
-                            <option value="premiere-pro">Première Pro</option>
-                            <option value="canva">Canva</option>
-                            <option value="wordpress">Wordpress</option>
-                        </select>
-                        <div class="skill-filters">
-                            <button class="skill-filter" data-skill="creation-contenu">Création de contenu</button>
-                            <button class="skill-filter" data-skill="communication-360">Communication 360°</button>
-                            <button class="skill-filter" data-skill="gestion-projet">Gestion de projet</button>
-                            <button class="skill-filter" data-skill="meta-business">Meta Business</button>
-                            <button class="skill-filter" data-skill="partenariats">Développement de partenariats</button>
-                            <button class="skill-filter" data-skill="redaction-web">Rédaction de contenu web</button>
-                            <button class="skill-filter" data-skill="strategie-communication">Stratégie de communication</button>
-                            <button class="skill-filter" data-skill="analyse-resultats">Analyse des résultats</button>
-                            <button class="skill-filter" data-skill="gestion-reseaux">Gestion des réseaux sociaux</button>
-                            <button class="skill-filter" data-skill="photoshop">Adobe Photoshop</button>
-                            <button class="skill-filter" data-skill="premiere-pro">Première Pro</button>
-                            <button class="skill-filter" data-skill="canva">Canva</button>
-                            <button class="skill-filter" data-skill="wordpress">Wordpress</button>
-                        </div>
-                    </div>
-                    <div class="filter-actions">
-                        <span class="results-count">5 résultats</span>
-                        <button class="reset-filters">Réinitialiser</button>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
 
         <section class="experiences-grid-section">
             <div class="container">
                 <div class="experiences-grid">
                     <!-- Ludosens -->
                     <article class="experience-card-large" data-year="2025" data-skills="creation-contenu, communication-360, gestion-projet, redaction-web, analyse-resultats, meta-business, strategie-communication, photoshop, premiere-pro, canva, wordpress">
-                        <div class="experience-image">
+                        <a class="card-image-link" href="/experiences/ludosens/" tabindex="-1" aria-hidden="true"><div class="experience-image">
                             <img src="/assets/img/logos/ludosens.webp" alt="Ludosens" class="experience-logo ludosens-logo" loading="lazy" decoding="async" width="600" height="600">
-                        </div>
+                        </div></a>
                         <div class="experience-content">
                             <div class="experience-period-badge">SEPTEMBRE 2025 - 2026</div>
                             <h2 class="experience-company">Ludosens</h2>
@@ -150,9 +99,9 @@
 
                     <!-- Confort Service -->
                     <article class="experience-card-large" data-year="2024" data-skills="creation-contenu, gestion-reseaux, partenariats, redaction-web, photoshop, canva, premiere-pro">
-                        <div class="experience-image">
+                        <a class="card-image-link" href="/experiences/confort-service/" tabindex="-1" aria-hidden="true"><div class="experience-image">
                             <img src="/assets/img/logos/confort-service.webp" alt="Confort Service" class="experience-logo" loading="lazy" decoding="async" width="600" height="230">
-                        </div>
+                        </div></a>
                         <div class="experience-content">
                             <div class="experience-period-badge">OCTOBRE 2024 - NOVEMBRE 2024</div>
                             <h2 class="experience-company">Confort Service</h2>
@@ -181,9 +130,9 @@
 
                     <!-- Inspire Women -->
                     <article class="experience-card-large" data-year="2024" data-skills="creation-contenu, gestion-reseaux, strategie-communication, analyse-resultats, photoshop, canva, premiere-pro, meta-business">
-                        <div class="experience-image">
+                        <a class="card-image-link" href="/experiences/inspire-women/" tabindex="-1" aria-hidden="true"><div class="experience-image">
                             <img src="/assets/img/logos/inspire-women.webp" alt="Inspire Women" class="experience-logo" loading="lazy" decoding="async" width="491" height="491">
-                        </div>
+                        </div></a>
                         <div class="experience-content">
                             <div class="experience-period-badge">MARS 2024 - MAI 2024</div>
                             <h2 class="experience-company">Inspire Women</h2>
@@ -221,31 +170,39 @@
             </div>
         </section>
     </main>
-        <footer class="footer" id="contact">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <span class="logo-letter logo-dark">L</span>
-                        <span class="logo-letter logo-light">L</span>
-                    </div>
-                    <p>Créons ensemble quelque chose d'exceptionnel.</p>
-                    <div class="footer-contact">
-                        <a href="mailto:laetitialmp67@gmail.com">laetitialmp67@gmail.com</a>
-                        <a href="https://www.linkedin.com/in/laetitialima">LinkedIn</a>
-                    </div>
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footer-top">
+                <p class="footer-word">Créons ensemble<br>quelque chose d’exceptionnel.</p>
+                <a href="mailto:laetitialmp67@gmail.com" class="footer-mail">laetitialmp67@gmail.com</a>
+            </div>
+
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <span class="footer-col-title">Navigation</span>
+                    <a href="/">Accueil</a>
+                    <a href="/projets/">Projets</a>
+                    <a href="/experiences/">Expériences</a>
+                    <a href="/contact/">Contact</a>
                 </div>
-                <div class="footer-links">
-                    <div class="footer-nav">
-                        <a href="/experiences/">Expériences</a>
-                        <a href="/projets/">Projets</a>
-                        <a href="/contact/">Contact</a>
-                    </div>
+                <div class="footer-col">
+                    <span class="footer-col-title">Réseaux</span>
+                    <a href="https://www.linkedin.com/in/laetitialima" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:laetitialmp67@gmail.com">E-mail</a>
+                    <a href="tel:+33769555436">Téléphone</a>
+                </div>
+                <div class="footer-col">
+                    <span class="footer-col-title">Actuellement</span>
+                    <p class="footer-note">Mastère Stratégie de Marque &amp; Brand Content à l’ESP.<br>Alternance chez Ludosens, Bordeaux.</p>
                 </div>
             </div>
+
             <div class="footer-bottom">
-                <p>&copy; 2026 Laëtitia Lima. Tous droits réservés.</p>
+                <p>&copy; 2026 Laëtitia Lima</p>
+                <p>Bordeaux, France</p>
             </div>
-        </footer>
+        </div>
+    </footer>
     <script src="/assets/js/main.js" defer></script>
     <script src="/assets/js/filter.js" defer></script>
 <!-- Code injected by live-server -->

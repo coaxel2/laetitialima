@@ -58,56 +58,19 @@
         </section>
 
         <!-- Filtres -->
-        <section class="filters-section">
+        
+
+                <section class="filters-section">
             <div class="container">
-                <div class="filters-container">
-                    <div class="filter-group">
-                        <label for="year-filter" class="filter-label">Année</label>
-                        <select id="year-filter" class="filter-select">
-                            <option value="all">Toutes les années</option>
-                             <option value="2026">2026</option>
-                            <option value="2025">2025</option>
-                            <option value="2024">2024</option>
-                            <option value="2023">2023</option>
-                        </select>
+                <div class="filter-bar">
+                    <div class="filter-chips" role="group" aria-label="Filtrer par catégorie">
+                        <button type="button" class="chip is-active" data-filter="all" aria-pressed="true">Tout</button>
+                        <button type="button" class="chip" data-filter="branding" aria-pressed="false">Branding</button>
+                        <button type="button" class="chip" data-filter="experience-digitale" aria-pressed="false">Expérience digitale</button>
+                        <button type="button" class="chip" data-filter="evenementiel" aria-pressed="false">Évènementiel</button>
+                        <button type="button" class="chip" data-filter="campagne-sociale" aria-pressed="false">Campagne sociale</button>
                     </div>
-                    <div class="filter-group filter-skills">
-                        <span class="filter-label">Compétences</span>
-                        <select id="skills-filter" class="filter-select skills-select-mobile">
-                            <option value="all">Toutes les compétences</option>
-                            <option value="stratégie de communication">Stratégie de communication</option>
-                            <option value="branding">Branding</option>
-                            <option value="leadership">Leadership</option>
-                            <option value="gestion de projet">Gestion de projet</option>
-                            <option value="stratégie marketing">Stratégie marketing</option>
-                            <option value="stratégie de marque">Stratégie de marque</option>
-                            <option value="création de contenu en ligne">Création de contenu en ligne</option>
-                            <option value="communication 360">Communication 360</option>
-                            <option value="gestion d'évènement">Gestion d'évènement</option>
-                            <option value="adobe photoshop">Adobe Photoshop</option>
-                            <option value="figma">Figma</option>
-                            <option value="canva">Canva</option>
-                            
-                        </select>
-                        <div class="skill-filters">
-                            <button class="skill-filter" data-skill="stratégie de communication">Stratégie de communication</button>
-                            <button class="skill-filter" data-skill="branding">Branding</button>
-                            <button class="skill-filter" data-skill="leadership">Leadership</button>
-                            <button class="skill-filter" data-skill="gestion de projet">Gestion de projet</button>
-                            <button class="skill-filter" data-skill="stratégie marketing">Stratégie marketing</button>
-                            <button class="skill-filter" data-skill="stratégie de marque">Stratégie de marque</button>
-                            <button class="skill-filter" data-skill="création de contenu en ligne">Création de contenu en ligne</button>
-                            <button class="skill-filter" data-skill="communication 360">Communication 360</button>
-                            <button class="skill-filter" data-skill="gestion d'évènement">Gestion d'évènement</button>
-                            <button class="skill-filter" data-skill="adobe photoshop">Adobe Photoshop</button>
-                            <button class="skill-filter" data-skill="figma">Figma</button>
-                            <button class="skill-filter" data-skill="canva">Canva</button>
-                        </div>
-                    </div>
-                    <div class="filter-actions">
-                        <span class="results-count">5 résultats</span>
-                        <button class="reset-filters">Réinitialiser</button>
-                    </div>
+                    <p class="filter-count" aria-live="polite"><span data-count>0</span> projets</p>
                 </div>
             </div>
         </section>
@@ -116,10 +79,10 @@
             <div class="container">
                 <div class="projects-grid">
                     <!-- EMOI -->
-                    <article class="project-card-large" data-year="2026" data-skills="stratégie de communication, branding, leadership, gestion de projet, stratégie marketing, stratégie de marque">
-                        <div class="project-image">
+                    <article data-category="experience-digitale" class="project-card-large" data-year="2026" data-skills="stratégie de communication, branding, leadership, gestion de projet, stratégie marketing, stratégie de marque">
+                        <a class="card-image-link" href="/projets/emoi/" tabindex="-1" aria-hidden="true"><div class="project-image">
                             <img src="/assets/img/logos/emoi.webp" alt="EMOI" class="project-logo" loading="lazy" decoding="async" width="600" height="269">
-                        </div>
+                        </div></a>
                         <div class="project-info">
                             <h2 class="project-title">EMOI</h2>
                             <p class="project-category">Expérience digitale immersive</p>
@@ -144,10 +107,10 @@
                     </article>
 
                     <!-- AIDES -->
-                    <article class="project-card-large" data-year="2025" data-skills="stratégie de communication, création de contenu en ligne, stratégie marketing, communication 360, adobe photoshop, figma, canva">
-                        <div class="project-image">
+                    <article data-category="campagne-sociale" class="project-card-large" data-year="2025" data-skills="stratégie de communication, création de contenu en ligne, stratégie marketing, communication 360, adobe photoshop, figma, canva">
+                        <a class="card-image-link" href="/projets/aides/" tabindex="-1" aria-hidden="true"><div class="project-image">
                             <img src="/assets/img/logos/aides.webp" alt="AIDES" class="project-logo" loading="lazy" decoding="async" width="600" height="346">
-                        </div>
+                        </div></a>
                         <div class="project-info">
                             <h2 class="project-title">AIDES</h2>
                             <p class="project-category">Campagne sociale & Communication</p>
@@ -173,10 +136,10 @@
                     </article>
 
                     <!-- Les nuits élégantes -->
-                    <article class="project-card-large" data-year="2024" data-skills="gestion d'évènement, stratégie de communication, création de contenu en ligne, stratégie marketing, communication 360, canva, figma">
-                        <div class="project-image">
+                    <article data-category="evenementiel" class="project-card-large" data-year="2024" data-skills="gestion d'évènement, stratégie de communication, création de contenu en ligne, stratégie marketing, communication 360, canva, figma">
+                        <a class="card-image-link" href="/projets/les-nuits-elegantes/" tabindex="-1" aria-hidden="true"><div class="project-image">
                             <img src="/assets/img/logos/les-nuits-elegantes.webp" alt="Les nuits élégantes" class="project-logo" loading="lazy" decoding="async" width="600" height="306">
-                        </div>
+                        </div></a>
                         <div class="project-info">
                             <h2 class="project-title">Les nuits élégantes</h2>
                             <p class="project-category">Évènementiel & Expérience client</p>
@@ -202,10 +165,10 @@
                     </article>
 
                     <!-- Province d'antan -->
-                    <article class="project-card-large" data-year="2024" data-skills="stratégie de marque, branding, stratégie marketing, stratégie de communication, création de contenu en ligne, adobe photoshop, canva">
-                        <div class="project-image">
+                    <article data-category="branding" class="project-card-large" data-year="2024" data-skills="stratégie de marque, branding, stratégie marketing, stratégie de communication, création de contenu en ligne, adobe photoshop, canva">
+                        <a class="card-image-link" href="/projets/province-antan/" tabindex="-1" aria-hidden="true"><div class="project-image">
                             <img src="/assets/img/logos/province-antan.webp" alt="Province d'antan" class="project-logo" loading="lazy" decoding="async" width="409" height="409">
-                        </div>
+                        </div></a>
                         <div class="project-info">
                             <h2 class="project-title">Province d'antan</h2>
                             <p class="project-category">Stratégie de marque & Branding</p>
@@ -231,10 +194,10 @@
                     </article>
 
                     <!-- Joe's Pizza -->
-                    <article class="project-card-large" data-year="2023" data-skills="branding, stratégie de marque, stratégie marketing, canva">
-                        <div class="project-image">
+                    <article data-category="branding" class="project-card-large" data-year="2023" data-skills="branding, stratégie de marque, stratégie marketing, canva">
+                        <a class="card-image-link" href="/projets/joes-pizza/" tabindex="-1" aria-hidden="true"><div class="project-image">
                             <img src="/assets/img/logos/joes-pizza.webp" alt="Joe's Pizza" class="project-logo" loading="lazy" decoding="async" width="380" height="362">
-                        </div>
+                        </div></a>
                         <div class="project-info">
                             <h2 class="project-title">Joe's Pizza</h2>
                             <p class="project-category">Stratégie de marque & Branding</p>
@@ -269,31 +232,39 @@
         </section>
     </main>
 
-            <footer class="footer" id="contact">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <span class="logo-letter logo-dark">L</span>
-                        <span class="logo-letter logo-light">L</span>
-                    </div>
-                    <p>Créons ensemble quelque chose d'exceptionnel.</p>
-                    <div class="footer-contact">
-                    <a href="mailto:laetitialmp67@gmail.com">laetitialmp67@gmail.com</a>
-                        <a href="https://www.linkedin.com/in/laetitialima">LinkedIn</a>
-                    </div>
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footer-top">
+                <p class="footer-word">Créons ensemble<br>quelque chose d’exceptionnel.</p>
+                <a href="mailto:laetitialmp67@gmail.com" class="footer-mail">laetitialmp67@gmail.com</a>
+            </div>
+
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <span class="footer-col-title">Navigation</span>
+                    <a href="/">Accueil</a>
+                    <a href="/projets/">Projets</a>
+                    <a href="/experiences/">Expériences</a>
+                    <a href="/contact/">Contact</a>
                 </div>
-                <div class="footer-links">
-                    <div class="footer-nav">
-                        <a href="/experiences/">Expériences</a>
-                        <a href="/projets/">Projets</a>
-                        <a href="/contact/">Contact</a>
-                    </div>
+                <div class="footer-col">
+                    <span class="footer-col-title">Réseaux</span>
+                    <a href="https://www.linkedin.com/in/laetitialima" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:laetitialmp67@gmail.com">E-mail</a>
+                    <a href="tel:+33769555436">Téléphone</a>
+                </div>
+                <div class="footer-col">
+                    <span class="footer-col-title">Actuellement</span>
+                    <p class="footer-note">Mastère Stratégie de Marque &amp; Brand Content à l’ESP.<br>Alternance chez Ludosens, Bordeaux.</p>
                 </div>
             </div>
+
             <div class="footer-bottom">
-                <p>&copy; 2026 Laëtitia Lima. Tous droits réservés.</p>
+                <p>&copy; 2026 Laëtitia Lima</p>
+                <p>Bordeaux, France</p>
             </div>
-        </footer>
+        </div>
+    </footer>
     <script src="/assets/js/filter.js" defer></script>
     <script src="/assets/js/main.js" defer></script>
 </body>

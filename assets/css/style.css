@@ -2599,3 +2599,348 @@ img {
     display: block;
     background: transparent;
 }
+
+/* ── Barre de filtres ──
+   Une seule rangée de catégories et un compteur, au lieu d'un menu déroulant
+   doublé d'une douzaine de pastilles empilées. */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.chip {
+    padding: 0.5rem 1.1rem;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: var(--ink-soft);
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    cursor: pointer;
+    transition: color 0.3s var(--ease), border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.chip:hover {
+    color: var(--ink);
+    border-color: var(--line-strong);
+}
+
+.chip.is-active {
+    color: var(--paper);
+    background: var(--ink);
+    border-color: var(--ink);
+}
+
+.filter-count {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+}
+
+/* Visuel de carte cliquable : même cible que le lien texte de la carte. */
+.card-image-link {
+    display: block;
+    text-decoration: none;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.card-image-link:hover ~ .project-info .project-title,
+.card-image-link:hover ~ .experience-content .experience-company {
+    color: var(--accent);
+}
+
+/* ============================================================
+   PAGE CONTACT — formulaire
+   ============================================================ */
+.contact-main {
+    background: var(--paper);
+}
+
+.contact-hero {
+    padding: clamp(5rem, 12vh, 8rem) 0 clamp(2rem, 5vh, 3rem);
+}
+
+.contact-title {
+    margin: clamp(2rem, 5vw, 3rem) 0 0;
+    font-family: var(--font-serif);
+    font-size: clamp(2.75rem, 8vw, 5.5rem);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+}
+
+.contact-lede {
+    margin-top: 1.5rem;
+    max-width: 46ch;
+    font-size: 1.0625rem;
+    color: var(--ink-soft);
+}
+
+.contact-body {
+    padding: clamp(2rem, 5vw, 3rem) 0 clamp(4rem, 10vw, 7rem);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.75fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: start;
+}
+
+.form-title,
+.aside-title {
+    padding-bottom: 0.85rem;
+    margin-bottom: 1.75rem;
+    border-bottom: 1px solid var(--line-strong);
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+}
+
+.field {
+    margin-bottom: 1.5rem;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    color: var(--ink-soft);
+}
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+.field textarea {
+    resize: vertical;
+    min-height: 9rem;
+}
+
+.field select {
+    appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B4D3E' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+    outline: none;
+    border-color: var(--ink);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.field input.is-invalid,
+.field textarea.is-invalid {
+    border-color: var(--accent);
+}
+
+.field-error {
+    margin-top: 0.4rem;
+    font-size: 0.8125rem;
+    color: var(--accent);
+}
+
+/* Champ piège : retiré du flux sans display:none, que certains robots détectent */
+.field--trap {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.form-status {
+    margin-top: 1rem;
+    font-size: 0.9375rem;
+    min-height: 1.4em;
+}
+
+.form-status.is-success { color: #4A7C4E; }
+.form-status.is-error   { color: var(--accent); }
+.form-status.is-info    { color: var(--ink-soft); }
+
+.contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.contact-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.contact-label {
+    font-family: var(--font-sans);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+}
+
+.contact-list a,
+.contact-list li > span:last-child {
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    color: var(--ink);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    word-break: break-word;
+}
+
+.contact-list a:hover {
+    color: var(--accent);
+}
+
+@media (max-width: 860px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================================
+   PIED DE PAGE
+   ============================================================ */
+.footer {
+    padding: clamp(3.5rem, 8vw, 5.5rem) 0 2rem;
+    background: var(--ink);
+    color: var(--paper);
+}
+
+.footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-bottom: clamp(2.5rem, 6vw, 4rem);
+    border-bottom: 1px solid rgba(250, 248, 243, 0.16);
+}
+
+.footer-word {
+    font-family: var(--font-serif);
+    font-size: clamp(1.75rem, 4.5vw, 3.25rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    color: var(--paper);
+}
+
+.footer-mail {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    color: rgba(250, 248, 243, 0.72);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(250, 248, 243, 0.3);
+    padding-bottom: 3px;
+    transition: color var(--transition-fast), border-color var(--transition-fast);
+    white-space: nowrap;
+}
+
+.footer-mail:hover {
+    color: var(--paper);
+    border-color: var(--paper);
+}
+
+.footer-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem clamp(1.5rem, 4vw, 3rem);
+    padding: clamp(2rem, 5vw, 3rem) 0;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    align-items: flex-start;
+}
+
+.footer-col-title {
+    margin-bottom: 0.35rem;
+    font-family: var(--font-sans);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(250, 248, 243, 0.45);
+}
+
+.footer-col a {
+    font-size: 0.9375rem;
+    color: rgba(250, 248, 243, 0.72);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.footer-col a:hover {
+    color: var(--paper);
+}
+
+.footer-note {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: rgba(250, 248, 243, 0.55);
+}
+
+.footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 2rem;
+    justify-content: space-between;
+    margin-top: 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(250, 248, 243, 0.16);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: rgba(250, 248, 243, 0.5);
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+@media (max-width: 720px) {
+    .footer-top {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
