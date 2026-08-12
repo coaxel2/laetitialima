@@ -1,67 +1,522 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://laetitialima.fr/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/en/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/es/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/pt/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/"/>
     <lastmod>2026-08-12</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://laetitialima.fr/projets/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/en/projects/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/es/proyectos/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/pt/projetos/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/"/>
     <lastmod>2026-08-12</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://laetitialima.fr/experiences/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/experiences/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/experience/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/experiencia/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/experiencia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/experiences/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/en/experience/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/experiences/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/experience/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/experiencia/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/experiencia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/experiences/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/es/experiencia/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/experiences/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/experience/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/experiencia/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/experiencia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/experiences/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/pt/experiencia/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/experiences/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/experience/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/experiencia/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/experiencia/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/experiences/"/>
     <lastmod>2026-08-12</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://laetitialima.fr/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/contacto/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/contato/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/contact/"/>
     <lastmod>2026-08-12</lastmod>
-    <priority>0.7</priority>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/en/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/contacto/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/contato/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/contact/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/es/contacto/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/contacto/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/contato/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/contact/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/pt/contato/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/contact/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/contacto/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/contato/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/contact/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://laetitialima.fr/projets/emoi/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/emoi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/emoi/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/emoi/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/emoi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/emoi/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/en/projects/emoi/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/emoi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/emoi/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/emoi/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/emoi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/emoi/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/es/proyectos/emoi/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/emoi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/emoi/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/emoi/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/emoi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/emoi/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/pt/projetos/emoi/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/emoi/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/emoi/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/emoi/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/emoi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/emoi/"/>
     <lastmod>2026-08-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://laetitialima.fr/projets/aides/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/aides/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/aides/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/aides/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/aides/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/aides/"/>
     <lastmod>2026-08-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://laetitialima.fr/projets/les-nuits-elegantes/</loc>
+    <loc>https://laetitialima.fr/en/projects/aides/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/aides/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/aides/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/aides/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/aides/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/aides/"/>
     <lastmod>2026-08-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://laetitialima.fr/projets/province-antan/</loc>
+    <loc>https://laetitialima.fr/es/proyectos/aides/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/aides/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/aides/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/aides/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/aides/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/aides/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/pt/projetos/aides/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/aides/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/aides/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/aides/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/aides/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/aides/"/>
     <lastmod>2026-08-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://laetitialima.fr/projets/joes-pizza/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/joes-pizza/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/joes-pizza/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/joes-pizza/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/joes-pizza/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/joes-pizza/"/>
     <lastmod>2026-08-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://laetitialima.fr/experiences/ludosens/</loc>
+    <loc>https://laetitialima.fr/en/projects/joes-pizza/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/joes-pizza/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/joes-pizza/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/joes-pizza/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/joes-pizza/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/joes-pizza/"/>
     <lastmod>2026-08-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://laetitialima.fr/experiences/confort-service/</loc>
+    <loc>https://laetitialima.fr/es/proyectos/joes-pizza/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/joes-pizza/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/joes-pizza/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/joes-pizza/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/joes-pizza/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/joes-pizza/"/>
     <lastmod>2026-08-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://laetitialima.fr/experiences/inspire-women/</loc>
+    <loc>https://laetitialima.fr/pt/projetos/joes-pizza/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/joes-pizza/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/joes-pizza/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/joes-pizza/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/joes-pizza/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/joes-pizza/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/projets/les-nuits-elegantes/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/les-nuits-elegantes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/les-nuits-elegantes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/les-nuits-elegantes/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/les-nuits-elegantes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/les-nuits-elegantes/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/en/projects/les-nuits-elegantes/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/les-nuits-elegantes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/les-nuits-elegantes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/les-nuits-elegantes/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/les-nuits-elegantes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/les-nuits-elegantes/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/es/proyectos/les-nuits-elegantes/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/les-nuits-elegantes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/les-nuits-elegantes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/les-nuits-elegantes/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/les-nuits-elegantes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/les-nuits-elegantes/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/pt/projetos/les-nuits-elegantes/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/les-nuits-elegantes/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/les-nuits-elegantes/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/les-nuits-elegantes/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/les-nuits-elegantes/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/les-nuits-elegantes/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/projets/province-antan/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/province-antan/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/province-antan/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/province-antan/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/province-antan/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/province-antan/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/en/projects/province-antan/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/province-antan/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/province-antan/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/province-antan/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/province-antan/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/province-antan/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/es/proyectos/province-antan/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/province-antan/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/province-antan/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/province-antan/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/province-antan/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/province-antan/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/pt/projetos/province-antan/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/province-antan/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/province-antan/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/province-antan/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/province-antan/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/province-antan/"/>
     <lastmod>2026-08-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://laetitialima.fr/experiences/link/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/experiences/link/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/experience/link/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/experiencia/link/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/experiencia/link/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/experiences/link/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/en/experience/link/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/experiences/link/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/experience/link/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/experiencia/link/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/experiencia/link/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/experiences/link/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/es/experiencia/link/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/experiences/link/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/experience/link/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/experiencia/link/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/experiencia/link/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/experiences/link/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/pt/experiencia/link/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/experiences/link/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/experience/link/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/experiencia/link/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/experiencia/link/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/experiences/link/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/experiences/ludosens/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/experiences/ludosens/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/experience/ludosens/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/experiencia/ludosens/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/experiencia/ludosens/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/experiences/ludosens/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/en/experience/ludosens/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/experiences/ludosens/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/experience/ludosens/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/experiencia/ludosens/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/experiencia/ludosens/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/experiences/ludosens/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/es/experiencia/ludosens/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/experiences/ludosens/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/experience/ludosens/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/experiencia/ludosens/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/experiencia/ludosens/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/experiences/ludosens/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/pt/experiencia/ludosens/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/experiences/ludosens/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/experience/ludosens/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/experiencia/ludosens/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/experiencia/ludosens/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/experiences/ludosens/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/experiences/confort-service/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/experiences/confort-service/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/experience/confort-service/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/experiencia/confort-service/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/experiencia/confort-service/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/experiences/confort-service/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/en/experience/confort-service/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/experiences/confort-service/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/experience/confort-service/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/experiencia/confort-service/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/experiencia/confort-service/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/experiences/confort-service/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/es/experiencia/confort-service/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/experiences/confort-service/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/experience/confort-service/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/experiencia/confort-service/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/experiencia/confort-service/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/experiences/confort-service/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/pt/experiencia/confort-service/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/experiences/confort-service/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/experience/confort-service/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/experiencia/confort-service/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/experiencia/confort-service/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/experiences/confort-service/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/experiences/inspire-women/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/experiences/inspire-women/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/experience/inspire-women/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/experiencia/inspire-women/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/experiencia/inspire-women/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/experiences/inspire-women/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/en/experience/inspire-women/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/experiences/inspire-women/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/experience/inspire-women/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/experiencia/inspire-women/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/experiencia/inspire-women/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/experiences/inspire-women/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/es/experiencia/inspire-women/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/experiences/inspire-women/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/experience/inspire-women/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/experiencia/inspire-women/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/experiencia/inspire-women/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/experiences/inspire-women/"/>
+    <lastmod>2026-08-12</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://laetitialima.fr/pt/experiencia/inspire-women/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://laetitialima.fr/experiences/inspire-women/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/experience/inspire-women/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/experiencia/inspire-women/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/experiencia/inspire-women/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/experiences/inspire-women/"/>
     <lastmod>2026-08-12</lastmod>
     <priority>0.8</priority>
   </url>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EMOI — Experiencia digital inmersiva | Laëtitia Lima</title>
+    <meta name="description" content="EMOI: un terminal interactivo que crea un perfume a medida a partir de estímulos neurocientíficos. Branding, identidad de marca y gestión de proyecto.">
+    <meta name="author" content="Laëtitia Lima">
+    <link rel="canonical" href="https://laetitialima.fr/es/proyectos/emoi/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Laëtitia Lima">
+    <meta property="og:locale" content="es">
+    <meta property="og:title" content="EMOI — Experiencia digital inmersiva | Laëtitia Lima">
+    <meta property="og:description" content="EMOI: un terminal interactivo que crea un perfume a medida a partir de estímulos neurocientíficos. Branding, identidad de marca y gestión de proyecto.">
+    <meta property="og:url" content="https://laetitialima.fr/es/proyectos/emoi/">
+    <meta property="og:image" content="https://laetitialima.fr/assets/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+    <meta name="theme-color" content="#FDF8F3">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/experience.css">
+    <script>
+        // Applique le thème avant le premier rendu : sans cela, la page
+        // s'afficherait en clair une fraction de seconde avant de basculer.
+        (function () {
+            try {
+                var choix = localStorage.getItem('theme');
+                var sombre = choix ? choix === 'dark'
+                    : matchMedia('(prefers-color-scheme: dark)').matches;
+                if (sombre) document.documentElement.setAttribute('data-theme', 'dark');
+            } catch (e) { /* stockage indisponible : thème clair par défaut */ }
+        })();
+    </script>
+    <link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/emoi/">
+    <link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/emoi/">
+    <link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/emoi/">
+    <link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/emoi/">
+    <link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/emoi/">
+    <link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/emoi/">
+    <link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/emoi/">
+    <link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/emoi/">
+</head>
+<body class="project-page">
+    <a href="#main" class="skip-link">Ir al contenido</a>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav wrap" aria-label="Navegación principal">
+            <a href="/es/" class="logo">
+                <span class="logo-letter logo-dark">L</span>
+                <span class="logo-letter logo-light">L</span>
+            </a>
+            <button class="menu-toggle" type="button" aria-label="Abrir el menú" aria-expanded="false" aria-controls="navLinks">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                    <li><a href="/es/experiencia/">Experiencia</a></li>
+                    <li><a href="/es/proyectos/">Proyectos</a></li>
+                    <li><a href="/es/contacto/">Contacto</a></li>
+                </ul>
+            <button class="theme-toggle" type="button" id="themeToggle" aria-label="Cambiar al tema oscuro">
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                    <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+                </svg>
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4.2"/>
+                    <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+                </svg>
+            </button>
+            <div class="lang-switch" role="group" aria-label="Choisir la langue"><a class="lang-link is-active" href="/es/proyectos/emoi/" lang="fr" aria-current="true" title="Français">FR</a><a class="lang-link" href="/es/en/projects/emoi/" lang="en" title="English">EN</a></div>
+            <div class="lang-switch" role="group" aria-label="Choisir la langue"><a class="lang-link" href="/projets/emoi/" lang="fr" title="Français">FR</a><a class="lang-link" href="/en/projects/emoi/" lang="en" title="English">EN</a><a class="lang-link is-active" href="/es/proyectos/emoi/" lang="es" aria-current="true" title="Español">ES</a><a class="lang-link" href="/pt/projetos/emoi/" lang="pt" title="Português">PT</a></div>
+            <div class="nav-overlay"></div>
+        </nav>
+    </header>
+
+    <!-- Contenu du projet -->
+    <main id="main" class="experience-page">
+        <!-- Hero Section -->
+        <section class="hero-experience">
+            <div class="container">
+                <img src="/assets/img/logos/emoi.webp" alt="EMOI" class="experience-logo" loading="lazy" decoding="async" width="600" height="269">
+                <h1 class="page-title">EMOI</h1>
+                <p class="page-subtitle">Experiencia digital inmersiva</p>
+            </div>
+        </section>
+
+        <!-- Content Section -->
+        <section class="experience-content">
+            <div class="container">
+                <a href="/es/proyectos/" class="back-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Volver a los proyectos
+                </a>
+                <div class="content-grid">
+                    <!-- Sidebar -->
+                    <aside class="experience-sidebar">
+                        <div class="info-card">
+                            <h3>Información</h3>
+                            <ul class="info-list">
+                                <li>
+                                    <strong>Proyecto</strong>
+                                    <span>EMOI</span>
+                                </li>
+                                <li>
+                                    <strong>Tipo</strong>
+                                    <span>Proyecto académico</span>
+                                </li>
+                                <li>
+                                    <strong>Ámbito</strong>
+                                    <span>Innovación y experiencia de usuario </span>
+                                </li>
+                                <li>
+                                    <strong>Año</strong>
+                                    <span>2025</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="skills-card">
+                            <h3>Competencias aplicadas</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Estrategia de comunicación</span>
+                                <span class="skill-tag">Branding</span>
+                                <span class="skill-tag">Leadership</span>
+                                <span class="skill-tag">Gestión de proyectos</span>
+                                <span class="skill-tag">Estrategia de marketing</span>
+                                <span class="skill-tag">Estrategia de marca</span>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- Main Content -->
+                    <div class="experience-main">
+                        <!-- Présentation -->
+                        <div class="content-section">
+                            <h2>El proyecto</h2>
+                            <p>
+                                EMOI es el diseño de un terminal interactivo innovador que permite a cada persona crear su propio perfume a medida a partir de estímulos neurocientíficos y sensoriales. Concebido como una experiencia inmersiva, el proyecto combina tecnología, emoción y personalización para ofrecer un recorrido único, en el que las elecciones olfativas se guían por las emociones y sensaciones del usuario. El proyecto fue seleccionado para representar al campus en el concurso nacional Ydays.
+                            </p>
+                        </div>
+
+                        <!-- Image principale -->
+                        <div class="content-section">
+                            <img src="/assets/img/projets/emoi/logo.webp" alt="Mockup del frasco EMOI" class="project-detail-img" loading="lazy" decoding="async" width="616" height="464">
+                        </div>
+
+                        <!-- Concept -->
+                        <div class="content-section">
+                            <h2>El concepto</h2>
+                            <p>
+                                EMOI parte de la idea de que un perfume no debería elegirse, sino revelarse. El proyecto se apoya en un enfoque neurocientífico para transformar una decisión a menudo intuitiva en una experiencia inmersiva. A través de dos puertas de entrada distintas, se invita al usuario a explorar sus emociones o sus preferencias sensoriales hasta llegar a una creación que realmente le corresponde.
+                            </p>
+                        </div>
+
+                        <!-- Galerie -->
+                        <div class="content-section">
+                            <h2>Visuales del proyecto</h2>
+                            <div class="project-gallery">
+                                <img src="/assets/img/projets/emoi/flacon.webp" alt="Frasco de perfume EMOI" class="project-detail-img project-detail-img--full" loading="lazy" decoding="async" width="401" height="601">
+                                <img src="/assets/img/projets/emoi/flacon-2.webp" alt="Frasco de perfume EMOI, vista 2" class="project-detail-img project-detail-img--full" loading="lazy" decoding="async" width="464" height="464">
+                            </div>
+                            <div class="project-gallery text-spacing-top">
+                                <img src="/assets/img/projets/emoi/mockup-2.webp" alt="Mockup de EMOI" class="project-detail-img project-detail-img--full" loading="lazy" decoding="async" width="899" height="604">
+                                <img src="/assets/img/projets/emoi/mockup.webp" alt="Mockup de EMOI 2" class="project-detail-img project-detail-img--full" loading="lazy" decoding="async" width="892" height="599">
+                            </div>
+                        </div>
+
+                        <!-- Réalisations -->
+                        <div class="content-section">
+                            <h2>Logros</h2>
+                            <div class="achievements">
+                                <div class="achievement-item">
+                                    <h3>Diseño del terminal</h3>
+                                    <p>
+                                        Diseño del recorrido de usuario con dos puertas de entrada neurocientíficas. Realización de las maquetas de interfaz, centradas en la inmersión, la fluidez del recorrido y la implicación emocional del usuario.
+                                    </p>
+                                </div>
+                                <div class="achievement-item">
+                                    <h3>Identidad de marca</h3>
+                                    <p>
+                                        Creación completa de la identidad de marca EMOI, incluyendo naming, posicionamiento y universo visual. Diseño del logotipo, la maqueta del terminal, los materiales de presentación y los visuales de comunicación.
+                                    </p>
+                                </div>
+                                <div class="achievement-item">
+                                    <h3>Gestión de proyectos</h3>
+                                    <p>
+                                        Dirección global del proyecto EMOI, desde la ideación hasta la preparación del pitch final del concurso. Coordinación del equipo, reparto de tareas, cumplimiento de plazos, estructuración de entregables y supervisión de la coherencia global del concepto.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footer-top">
+                <p class="footer-word">Creemos juntos<br>algo excepcional.</p>
+                <a href="mailto:contact@laetitialima.fr" class="footer-mail">contact@laetitialima.fr</a>
+            </div>
+
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <span class="footer-col-title">Navegación</span>
+                    <a href="/es/">Inicio</a>
+                    <a href="/es/proyectos/">Proyectos</a>
+                    <a href="/es/experiencia/">Experiencia</a>
+                    <a href="/es/contacto/">Contacto</a>
+                </div>
+                <div class="footer-col">
+                    <span class="footer-col-title">Redes</span>
+                    <a href="https://www.linkedin.com/in/laetitialima" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:contact@laetitialima.fr">Correo</a>
+                </div>
+                <div class="footer-col">
+                    <span class="footer-col-title">Actualmente</span>
+                    <p class="footer-note">Máster en Estrategia de Marca &amp; Brand Content en la ESP.<br>Jefa de proyecto digital en la agencia Link.</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Laëtitia Lima</p>
+                <p>Burdeos, Francia</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

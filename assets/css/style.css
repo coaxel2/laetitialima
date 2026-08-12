@@ -2536,3 +2536,65 @@ html.theme-ready .project-image {
 
 /* La navigation et le bouton de thème forment un bloc à droite */
 .nav .nav-links { margin-left: auto; }
+
+/* ── Sélecteur de langue ── */
+.lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+    margin-left: 0.85rem;
+    padding: 0.18rem;
+    border: 1px solid var(--line);
+    border-radius: 100px;
+}
+
+.lang-link {
+    padding: 0.3rem 0.55rem;
+    font-family: var(--font-sans);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--ink-faint);
+    text-decoration: none;
+    border-radius: 100px;
+    transition: color var(--transition-fast), background var(--transition-fast);
+}
+
+.lang-link:hover {
+    color: var(--ink);
+}
+
+.lang-link.is-active {
+    color: var(--paper);
+    background: var(--ink);
+}
+
+@media (max-width: 768px) {
+    .lang-switch {
+        margin-left: 0;
+        margin-right: 0.5rem;
+    }
+
+    .lang-link {
+        padding: 0.28rem 0.45rem;
+    }
+}
+
+/* Sur les écrans étroits, la barre de navigation doit rester sur une ligne */
+@media (max-width: 420px) {
+    .lang-switch {
+        gap: 0;
+        padding: 0.1rem;
+    }
+
+    .lang-link {
+        padding: 0.25rem 0.35rem;
+        letter-spacing: 0.04em;
+    }
+
+    .theme-toggle {
+        width: 34px;
+        height: 34px;
+        margin-right: 0.4rem;
+    }
+}
