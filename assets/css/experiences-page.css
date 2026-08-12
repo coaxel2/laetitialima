@@ -848,3 +848,10 @@
     text-transform: none;
     text-align: left;
 }
+
+/* Un logo à fond plein (carré de couleur) tranche avec les logos détourés :
+   un léger arrondi le raccorde au reste de la mise en page. */
+.experience-card-large .experience-logo[src$=".webp"][width="390"],
+.hero-experience .experience-logo[width="390"] {
+    border-radius: 10px;
+}

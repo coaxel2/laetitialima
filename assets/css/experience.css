@@ -486,3 +486,8 @@
     border-radius: 0;
     margin: 0;
 }
+
+/* Logo à fond plein : mêmes angles adoucis que sur la page listing. */
+.hero-experience .experience-logo[width="390"] {
+    border-radius: 10px;
+}
