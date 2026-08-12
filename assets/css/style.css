@@ -2677,3 +2677,64 @@ html.theme-ready .project-image {
 .footer .cursor-dot {
     background: #E9C9B4;
 }
+
+/* ============================================================
+   INTRO — apparence identique dans les deux thèmes
+   L'intro est un écran de marque, pas une page : elle garde son univers
+   terracotta quel que soit le réglage de l'utilisateur. Elle ne peut donc
+   pas s'appuyer sur les variables de thème, qui s'inversent — le dégradé
+   virait au brun, le texte du bouton devenait illisible et la clé
+   disparaissait.
+   ============================================================ */
+.intro {
+    --intro-cream: #FDF8F3;
+    --intro-peach: #F5D5C0;
+    --intro-coral: #E8A07A;
+    --intro-rust: #C45C3A;
+    --intro-ink: #3D2820;
+
+    background:
+        radial-gradient(ellipse at 20% 20%, rgba(253, 248, 243, 0.8) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(196, 92, 58, 0.4) 0%, transparent 50%),
+        linear-gradient(135deg,
+            var(--intro-cream) 0%,
+            var(--intro-peach) 30%,
+            var(--intro-coral) 60%,
+            var(--intro-rust) 100%);
+}
+
+.intro-btn {
+    color: var(--intro-ink);
+    background: linear-gradient(135deg, var(--intro-peach) 0%, var(--intro-coral) 100%);
+    border-color: rgba(61, 40, 32, 0.3);
+}
+
+.intro-btn:hover {
+    background: linear-gradient(135deg, #F8DBC8 0%, #EBA882 100%);
+}
+
+.intro-key::before,
+.intro-key::after {
+    background: var(--intro-ink);
+}
+
+.intro-inner::before {
+    border-color: rgba(61, 40, 32, 0.06);
+}
+
+/* Le monogramme de l'intro garde ses teintes d'origine : la règle qui
+   éclaircit le logo en thème sombre vise l'en-tête, pas cet écran. */
+.intro-mark .logo-dark,
+[data-theme="dark"] .intro-mark .logo-dark {
+    color: #7A4833;
+}
+
+.intro-mark .logo-light,
+[data-theme="dark"] .intro-mark .logo-light {
+    color: #B88A74;
+}
+
+/* L'anneau du curseur personnalisé se perd sur le dégradé chaud */
+.intro-pending .cursor-ring {
+    border-color: rgba(61, 40, 32, 0.4);
+}
