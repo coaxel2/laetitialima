@@ -1494,7 +1494,7 @@ body.menu-open {
     background:
         radial-gradient(ellipse at 20% 20%, rgba(253, 248, 243, 0.8) 0%, transparent 50%),
         radial-gradient(ellipse at 80% 80%, rgba(196, 92, 58, 0.4) 0%, transparent 50%),
-        linear-gradient(135deg, #FDF8F3 0%, var(--color-peach) 30%, var(--color-coral) 60%, var(--color-rust) 100%);
+        linear-gradient(135deg, #FDF8F3 0%, #F5D5C0 30%, #E8A07A 60%, #C45C3A 100%);
 }
 
 .intro-pending .intro {
@@ -1591,8 +1591,8 @@ body.menu-open {
     font-weight: 500;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--ink);
-    background: linear-gradient(135deg, var(--color-peach) 0%, var(--color-coral) 100%);
+    color: #3D2820;
+    background: linear-gradient(135deg, #F5D5C0 0%, #E8A07A 100%);
     border: 1px solid rgba(61, 40, 32, 0.3);
     border-radius: 60px;
     cursor: pointer;
@@ -1618,7 +1618,7 @@ body.menu-open {
     content: '';
     position: absolute;
     left: 50%;
-    background: var(--ink);
+    background: #3D2820;
 }
 
 .intro-key::before {
@@ -2680,50 +2680,11 @@ html.theme-ready .project-image {
 
 /* ============================================================
    INTRO — apparence identique dans les deux thèmes
-   L'intro est un écran de marque, pas une page : elle garde son univers
-   terracotta quel que soit le réglage de l'utilisateur. Elle ne peut donc
-   pas s'appuyer sur les variables de thème, qui s'inversent — le dégradé
-   virait au brun, le texte du bouton devenait illisible et la clé
-   disparaissait.
+   C'est un écran de marque, pas une page : ses couleurs sont écrites en dur
+   plus haut plutôt que tirées des variables de thème, qui s'inversent.
+   Seul le monogramme doit être rappelé ici : la règle qui l'éclaircit en
+   thème sombre vise l'en-tête et l'atteindrait sinon.
    ============================================================ */
-.intro {
-    --intro-cream: #FDF8F3;
-    --intro-peach: #F5D5C0;
-    --intro-coral: #E8A07A;
-    --intro-rust: #C45C3A;
-    --intro-ink: #3D2820;
-
-    background:
-        radial-gradient(ellipse at 20% 20%, rgba(253, 248, 243, 0.8) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 80%, rgba(196, 92, 58, 0.4) 0%, transparent 50%),
-        linear-gradient(135deg,
-            var(--intro-cream) 0%,
-            var(--intro-peach) 30%,
-            var(--intro-coral) 60%,
-            var(--intro-rust) 100%);
-}
-
-.intro-btn {
-    color: var(--intro-ink);
-    background: linear-gradient(135deg, var(--intro-peach) 0%, var(--intro-coral) 100%);
-    border-color: rgba(61, 40, 32, 0.3);
-}
-
-.intro-btn:hover {
-    background: linear-gradient(135deg, #F8DBC8 0%, #EBA882 100%);
-}
-
-.intro-key::before,
-.intro-key::after {
-    background: var(--intro-ink);
-}
-
-.intro-inner::before {
-    border-color: rgba(61, 40, 32, 0.06);
-}
-
-/* Le monogramme de l'intro garde ses teintes d'origine : la règle qui
-   éclaircit le logo en thème sombre vise l'en-tête, pas cet écran. */
 .intro-mark .logo-dark,
 [data-theme="dark"] .intro-mark .logo-dark {
     color: #7A4833;
