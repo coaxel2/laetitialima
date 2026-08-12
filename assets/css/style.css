@@ -2944,3 +2944,113 @@ img {
         flex-direction: column;
     }
 }
+
+/* ============================================================
+   CURSEUR PERSONNALISÉ
+   Actif seulement sur pointeur fin ; la classe est posée par le script.
+   ============================================================ */
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2147483647;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.cursor.is-visible {
+    opacity: 1;
+}
+
+.cursor-dot,
+.cursor-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    will-change: transform;
+}
+
+.cursor-dot {
+    width: 7px;
+    height: 7px;
+    margin: -3.5px 0 0 -3.5px;
+    background: var(--accent);
+    transition: width 0.25s var(--ease), height 0.25s var(--ease), margin 0.25s var(--ease), background 0.25s var(--ease);
+}
+
+.cursor-ring {
+    width: 34px;
+    height: 34px;
+    margin: -17px 0 0 -17px;
+    border: 1px solid rgba(196, 92, 58, 0.45);
+    transition: width 0.3s var(--ease), height 0.3s var(--ease), margin 0.3s var(--ease),
+                border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+
+/* Survol d'un élément cliquable : l'anneau s'ouvre, le point s'efface */
+.cursor.is-active .cursor-dot {
+    width: 0;
+    height: 0;
+    margin: 0;
+}
+
+.cursor.is-active .cursor-ring {
+    width: 52px;
+    height: 52px;
+    margin: -26px 0 0 -26px;
+    border-color: rgba(196, 92, 58, 0.7);
+    background: rgba(196, 92, 58, 0.1);
+}
+
+/* Clic : léger resserrement */
+.cursor.is-down .cursor-ring {
+    width: 26px;
+    height: 26px;
+    margin: -13px 0 0 -13px;
+}
+
+/* Sur le fond sombre du pied de page, un curseur terracotta se perd */
+.footer .cursor-ring {
+    border-color: rgba(250, 248, 243, 0.5);
+}
+
+@media (pointer: fine) {
+    .has-custom-cursor,
+    .has-custom-cursor body,
+    .has-custom-cursor a,
+    .has-custom-cursor button,
+    .has-custom-cursor .chip,
+    .has-custom-cursor [role="button"],
+    .has-custom-cursor label,
+    .has-custom-cursor summary {
+        cursor: none;
+    }
+
+    /* On garde le curseur natif là où sa forme porte une information :
+       le I-beam indique qu'un texte est saisissable ou sélectionnable. */
+    .has-custom-cursor input,
+    .has-custom-cursor textarea,
+    .has-custom-cursor select,
+    .has-custom-cursor [contenteditable] {
+        cursor: auto;
+    }
+}
+
+/* L'intro garde sa clé : on masque le curseur du site pendant qu'elle est
+   affichée, pour ne pas superposer deux marqueurs. */
+.intro-pending .cursor {
+    opacity: 0 !important;
+}
+
+/* Pendant l'intro, le curseur système est masqué sur toute la page et pas
+   seulement sur le calque : la flèche réapparaissait sinon dès que le pointeur
+   sortait de la zone couverte. La classe n'est posée que si la clé est
+   effectivement affichée, on ne se retrouve donc jamais sans aucun curseur. */
+.intro-cursor,
+.intro-cursor body,
+.intro-cursor .intro,
+.intro-cursor .intro * {
+    cursor: none;
+}

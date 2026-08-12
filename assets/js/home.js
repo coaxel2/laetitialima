@@ -39,6 +39,7 @@
 
             var finish = function () {
                 root.classList.remove('intro-pending');
+                root.classList.remove('intro-cursor');
                 var main = document.getElementById('main');
                 if (main) {
                     main.setAttribute('tabindex', '-1');
@@ -60,9 +61,14 @@
             if (e.key === 'Escape' || e.key === 'Enter') close();
         });
 
-        // Curseur « clé » qui suit la souris, uniquement sur pointeur fin
+        // Curseur « clé » qui suit la souris, uniquement sur pointeur fin.
+        // La classe est aussi posée sur <html> : masquer le curseur système
+        // uniquement sur .intro laissait la flèche réapparaître dès que le
+        // pointeur passait sur une zone non couverte (barre de défilement,
+        // bords de la fenêtre).
         if (window.matchMedia('(pointer: fine)').matches) {
             intro.classList.add('has-cursor');
+            root.classList.add('intro-cursor');
             var x = 0, y = 0, queued = false;
 
             intro.addEventListener('pointermove', function (e) {

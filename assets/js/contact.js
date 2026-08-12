@@ -1,10 +1,8 @@
 /**
  * Formulaire de contact.
  *
- * Envoi via le service configuré dans l'attribut `action` du formulaire.
- * Tant qu'aucun identifiant n'est renseigné, on bascule sur le client mail du
- * visiteur : le formulaire reste utilisable dès la mise en ligne, sans compte
- * ni clé d'API. Voir CONTACT.md pour brancher un service.
+ * Le message part vers /api/contact, qui l'envoie par e-mail. Aucune ouverture
+ * du client mail du visiteur : tout se passe sur la page.
  */
 (function () {
     'use strict';
@@ -14,8 +12,7 @@
 
     var status = document.getElementById('formStatus');
     var submitBtn = document.getElementById('submitBtn');
-    var endpoint = form.getAttribute('action') || '';
-    var isConfigured = endpoint.indexOf('REMPLACER_PAR') === -1 && /^https?:/.test(endpoint);
+    var endpoint = form.getAttribute('action') || '/api/contact';
 
     var fields = [
         { el: form.elements.name, error: 'name-error', test: function (v) { return v.trim().length > 1; } },
@@ -46,15 +43,6 @@
         status.className = 'form-status' + (kind ? ' is-' + kind : '');
     };
 
-    var mailtoFallback = function (data) {
-        var to = form.getAttribute('data-fallback-email');
-        var body = 'Nom : ' + data.name + '\nE-mail : ' + data.email + '\n\n' + data.message;
-        window.location.href = 'mailto:' + to +
-            '?subject=' + encodeURIComponent('[Portfolio] ' + data.subject) +
-            '&body=' + encodeURIComponent(body);
-        setStatus('Votre messagerie va s’ouvrir avec le message pré-rempli.', 'info');
-    };
-
     form.addEventListener('submit', function (e) {
         e.preventDefault();
 
@@ -79,15 +67,13 @@
             name: form.elements.name.value.trim(),
             email: form.elements.email.value.trim(),
             subject: form.elements.subject ? form.elements.subject.value : 'Contact',
-            message: form.elements.message.value.trim()
+            message: form.elements.message.value.trim(),
+            company: ''
         };
 
-        if (!isConfigured) {
-            mailtoFallback(data);
-            return;
-        }
-
         submitBtn.disabled = true;
+        var label = submitBtn.textContent;
+        submitBtn.textContent = 'Envoi en cours…';
         setStatus('Envoi en cours…', 'info');
 
         fetch(endpoint, {
@@ -96,17 +82,32 @@
             body: JSON.stringify(data)
         })
             .then(function (res) {
-                if (!res.ok) throw new Error('HTTP ' + res.status);
-                form.reset();
-                setStatus('Message envoyé. Je vous réponds sous 48 heures.', 'success');
+                return res.json().catch(function () { return {}; }).then(function (payload) {
+                    return { ok: res.ok, status: res.status, payload: payload };
+                });
+            })
+            .then(function (r) {
+                if (r.ok) {
+                    form.reset();
+                    setStatus('Message envoyé. Je vous réponds sous 48 heures.', 'success');
+                    return;
+                }
+                if (r.status === 503) {
+                    setStatus('Le service d’envoi est momentanément indisponible. Écrivez-moi directement à contact@laetitialima.fr.', 'error');
+                    return;
+                }
+                setStatus(
+                    (r.payload && r.payload.error) ||
+                    'L’envoi a échoué. Réessayez ou écrivez-moi à contact@laetitialima.fr.',
+                    'error'
+                );
             })
             .catch(function () {
-                // L'envoi a échoué : on ne perd pas le message, on le repasse au client mail
-                setStatus('L’envoi automatique a échoué. Ouverture de votre messagerie…', 'error');
-                setTimeout(function () { mailtoFallback(data); }, 1200);
+                setStatus('Connexion impossible. Vérifiez votre réseau, ou écrivez-moi à contact@laetitialima.fr.', 'error');
             })
             .finally(function () {
                 submitBtn.disabled = false;
+                submitBtn.textContent = label;
             });
     });
 })();

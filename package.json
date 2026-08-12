@@ -1,0 +1,7 @@
+{
+  "name": "laetitialima",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Portfolio de Laëtitia Lima — site statique + fonction d'envoi du formulaire de contact",
+  "type": "module"
+}

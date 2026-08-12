@@ -1,46 +1,76 @@
 # Formulaire de contact
 
-Le site est statique : il n'a pas de serveur pour envoyer les e-mails. Le
-formulaire fonctionne donc en deux modes.
+Le formulaire de `/contact/` envoie le message par e-mail sans ouvrir la
+messagerie du visiteur. Tout se passe sur la page.
 
-## Mode actuel (aucune configuration)
+## Comment ça marche
 
-Sans service configuré, le bouton « Envoyer » ouvre la messagerie du visiteur
-avec un message pré-rempli (nom, e-mail, sujet, contenu). C'est fonctionnel dès
-la mise en ligne, mais le visiteur doit finir l'envoi depuis son client mail.
+1. `assets/js/contact.js` valide les champs puis envoie le contenu en JSON à
+   `/api/contact`.
+2. `api/contact.js` — une fonction serverless Vercel — revalide côté serveur,
+   puis transmet le message à [Resend](https://resend.com), qui l'expédie.
+3. Le message arrive sur **contact@laetitialima.fr**, avec l'adresse du visiteur
+   en `Reply-To` : il suffit de répondre pour lui écrire directement.
 
-## Recevoir les messages directement (recommandé, gratuit)
+## Configuration requise
 
-1. Créer un compte sur [formspree.io](https://formspree.io) (offre gratuite :
-   50 messages par mois).
-2. Créer un formulaire, récupérer son identifiant — une URL de la forme
-   `https://formspree.io/f/xxxxxxxx`.
-3. Dans `contact/index.html`, remplacer :
+Une seule variable d'environnement est obligatoire.
 
-   ```html
-   action="https://formspree.io/f/REMPLACER_PAR_VOTRE_ID"
+| Variable | Obligatoire | Rôle |
+|---|---|---|
+| `RESEND_API_KEY` | oui | clé API Resend |
+| `CONTACT_TO` | non | destinataire (par défaut `contact@laetitialima.fr`) |
+| `CONTACT_FROM` | non | expéditeur (par défaut le domaine de test de Resend) |
+
+### Obtenir la clé et la déclarer
+
+1. Créer un compte sur [resend.com](https://resend.com) — l'offre gratuite
+   couvre 3 000 e-mails par mois, sans carte bancaire.
+2. Créer une clé d'API et la copier.
+3. La déclarer sur le projet Vercel, **sans la faire passer par un fichier du
+   dépôt** :
+
+   ```bash
+   vercel env add RESEND_API_KEY production
    ```
 
-   par l'URL obtenue.
+   La valeur est demandée en saisie masquée. Elle peut aussi être ajoutée depuis
+   l'interface : *Project → Settings → Environment Variables*.
 
-Le script détecte automatiquement que le service est configuré et bascule sur
-l'envoi direct, sans ouvrir de client mail. Si l'envoi échoue (réseau coupé,
-quota dépassé), il repasse tout seul sur la messagerie pour que le message ne
-soit pas perdu.
+4. Redéployer pour que la fonction voie la variable :
 
-Tout autre service acceptant un `POST` en JSON fonctionne de la même façon
-(Web3Forms, Getform, Basin…).
+   ```bash
+   vercel --prod
+   ```
+
+Tant que la clé est absente, l'API répond `503` et le formulaire affiche un
+message invitant à écrire directement à `contact@laetitialima.fr`. Rien ne
+casse, mais aucun message n'est transmis.
+
+### Envoyer depuis laetitialima.fr
+
+Par défaut, l'expéditeur est le domaine de test de Resend : cela fonctionne
+immédiatement, sans toucher aux DNS. Pour que les messages partent depuis
+`laetitialima.fr` :
+
+1. Vérifier le domaine dans Resend (*Domains → Add Domain*).
+2. Ajouter chez OVH les enregistrements DKIM que Resend indique.
+3. **Ne pas remplacer le SPF existant** (`v=spf1 include:mx.ovh.com -all`) :
+   il faut y ajouter l'inclusion de Resend, sinon la réception des e-mails du
+   domaine est perturbée.
+4. Définir `CONTACT_FROM`, par exemple `Portfolio <contact@laetitialima.fr>`.
 
 ## Protection anti-spam
 
 Le formulaire contient un champ « Société » invisible pour un humain. Les robots
 le remplissent, les visiteurs non : toute soumission où ce champ est rempli est
-ignorée sans message d'erreur.
+ignorée. Le serveur répond alors `200` pour ne pas signaler le filtrage.
+
+La validation est faite deux fois — dans le navigateur pour le confort, sur le
+serveur parce qu'une requête peut contourner la page.
 
 ## Revoir l'animation d'entrée
 
-L'intro « Débloquer ma marque » se joue une fois par session : une fois passée,
-elle ne réapparaît pas tant que l'onglet reste ouvert. Pour la revoir :
-
-- ouvrir le site dans un nouvel onglet, ou
-- ajouter `?intro` à l'adresse : <https://laetitialima.fr/?intro>
+L'intro « Débloquer ma marque » se joue une fois par session. Pour la revoir :
+ouvrir le site dans un nouvel onglet, ou ajouter `?intro` à l'adresse —
+<https://laetitialima.fr/?intro>.

@@ -87,4 +87,100 @@
             link.setAttribute('aria-current', 'page');
         }
     });
+
+    /* ── Curseur personnalisé ──
+       Un point qui suit le pointeur au pixel près et un anneau qui le rattrape
+       avec un léger retard. Activé uniquement sur pointeur fin : sur un écran
+       tactile il n'y a pas de pointeur à remplacer.
+       Les éléments sont créés en JS pour ne pas avoir à les répéter dans
+       chacune des pages. */
+    (function initCursor() {
+        if (!window.matchMedia('(pointer: fine)').matches) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        var root = document.documentElement;
+        var wrap = document.createElement('div');
+        wrap.className = 'cursor';
+        wrap.setAttribute('aria-hidden', 'true');
+        wrap.innerHTML = '<span class="cursor-dot"></span><span class="cursor-ring"></span>';
+        document.body.appendChild(wrap);
+
+        var dot = wrap.querySelector('.cursor-dot');
+        var ring = wrap.querySelector('.cursor-ring');
+
+        root.classList.add('has-custom-cursor');
+
+        var x = window.innerWidth / 2, y = window.innerHeight / 2;
+        var rx = x, ry = y;
+        var visible = false;
+        var running = false;
+
+        // L'anneau seul est animé. Le point, lui, est positionné directement
+        // dans le gestionnaire d'évènement : requestAnimationFrame est gelé
+        // quand l'onglet passe en arrière-plan, et le curseur resterait figé.
+        var render = function () {
+            rx += (x - rx) * 0.18;
+            ry += (y - ry) * 0.18;
+            ring.style.transform = 'translate3d(' + rx + 'px,' + ry + 'px,0)';
+
+            // On s'arrête dès que l'anneau a rattrapé le point
+            if (Math.abs(x - rx) < 0.1 && Math.abs(y - ry) < 0.1) {
+                rx = x;
+                ry = y;
+                ring.style.transform = 'translate3d(' + rx + 'px,' + ry + 'px,0)';
+                running = false;
+                return;
+            }
+            requestAnimationFrame(render);
+        };
+
+        var kick = function () {
+            if (!running) {
+                running = true;
+                requestAnimationFrame(render);
+            }
+        };
+
+        document.addEventListener('pointermove', function (e) {
+            if (e.pointerType !== 'mouse') return;
+            x = e.clientX;
+            y = e.clientY;
+            dot.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)';
+
+            if (!visible) {
+                visible = true;
+                wrap.classList.add('is-visible');
+            }
+            kick();
+        }, { passive: true });
+
+        // Masquer quand le pointeur quitte la fenêtre, sinon il reste figé au bord
+        document.addEventListener('mouseleave', function () {
+            visible = false;
+            wrap.classList.remove('is-visible');
+        });
+
+        document.addEventListener('mouseenter', function () {
+            visible = true;
+            wrap.classList.add('is-visible');
+        });
+
+        // État accentué au survol de tout ce qui est cliquable
+        var interactive = 'a, button, [role="button"], .chip, summary';
+
+        document.addEventListener('pointerover', function (e) {
+            if (e.target.closest && e.target.closest(interactive)) {
+                wrap.classList.add('is-active');
+            }
+        }, { passive: true });
+
+        document.addEventListener('pointerout', function (e) {
+            if (e.target.closest && e.target.closest(interactive)) {
+                wrap.classList.remove('is-active');
+            }
+        }, { passive: true });
+
+        document.addEventListener('pointerdown', function () { wrap.classList.add('is-down'); }, { passive: true });
+        document.addEventListener('pointerup', function () { wrap.classList.remove('is-down'); }, { passive: true });
+    })();
 })();
