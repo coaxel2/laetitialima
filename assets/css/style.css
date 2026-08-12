@@ -251,21 +251,6 @@ body {
     100% { top: 0%; left: 10%; opacity: 1; }
 }
 
-.hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-}
-
-.hero-subtitle {
-    font-size: 0.875rem;
-    font-weight: 400;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--color-rust);
-    margin-bottom: var(--spacing-sm);
-}
-
 .hero-title {
     font-family: var(--font-serif);
     font-size: clamp(2.5rem, 6vw, 4.5rem);
@@ -273,38 +258,6 @@ body {
     line-height: 1.2;
     color: #6E321D;
     margin-bottom: var(--spacing-md);
-}
-
-.hero-description {
-    font-size: 1.125rem;
-    color: var(--text-medium);
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.8;
-}
-
-.hero-btn {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #fff;
-    background: #B28069;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-    margin-top: 1.5rem;
-    box-shadow: 0 4px 16px rgba(178, 128, 105, 0.12);
-    text-decoration: none;
-}
-
-.hero-btn:hover {
-    background: #a06c5a;
-    transform: translateY(-2px) scale(1.03);
 }
 
 /* ========================================
@@ -327,14 +280,6 @@ body {
     text-align: center;
 }
 
-.carousel-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
-}
-
 /* Défilement natif : le navigateur gère le swipe, le trackpad et l'inertie.
    Plus de piste transformée ni de cartes clonées — c'est ce montage qui
    bloquait le carrousel quand une transition ne se déclenchait pas. */
@@ -353,40 +298,6 @@ body {
     overscroll-behavior-x: contain;
 }
 
-.carousel::-webkit-scrollbar {
-    display: none;
-}
-
-.project-card {
-    flex: 0 0 100%;
-    scroll-snap-align: center;
-}
-
-.project-card-link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-sm);
-    min-height: 340px;
-    height: 100%;
-    padding: var(--spacing-lg) var(--spacing-md);
-    background: rgba(255, 255, 255, 0.55);
-    border: 1px solid rgba(61, 40, 32, 0.08);
-    border-radius: 20px;
-    text-align: center;
-    text-decoration: none;
-    color: inherit;
-    transition: background var(--transition-medium), box-shadow var(--transition-medium), transform var(--transition-medium);
-}
-
-.project-card-link:hover,
-.project-card-link:focus-visible {
-    background: rgba(255, 255, 255, 0.9);
-    transform: translateY(-4px);
-    box-shadow: 0 20px 60px rgba(61, 40, 32, 0.12);
-}
-
 /* Les logos sont déjà détourés (WebP avec canal alpha) : pas de mix-blend-mode,
    qui effaçait les logos clairs sur les fonds colorés de la page projets. */
 .project-card .project-logo {
@@ -395,116 +306,6 @@ body {
     max-height: 96px;
     height: auto;
     object-fit: contain;
-}
-
-.project-number {
-    font-family: var(--font-serif);
-    font-size: 2.25rem;
-    font-weight: 300;
-    color: var(--color-coral);
-    line-height: 1;
-}
-
-.project-card h3 {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: var(--text-dark);
-}
-
-.project-card p {
-    font-size: 0.9375rem;
-    color: var(--text-medium);
-    max-width: 34ch;
-}
-
-.project-cta {
-    margin-top: var(--spacing-xs);
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--color-rust);
-    border-bottom: 1px solid currentColor;
-    padding-bottom: 2px;
-}
-
-.projects-all {
-    margin-top: var(--spacing-md);
-    text-align: center;
-}
-
-.link-underline {
-    font-size: 0.8125rem;
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-medium);
-    text-decoration: none;
-    border-bottom: 1px solid var(--color-coral);
-    padding-bottom: 3px;
-    transition: color var(--transition-fast);
-}
-
-.link-underline:hover {
-    color: var(--color-rust);
-}
-
-/* Boutons de navigation carrousel */
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.3);
-    border: 1px solid rgba(61, 40, 32, 0.15);
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all var(--transition-medium);
-    z-index: 10;
-    backdrop-filter: blur(10px);
-}
-
-.carousel-btn:hover {
-    background: rgba(255, 255, 255, 0.5);
-    border-color: rgba(61, 40, 32, 0.3);
-    transform: translateY(-50%) scale(1.1);
-}
-
-.carousel-prev { left: 0; }
-.carousel-next { right: 0; }
-
-.carousel-btn svg {
-    width: 24px;
-    height: 24px;
-    color: var(--text-dark);
-}
-
-/* Indicateurs */
-.carousel-indicators {
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-xs);
-    margin-top: var(--spacing-md);
-}
-
-.indicator {
-    width: 8px;
-    height: 8px;
-    background: rgba(61, 40, 32, 0.2);
-    border: none;
-    cursor: pointer;
-    transition: all var(--transition-fast);
-    padding: 0;
-}
-
-.indicator:hover {
-    background: rgba(61, 40, 32, 0.4);
-    transform: scale(1.2);
 }
 
 .indicator.active {
@@ -521,97 +322,6 @@ body {
     color: var(--color-cream);
     padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-md);
     position: relative;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 var(--spacing-lg);
-    padding-bottom: var(--spacing-lg);
-    border-bottom: 1px solid rgba(253, 248, 243, 0.1);
-}
-
-.footer-logo {
-    font-family: var(--font-serif);
-    font-size: 2.5rem;
-    font-weight: 600;
-    position: relative;
-    display: inline-block;
-    width: 0.9em;
-    height: 1em;
-    margin-bottom: var(--spacing-sm);
-}
-
-.footer-brand p {
-    font-size: 0.875rem;
-    color: rgba(253, 248, 243, 0.6);
-    max-width: 300px;
-}
-
-.footer-contact {
-    display: flex;
-    gap: 2rem;
-    margin-top: var(--spacing-md);
-}
-
-.footer-contact a {
-    color: var(--color-cream);
-    text-decoration: none;
-    font-size: 0.875rem;
-    transition: color var(--transition-fast);
-}
-
-.footer-contact a:hover {
-    color: var(--color-coral);
-}
-
-.footer-links {
-    position: absolute;
-    right: var(--spacing-lg);
-    top: calc(var(--spacing-lg) + 3.5rem);
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-md);
-    align-items: flex-end;
-}
-
-.footer-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    align-items: flex-end;
-}
-
-.footer-nav a {
-    color: var(--color-cream);
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 400;
-    transition: color var(--transition-fast);
-}
-
-.footer-nav a:hover {
-    color: var(--color-coral);
-}
-
-.footer-links a {
-    color: var(--color-cream);
-    text-decoration: none;
-    font-size: 0.875rem;
-    transition: color var(--transition-fast);
-}
-
-.footer-links a:hover {
-    color: var(--color-coral);
-}
-
-.social-links {
-    display: flex;
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-sm);
 }
 
 .footer-bottom {
@@ -657,28 +367,6 @@ body {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-.about-image-placeholder {
-    width: 100%;
-    padding-bottom: 125%;
-    background: linear-gradient(135deg, var(--color-peach) 0%, var(--color-coral) 100%);
-    border-radius: 16px;
-    position: relative;
-    overflow: hidden;
-}
-
-.about-image-placeholder::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    height: 80%;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    animation: pulse 3s ease-in-out infinite;
-}
-
 @keyframes pulse {
     0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
     50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
@@ -706,85 +394,12 @@ body {
     color: var(--text-medium);
 }
 
-.about-skills {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-}
-
-.skill-item h4 {
-    font-family: var(--font-serif);
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: var(--text-dark);
-    margin-bottom: 0.5rem;
-}
-
-.skill-item p {
-    font-family: var(--font-sans);
-    font-size: 0.95rem;
-    color: var(--text-light);
-    line-height: 1.6;
-}
-
-.about-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem 2rem;
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    font-weight: 500;
-    color: white;
-    background: linear-gradient(135deg, var(--color-coral) 0%, var(--color-rust) 100%);
-    border: none;
-    border-radius: 8px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    align-self: flex-start;
-    margin-top: 1rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.about-cta::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s;
-}
-
-.about-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(232, 160, 122, 0.3);
-}
-
-.about-cta:hover::before {
-    left: 100%;
-}
-
-.about-cta:active {
-    transform: translateY(0);
-}
-
 /* ========================================
    SECTION SKILLS - Accordéons
 ======================================== */
 .skills-section {
     padding: 6rem 2rem 3rem;
     background: var(--color-cream);
-}
-
-.skills-container {
-    max-width: 1200px;
-    margin: 0 auto;
 }
 
 .skills-title {
@@ -803,68 +418,12 @@ body {
     align-items: start;
 }
 
-.skill-accordion {
-    background: white;
-    overflow: hidden;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    border-radius: 24px;
-}
-
-.skill-accordion:hover {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.accordion-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.75rem 2rem;
-    background: white;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.accordion-header:hover {
-    background: rgba(232, 160, 122, 0.05);
-}
-
-.accordion-title {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    font-weight: 500;
-    color: var(--text-dark);
-    text-align: left;
-}
-
-.accordion-icon {
-    width: 24px;
-    height: 24px;
-    color: var(--color-coral);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
 .accordion-header.active .accordion-icon {
     transform: rotate(180deg);
 }
 
-.accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
 .accordion-content.active {
     max-height: 600px;
-}
-
-.skills-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    padding: 2rem;
 }
 
 .skill-tag {
@@ -892,45 +451,6 @@ body {
 .experience-section {
     padding: 3rem 2rem 8rem;
     background: linear-gradient(to bottom, var(--color-cream) 0%, #FAF3EB 100%);
-}
-
-.experience-container {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.experience-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: 500;
-    color: var(--text-dark);
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-.experience-timeline {
-    position: relative;
-    padding-left: 2rem;
-}
-
-.experience-timeline::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.5rem;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--color-coral), var(--color-peach));
-}
-
-.experience-item {
-    position: relative;
-    margin-bottom: 3rem;
-    padding-left: 2rem;
-}
-
-.experience-item:last-child {
-    margin-bottom: 0;
 }
 
 /* Pastille de la frise, en pseudo-élément : c'est un décor, il n'a pas à
@@ -983,51 +503,12 @@ body {
     margin-bottom: 0.25rem;
 }
 
-.experience-period {
-    font-family: var(--font-sans);
-    font-size: 0.95rem;
-    color: var(--text-light);
-    margin-bottom: 1rem;
-}
-
 .experience-description {
     font-family: var(--font-sans);
     font-size: 1rem;
     line-height: 1.7;
     color: var(--text-medium);
     margin-bottom: 1.5rem;
-}
-
-.experience-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    font-family: var(--font-sans);
-    font-size: 0.875rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
-    text-decoration: none;
-    color: var(--text-dark);
-    background: linear-gradient(135deg, var(--color-peach) 0%, var(--color-coral) 100%);
-    border: 1px solid rgba(61, 40, 32, 0.15);
-    border-radius: 30px;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.experience-btn:hover {
-    background: linear-gradient(135deg, var(--color-coral) 0%, var(--color-orange) 100%);
-    transform: translateX(4px);
-    box-shadow: 0 4px 12px rgba(61, 40, 32, 0.15);
-}
-
-.experience-btn::after {
-    content: '→';
-    transition: transform 0.3s ease;
-}
-
-.experience-btn:hover::after {
-    transform: translateX(4px);
 }
 
 /* ========================================
@@ -1038,88 +519,6 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-}
-
-.contact-content {
-    padding: 10rem 2rem;
-}
-
-.contact-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 70vh;
-}
-
-.contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    max-width: 500px;
-    width: 100%;
-    text-align: center;
-    opacity: 0;
-    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
-}
-
-.contact-item h3 {
-    font-family: var(--font-serif);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--color-brown);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 1rem;
-    opacity: 0.6;
-}
-
-.contact-item a {
-    font-family: var(--font-sans);
-    font-size: 1.25rem;
-    color: var(--color-brown);
-    text-decoration: none;
-    display: block;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    font-weight: 400;
-}
-
-.contact-item a:hover {
-    color: var(--color-coral);
-    transform: translateX(5px);
-}
-
-.contact-item p {
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    color: var(--color-brown);
-    opacity: 0.7;
-    line-height: 1.6;
-}
-
-.social-links-vertical {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.social-links-vertical a {
-    font-size: 1rem;
-    font-weight: 400;
-}
-
-.availability-status {
-    font-weight: 500;
-    opacity: 1 !important;
-    margin-top: 0.5rem;
-    color: var(--text-medium);
-}
-
-.status-dot {
-    display: inline-block;
-    color: #4CAF50;
-    animation: blink 2s ease-in-out infinite;
 }
 
 @keyframes blink {
@@ -1163,25 +562,6 @@ body {
     width: 100%;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(61, 40, 32, 0.1);
-}
-
-.project-placeholder {
-    background: linear-gradient(135deg, var(--color-peach) 0%, var(--color-cream) 100%);
-    padding: 3rem;
-    border-radius: 12px;
-    text-align: center;
-}
-
-.project-placeholder h3 {
-    font-family: var(--font-serif);
-    font-size: 2rem;
-    color: var(--text-dark);
-    margin-bottom: 1rem;
-}
-
-.project-placeholder p {
-    color: var(--text-medium);
-    font-style: italic;
 }
 
 .text-spacing-top {
@@ -1253,33 +633,11 @@ body {
         max-width: 400px;
     }
 
-    .about-image-placeholder {
-        padding-bottom: 100%;
-        max-width: 400px;
-        margin: 0 auto;
-    }
-
     .about-content {
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
-    }
-
-    .about-cta {
-        display: block;
-        align-self: center;
-        margin-top: 1.5rem;
-        width: fit-content;
-    }
-
-    .about-skills {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .contact-content {
-        padding: 4rem 1.5rem;
     }
 
     .project-gallery {
@@ -1525,7 +883,6 @@ body {
         transition-duration: 0.01ms !important;
     }
 }
-
 
 /* ============================================================
    REFONTE 2026 — direction éditoriale
@@ -2109,49 +1466,6 @@ body.menu-open {
     color: var(--paper);
 }
 
-.footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: space-between;
-    align-items: flex-start;
-    max-width: none;
-    margin: 0;
-    padding: 0;
-}
-
-.footer-brand {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-}
-
-.footer-contact {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-}
-
-.footer-contact a,
-.footer-nav a {
-    color: rgba(250, 248, 243, 0.72);
-    text-decoration: none;
-    font-size: 0.9375rem;
-    transition: color var(--transition-fast);
-}
-
-.footer-contact a:hover,
-.footer-nav a:hover {
-    color: var(--paper);
-}
-
-.footer-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    text-align: right;
-}
-
 .footer-bottom {
     display: flex;
     flex-wrap: wrap;
@@ -2408,10 +1722,6 @@ img {
     .rule-row {
         gap: 0.5rem 1.5rem;
     }
-
-    .footer-nav {
-        text-align: left;
-    }
 }
 
 /* ── Menu mobile : sortir le panneau fermé du parcours de focus ── */
@@ -2459,26 +1769,6 @@ img {
     background: var(--paper);
 }
 
-.contact-content {
-    padding: clamp(6rem, 14vh, 9rem) 0 clamp(4rem, 10vw, 7rem);
-}
-
-.contact-container {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
-    gap: clamp(2rem, 6vw, 5rem);
-    align-items: start;
-    justify-content: initial;
-    min-height: 0;
-    max-width: var(--wrap);
-    margin: 0 auto;
-    padding: 0 clamp(1.25rem, 4vw, 2.5rem);
-}
-
-.contact-heading {
-    text-align: left;
-}
-
 .contact-heading .page-title {
     margin: 0;
     font-family: var(--font-serif);
@@ -2501,83 +1791,6 @@ img {
     text-align: left;
 }
 
-.contact-info {
-    display: block;
-    max-width: none;
-    width: 100%;
-    text-align: left;
-    opacity: 1;
-    animation: none;
-}
-
-.contact-item {
-    display: grid;
-    grid-template-columns: 9rem 1fr;
-    gap: 1rem;
-    align-items: baseline;
-    padding: 1.1rem 0;
-    border-bottom: 1px solid var(--line);
-}
-
-.contact-item:first-child {
-    border-top: 1px solid var(--line-strong);
-}
-
-.contact-item h3 {
-    margin: 0;
-    font-family: var(--font-sans);
-    font-size: 0.625rem;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-}
-
-.contact-item a,
-.contact-item p {
-    font-family: var(--font-serif);
-    font-size: clamp(1.125rem, 2vw, 1.375rem);
-    color: var(--ink);
-    text-decoration: none;
-    transition: color var(--transition-fast);
-}
-
-.contact-item a:hover {
-    color: var(--accent);
-}
-
-.contact-item p {
-    font-family: var(--font-sans);
-    font-size: 0.9375rem;
-    color: var(--ink-soft);
-}
-
-.availability-status {
-    margin-top: 0.35rem;
-}
-
-.status-dot {
-    color: var(--accent);
-    margin-right: 0.4em;
-}
-
-.social-links-vertical {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-}
-
-@media (max-width: 860px) {
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-item {
-        grid-template-columns: 1fr;
-        gap: 0.3rem;
-    }
-}
-
 /* Les pages internes ont conservé un pied de page sans conteneur .wrap :
    on contraint donc aussi les enfants directs, sinon le contenu vient
    se coller au bord gauche de l'écran. */
@@ -2593,11 +1806,6 @@ img {
 .footer .footer-brand p {
     max-width: 30ch;
     color: rgba(250, 248, 243, 0.72);
-}
-
-.footer-links {
-    display: block;
-    background: transparent;
 }
 
 /* ── Barre de filtres ──
@@ -3176,5 +2384,27 @@ img {
 
     .error-links a:hover {
         padding-left: 0;
+    }
+}
+
+/* Ligne de métadonnées sur petit écran.
+   Les libellés les plus longs font une quarantaine de caractères en capitales :
+   avec l'interlettrage de 0.22em ils débordaient de la largeur d'un téléphone.
+   On resserre la typographie et on aligne à gauche plutôt que de justifier,
+   ce qui évite les grands vides quand les éléments passent à la ligne. */
+@media (max-width: 640px) {
+    .rule-row {
+        justify-content: flex-start;
+        gap: 0.3rem 1.25rem;
+        padding: 0.85rem 0;
+        font-size: 0.5625rem;
+        letter-spacing: 0.12em;
+        line-height: 1.5;
+    }
+
+    .rule-row .status::before {
+        width: 5px;
+        height: 5px;
+        margin-right: 0.5em;
     }
 }
