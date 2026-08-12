@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Oriente le visiteur vers sa langue, avant tout rendu. Ne s'applique
+         qu'aux pages francaises : une URL /en/, /es/ ou /pt/ est une demande
+         explicite, et cette regle interdit au passage toute boucle. Un choix
+         fait dans le selecteur prime sur la langue du navigateur, et survit
+         d'une visite a l'autre. -->
+    <script>
+    (function () {
+        try {
+            var chemin = location.pathname;
+            if (/^\/(en|es|pt)(\/|$)/.test(chemin)) return;
+
+            var SEGMENTS = {
+                en: { projets: 'projects', experiences: 'experience' },
+                es: { projets: 'proyectos', experiences: 'experiencia', contact: 'contacto' },
+                pt: { projets: 'projetos', experiences: 'experiencia', contact: 'contato' }
+            };
+
+            var cible = localStorage.getItem('lang');   // preference deja exprimee
+            if (cible === 'fr') return;
+
+            if (!cible) {
+                if (sessionStorage.getItem('lang-auto')) return;
+                // Les robots doivent voir la version francaise, qui est le x-default
+                if (/bot|crawl|spider|slurp|bing|duckduck|baidu|yandex|facebookexternalhit|lighthouse|headless/i
+                    .test(navigator.userAgent)) return;
+
+                var prefs = navigator.languages && navigator.languages.length
+                    ? navigator.languages : [navigator.language || 'fr'];
+                for (var i = 0; i < prefs.length; i++) {
+                    var code = String(prefs[i]).slice(0, 2).toLowerCase();
+                    if (code === 'fr') return;   // le francais est mieux place : on reste
+                    if (SEGMENTS[code]) { cible = code; break; }
+                }
+                sessionStorage.setItem('lang-auto', '1');
+            }
+            if (!cible || !SEGMENTS[cible]) return;   // langue non traduite : le francais fait defaut
+
+            var segs = chemin.split('/').filter(Boolean);
+            if (segs.length && SEGMENTS[cible][segs[0]]) segs[0] = SEGMENTS[cible][segs[0]];
+            var url = '/' + cible + '/' + (segs.length ? segs.join('/') + '/' : '');
+
+            location.replace(url + location.search + location.hash);
+        } catch (e) { /* stockage indisponible : le site reste en francais */ }
+    })();
+    </script>
+    <title>Reboot Museum — Reposicionamento digital museológico | Laëtitia Lima</title>
+    <meta name="description" content="Reboot Museum: reposicionamento digital do Museu de Belas-Artes de Bordéus em torno do conceito imersivo Viagem no Tempo. Estratégia, brand content, UX/UI e gestão ágil.">
+    <meta name="author" content="Laëtitia Lima">
+    <link rel="canonical" href="https://laetitialima.fr/pt/projetos/reboot-museum/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Laëtitia Lima">
+    <meta property="og:locale" content="pt">
+    <meta property="og:title" content="Reboot Museum — Reposicionamento digital museológico | Laëtitia Lima">
+    <meta property="og:description" content="Reboot Museum: reposicionamento digital do Museu de Belas-Artes de Bordéus em torno do conceito imersivo Viagem no Tempo. Estratégia, brand content, UX/UI e gestão ágil.">
+    <meta property="og:url" content="https://laetitialima.fr/pt/projetos/reboot-museum/">
+    <meta property="og:image" content="https://laetitialima.fr/assets/img/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+    <meta name="theme-color" content="#FDF8F3">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/experience.css">
+    <script>
+        // Applique le thème avant le premier rendu : sans cela, la page
+        // s'afficherait en clair une fraction de seconde avant de basculer.
+        (function () {
+            try {
+                var choix = localStorage.getItem('theme');
+                var sombre = choix ? choix === 'dark'
+                    : matchMedia('(prefers-color-scheme: dark)').matches;
+                if (sombre) document.documentElement.setAttribute('data-theme', 'dark');
+                var barre = document.querySelector('meta[name="theme-color"]');
+                if (barre) barre.setAttribute('content', sombre ? '#17120F' : '#FAF8F3');
+            } catch (e) { /* stockage indisponible : thème clair par défaut */ }
+        })();
+    </script>
+    <link rel="alternate" hreflang="fr" href="https://laetitialima.fr/projets/reboot-museum/">
+    <link rel="alternate" hreflang="en" href="https://laetitialima.fr/en/projects/reboot-museum/">
+    <link rel="alternate" hreflang="es" href="https://laetitialima.fr/es/proyectos/reboot-museum/">
+    <link rel="alternate" hreflang="pt" href="https://laetitialima.fr/pt/projetos/reboot-museum/">
+    <link rel="alternate" hreflang="x-default" href="https://laetitialima.fr/projets/reboot-museum/">
+</head>
+<body class="project-page">
+    <a href="#main" class="skip-link">Ir para o conteúdo</a>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav wrap" aria-label="Navegação principal">
+            <a href="/pt/" class="logo">
+                <span class="logo-letter logo-dark">L</span>
+                <span class="logo-letter logo-light">L</span>
+            </a>
+            <button class="menu-toggle" type="button" aria-label="Abrir o menu" aria-expanded="false" aria-controls="navLinks">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                    <li><a href="/pt/experiencia/">Experiência</a></li>
+                    <li><a href="/pt/projetos/">Projetos</a></li>
+                    <li><a href="/pt/contato/">Contacto</a></li>
+                </ul>
+            <button class="theme-toggle" type="button" id="themeToggle" aria-label="Mudar para o tema escuro">
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                    <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+                </svg>
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4.2"/>
+                    <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+                </svg>
+            </button>
+            <div class="lang-switch" role="group" aria-label="Choisir la langue"><a class="lang-link" href="/projets/reboot-museum/" lang="fr" title="Français">FR</a><a class="lang-link" href="/en/projects/reboot-museum/" lang="en" title="English">EN</a><a class="lang-link" href="/es/proyectos/reboot-museum/" lang="es" title="Español">ES</a><a class="lang-link is-active" href="/pt/projetos/reboot-museum/" lang="pt" aria-current="true" title="Português">PT</a></div>
+            <div class="nav-overlay"></div>
+        </nav>
+    </header>
+
+    <!-- Contenu du projet -->
+    <main id="main" class="experience-page">
+        <!-- Présentation -->
+        <section class="hero-experience">
+            <div class="container">
+                <img src="/assets/img/logos/musba.webp" alt="MusBA — Musée des Beaux-Arts de Bordeaux" class="experience-logo" width="600" height="99" decoding="async">
+                <h1 class="page-title">Reboot Museum</h1>
+                <p class="page-subtitle">Reposicionamento digital museológico</p>
+                <p class="page-intro">Uma estratégia digital completa para reconquistar os públicos jovens do Museu de Belas-Artes de Bordéus, articulada em torno do conceito imersivo «Viagem no Tempo», que combina realidade virtual, inteligência artificial e escape game.</p>
+                <ul class="page-skills">
+                    <li>Análise estratégica</li>
+                    <li>Gestão de projetos digitais</li>
+                    <li>Brand content</li>
+                    <li>CRM</li>
+                    <li>Design UX/UI</li>
+                    <li>Figma</li>
+                    <li>Direção de arte</li>
+                    <li>Produção de vídeo</li>
+                    <li>Social media</li>
+                    <li>Mobile marketing</li>
+                    <li>Métodos ágeis</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Fiche du projet -->
+        <section class="experience-content">
+            <div class="container">
+                <a href="/pt/projetos/" class="back-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Voltar aos projetos
+                </a>
+                <div class="content-grid">
+                    <!-- Sidebar -->
+                    <aside class="experience-sidebar">
+                        <div class="info-card">
+                            <h3>Informações</h3>
+                            <ul class="info-list">
+                                <li>
+                                    <strong>Projeto</strong>
+                                    <span>Reboot Museum</span>
+                                </li>
+                                <li>
+                                    <strong>Tipo</strong>
+                                    <span>Projeto transversal académico</span>
+                                </li>
+                                <li>
+                                    <strong>Área</strong>
+                                    <span>Marketing digital &amp; Experiência cultural</span>
+                                </li>
+                                <li>
+                                    <strong>Ano</strong>
+                                    <span>2025-2026</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="skills-card">
+                            <h3>Competências aplicadas</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Análise estratégica</span>
+                                <span class="skill-tag">Gestão de projetos digitais</span>
+                                <span class="skill-tag">Brand content</span>
+                                <span class="skill-tag">CRM</span>
+                                <span class="skill-tag">Design UX/UI</span>
+                                <span class="skill-tag">Figma</span>
+                                <span class="skill-tag">Direção de arte</span>
+                                <span class="skill-tag">Produção de vídeo</span>
+                                <span class="skill-tag">Social media</span>
+                                <span class="skill-tag">Mobile marketing</span>
+                                <span class="skill-tag">Métodos ágeis</span>
+                                <span class="skill-tag">Caderno de encargos</span>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- Contenu principal -->
+                    <div class="experience-main">
+                        <div class="content-section">
+                            <h2>O projeto</h2>
+                            <p>
+                                No âmbito do projeto transversal Reboot Museum, a nossa equipa conduziu o reposicionamento digital completo do Museu de Belas-Artes de Bordéus (MusBA). Perante uma afluência em queda junto dos 18-35 anos e uma imagem institucional pouco apelativa, a escola incumbiu-nos de repensar a sua presença digital, a sua identidade de marca e a sua experiência de utilizador. Conduzido ao longo de um ano inteiro (outubro de 2025 a junho de 2026, 196 horas), o projeto mobilizou três blocos de competências RNCP: análise e enquadramento estratégico, gestão de projeto e estratégia de marketing digital.
+                            </p>
+                        </div>
+                        <div class="content-section">
+                            <img src="/assets/img/projets/musba/street-marketing.webp" alt="Elétrico decorado com as cores da exposição Viagem no Tempo" class="project-detail-img" loading="lazy" decoding="async" width="1600" height="711">
+                        </div>
+                        <div class="content-section">
+                            <h2>O conceito</h2>
+                            <p>
+                                «Viagem no Tempo» posiciona o MusBA como um lugar vivo, experiencial e ligado às práticas culturais contemporâneas. O conceito articula-se em torno de dispositivos imersivos que integram realidade virtual, inteligência artificial e um escape game, com o objetivo de criar uma experiência cultural forte, memorável e partilhável; guiada pela tecnologia e adaptada aos códigos da geração dos 18 aos 35 anos.
+                            </p>
+                        </div>
+                        <div class="content-section">
+                            <h2>Visuais do projeto</h2>
+                            <div class="project-gallery">
+                                <img src="/assets/img/projets/musba/abribus.webp" alt="Cartaz da exposição num abrigo de autocarro em Bordéus" class="project-detail-img project-detail-img--full" loading="lazy" decoding="async" width="1448" height="1086">
+                                <img src="/assets/img/projets/musba/affichage-urbain.webp" alt="Publicidade exterior de grande formato da exposição" class="project-detail-img project-detail-img--full" loading="lazy" decoding="async" width="1086" height="1448">
+                            </div>
+                            <div class="project-gallery text-spacing-top">
+                                <img src="/assets/img/projets/musba/carrousel-instagram.webp" alt="Carrossel Instagram «Escolhe a tua época»" class="project-detail-img project-detail-img--full" loading="lazy" decoding="async" width="1536" height="1024">
+                                <img src="/assets/img/projets/musba/totebag.webp" alt="Tote bag com as cores do MusBA" class="project-detail-img project-detail-img--full" loading="lazy" decoding="async" width="1254" height="1254">
+                            </div>
+                            <div class="project-gallery text-spacing-top">
+                                <img src="/assets/img/projets/musba/story-instagram.webp" alt="Story do Instagram com sondagem sobre a época preferida" class="project-detail-img project-detail-img--full" loading="lazy" decoding="async" width="740" height="1600">
+                                <img src="/assets/img/projets/musba/linkedin.webp" alt="Publicação LinkedIn a anunciar a exposição" class="project-detail-img project-detail-img--full" loading="lazy" decoding="async" width="740" height="1600">
+                            </div>
+                        </div>
+                        <div class="content-section">
+                            <h2>Realizações</h2>
+                            <div class="achievements">
+                                <div class="achievement-item">
+                                    <h3>Enquadramento estratégico</h3>
+                                    <p>
+                                        Análise PESTEL, 5 forças de Porter, SWOT e mapeamento de posicionamento no ecossistema cultural bordalês. Elaboração do caderno de encargos funcional e técnico, do planeamento previsional, da gestão de riscos e de um orçamento estimado em 58 642 € sem IVA.
+                                    </p>
+                                </div>
+                                <div class="achievement-item">
+                                    <h3>Estratégia de marketing e brand content</h3>
+                                    <p>
+                                        Conceção do posicionamento de marca, da linha editorial e do calendário de conteúdos. Plano CRM e ativação multicanal (social media, mobile marketing, e-mailing), identidade visual completa e teaser de vídeo de lançamento.
+                                    </p>
+                                </div>
+                                <div class="achievement-item">
+                                    <h3>Redesenho UX/UI e gestão</h3>
+                                    <p>
+                                        Protótipo em Figma centrado na experiência do utilizador (redesenho do site do MusBA). Gestão em métodos ágeis (Kanban, backlog, retrospetiva), coordenação da equipa e estruturação dos entregáveis por bloco de competências.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footer-top">
+                <p class="footer-word">Vamos criar juntos<br>algo excecional.</p>
+                <a href="mailto:contact@laetitialima.fr" class="footer-mail">contact@laetitialima.fr</a>
+            </div>
+
+            <div class="footer-cols">
+                <div class="footer-col">
+                    <span class="footer-col-title">Navegação</span>
+                    <a href="/pt/">Início</a>
+                    <a href="/pt/projetos/">Projetos</a>
+                    <a href="/pt/experiencia/">Experiência</a>
+                    <a href="/pt/contato/">Contacto</a>
+                </div>
+                <div class="footer-col">
+                    <span class="footer-col-title">Redes</span>
+                    <a href="https://www.linkedin.com/in/laetitialima" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="mailto:contact@laetitialima.fr">E-mail</a>
+                </div>
+                <div class="footer-col">
+                    <span class="footer-col-title">Atualmente</span>
+                    <p class="footer-note">Mestrado em Estratégia de Marca &amp; Brand Content na ESP.<br>Gestora de projetos digitais na agência Link.</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Laëtitia Lima</p>
+                <p>Bordéus, França</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js" defer></script>
+</body>
+</html>
