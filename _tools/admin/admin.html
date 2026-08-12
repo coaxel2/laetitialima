@@ -11,31 +11,18 @@
 </head>
 <body>
 
-    <!-- ====== ECRAN DE CONNEXION ====== -->
-    <div id="login-screen" class="login-screen">
-        <div class="login-card">
-            <h1>Administration</h1>
-            <p class="login-subtitle">Accès réservé</p>
-            <form id="login-form" class="login-form">
-                <div class="input-group">
-                    <label for="password">Mot de passe</label>
-                    <input type="password" id="password" placeholder="Entrez le mot de passe" autocomplete="off" required>
-                    <p id="login-error" class="login-error" style="display:none;">Mot de passe incorrect</p>
-                </div>
-                <button type="submit" class="btn-login">Se connecter</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- ====== DASHBOARD ADMIN ====== -->
-    <div id="admin-dashboard" class="admin-dashboard" style="display:none;">
+    <!-- ====== DASHBOARD ADMIN ======
+         Outil local uniquement : ce dossier commence par un underscore,
+         Jekyll ne le publie donc pas sur laetitialima.fr.
+         L'ancien écran de mot de passe a été retiré — en site statique le mot de
+         passe est forcément lisible dans le source, il ne protégeait rien. -->
+    <div id="admin-dashboard" class="admin-dashboard">
 
         <!-- Header Admin -->
         <header class="admin-header">
             <div class="admin-header-left">
                 <span class="admin-title">Administration</span>
             </div>
-            <button id="btn-logout" class="btn-logout">Déconnexion</button>
         </header>
 
         <!-- Contenu principal -->

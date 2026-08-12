@@ -3,38 +3,9 @@
    Génère les pages + injecte les cartes
 ==================================== */
 
-// --- Authentification ---
-var PASSWORD = 'MOT_DE_PASSE_RETIRE';
-
-document.getElementById('login-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    var pwd = document.getElementById('password').value;
-    if (pwd === PASSWORD) {
-        document.getElementById('login-screen').style.display = 'none';
-        document.getElementById('admin-dashboard').style.display = 'block';
-        sessionStorage.setItem('admin-auth', 'true');
-    } else {
-        var err = document.getElementById('login-error');
-        err.style.display = 'block';
-        document.getElementById('password').classList.add('input-error');
-        setTimeout(function() {
-            err.style.display = 'none';
-            document.getElementById('password').classList.remove('input-error');
-        }, 3000);
-    }
-});
-
-if (sessionStorage.getItem('admin-auth') === 'true') {
-    document.getElementById('login-screen').style.display = 'none';
-    document.getElementById('admin-dashboard').style.display = 'block';
-}
-
-document.getElementById('btn-logout').addEventListener('click', function() {
-    sessionStorage.removeItem('admin-auth');
-    document.getElementById('admin-dashboard').style.display = 'none';
-    document.getElementById('login-screen').style.display = 'flex';
-    document.getElementById('password').value = '';
-});
+// Outil local, non publié (dossier _tools ignoré par Jekyll).
+// L'authentification par mot de passe en clair a été retirée : sur un site
+// statique elle était lisible dans le source et ne protégeait rien.
 
 // --- Sélection type de page ---
 var typeBtns = document.querySelectorAll('.type-btn');
