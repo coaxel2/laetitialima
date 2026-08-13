@@ -1300,7 +1300,7 @@ body.menu-open {
 .about-photo {
     width: 100%;
     height: auto;
-    border-radius: 2px;
+    border-radius: clamp(16px, 2.2vw, 24px);
     box-shadow: none;
     filter: none;
 }
@@ -2494,17 +2494,48 @@ html.theme-ready .project-image {
     border-color: var(--ink);
 }
 
-.theme-toggle svg {
-    width: 17px;
-    height: 17px;
+.theme-toggle:active {
+    transform: scale(0.94);
 }
 
-/* Une seule des deux icônes est visible selon le thème actif */
-.theme-toggle .icon-moon { display: block; }
-.theme-toggle .icon-sun  { display: none; }
+/* Les deux icônes se superposent dans le rond : celle qui part se couche et
+   sort par le haut, celle qui arrive se relève par le bas. Le `overflow`
+   du bouton coupe leur trajet au bord du cercle. */
+.theme-toggle {
+    position: relative;
+    overflow: hidden;
+    transition: color var(--transition-fast), border-color var(--transition-fast),
+                transform 0.25s var(--ease);
+}
 
-[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
-[data-theme="dark"] .theme-toggle .icon-sun  { display: block; }
+.theme-toggle svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 17px;
+    height: 17px;
+    transition: transform 0.55s var(--ease), opacity 0.3s var(--ease);
+}
+
+.theme-toggle .icon-moon {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    opacity: 1;
+}
+
+.theme-toggle .icon-sun {
+    transform: translate(-50%, 120%) rotate(-100deg) scale(0.4);
+    opacity: 0;
+}
+
+[data-theme="dark"] .theme-toggle .icon-moon {
+    transform: translate(-50%, -220%) rotate(100deg) scale(0.4);
+    opacity: 0;
+}
+
+[data-theme="dark"] .theme-toggle .icon-sun {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+    opacity: 1;
+}
 
 @media (max-width: 768px) {
     .theme-toggle {
@@ -2694,4 +2725,102 @@ html.theme-ready .project-image {
 /* L'anneau du curseur personnalisé se perd sur le dégradé chaud */
 .intro-pending .cursor-ring {
     border-color: rgba(61, 40, 32, 0.4);
+}
+
+/* ============================================================
+   BASCULES ANIMÉES — thème et langue
+   Deux effets volontairement simples : rien qui fige la page, rien
+   qui dépende d'une capture d'écran du navigateur. Le thème fait
+   passer une onde chaude depuis son bouton, la langue fait sortir le
+   contenu par un fondu pendant que l'en-tête, lui, ne bouge pas.
+   ============================================================ */
+
+/* ── Thème : onde chaude ──
+   Un dégradé radial, posé et dimensionné en JS, qui s'étale depuis le
+   bouton pendant que les couleurs de la page se fondent. Aucune bordure
+   à l'échelle : un dégradé grossit sans jamais s'épaissir. */
+.theme-ripple {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2147483000;   /* au-dessus de tout, sauf du curseur */
+    border-radius: 50%;
+    background: radial-gradient(circle,
+        rgba(196, 92, 58, 0.26) 0%,
+        rgba(196, 92, 58, 0.12) 42%,
+        rgba(196, 92, 58, 0) 68%);
+    pointer-events: none;
+    /* Pas `--ease` ici : cette courbe joue tout dans les 300 premières ms,
+       l'onde s'éteindrait avant d'avoir traversé l'écran. */
+    animation: themeRipple 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+[data-theme="dark"] .theme-ripple {
+    background: radial-gradient(circle,
+        rgba(226, 139, 98, 0.30) 0%,
+        rgba(226, 139, 98, 0.14) 42%,
+        rgba(226, 139, 98, 0) 68%);
+}
+
+@keyframes themeRipple {
+    from { transform: translate(-50%, -50%) scale(0.04); opacity: 0; }
+    12%  { opacity: 1; }
+    60%  { opacity: 0.6; }
+    to   { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+}
+
+/* ── Langue : la pastille glisse, le contenu sort, l'en-tête reste ──
+   Le fond ne change pas d'une langue à l'autre : en ne faisant sortir
+   que le contenu, le passage d'une page à l'autre ne montre aucune
+   coupure. La barre de navigation, identique de part et d'autre, fait
+   le lien. */
+html.is-leaving main,
+html.is-leaving .footer {
+    opacity: 0;
+    transform: translateY(-12px);
+    transition: opacity 0.38s var(--ease), transform 0.38s var(--ease);
+}
+
+/* Arrivée : le contenu entre par le bas. Écrit en CSS pur — donc joué dès
+   le premier rendu, sans attendre le JavaScript, sinon la page s'afficherait
+   nette une fraction de seconde avant de s'animer.
+   S'applique à toute arrivée sur une page, pas seulement au changement de
+   langue : c'est ce qui rend la bascule continue d'un document à l'autre.
+   `backwards` et non `both` : une animation qui garde ses valeurs de fin
+   l'emporterait sur la transition de sortie ci-dessus, qui ne jouerait
+   alors jamais. Et le départ n'est pas à zéro : un contenu totalement
+   transparent au premier rendu décale le LCP d'une demi-seconde. */
+main {
+    animation: pageIn 0.5s var(--ease) backwards;
+}
+
+@keyframes pageIn {
+    from { opacity: 0.35; transform: translateY(14px); }
+    to   { opacity: 1; transform: none; }
+}
+
+/* La pastille sombre du sélecteur : posée et déplacée en JS, elle glisse
+   jusqu'à la langue demandée pendant que la page s'efface. */
+.lang-switch {
+    position: relative;
+}
+
+.lang-pill {
+    position: absolute;
+    background: var(--ink);
+    border-radius: 100px;
+    pointer-events: none;
+    transition: transform 0.34s var(--ease), width 0.34s var(--ease);
+}
+
+/* Pendant le glissement, le fond fixe de la langue active s'efface : sinon
+   deux pastilles sombres cohabiteraient. Les libellés, eux, échangent leurs
+   couleurs à mi-course, quand la pastille est déjà sous le nouveau. */
+.lang-switch.is-sliding .lang-link.is-active {
+    background: transparent;
+}
+
+.lang-switch.is-sliding .lang-link {
+    position: relative;
+    transition: color 0.16s ease 0.18s;
 }

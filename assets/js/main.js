@@ -5,6 +5,94 @@
 (function () {
     'use strict';
 
+    var motionOk = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ── Onde du changement de thème ──
+       Un dégradé rond, dimensionné pour couvrir l'écran depuis le bouton,
+       qui s'étale et s'efface pendant que les couleurs se fondent. Il ne
+       masque rien et ne fige rien : la page reste vivante dessous. */
+    var onde = function (el) {
+        var cadre = el.getBoundingClientRect();
+        var x = cadre.left + cadre.width / 2;
+        var y = cadre.top + cadre.height / 2;
+        // Rayon nécessaire pour atteindre le coin le plus éloigné
+        var r = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
+
+        var bulle = document.createElement('div');
+        bulle.className = 'theme-ripple';
+        bulle.setAttribute('aria-hidden', 'true');
+        bulle.style.left = x + 'px';
+        bulle.style.top = y + 'px';
+        bulle.style.width = bulle.style.height = (r * 2) + 'px';
+
+        var retirer = function () {
+            if (bulle.parentNode) bulle.remove();
+        };
+
+        bulle.addEventListener('animationend', retirer);
+        // Filet : sans animation jouée, l'élément resterait dans la page
+        setTimeout(retirer, 1200);
+
+        document.body.appendChild(bulle);
+    };
+
+    /* ── Pastille du sélecteur de langue ──
+       Le fond sombre de la langue active est recopié dans un élément à part,
+       qui glisse jusqu'à la langue demandée. C'est le seul mouvement que
+       l'œil regarde au moment du clic : il se passe sous le curseur. */
+    var glisserPastille = function (selecteur, cible) {
+        var actif = selecteur.querySelector('.lang-link.is-active');
+
+        // Les libellés échangent leurs couleurs quoi qu'il arrive
+        var marquer = function () {
+            selecteur.querySelectorAll('.lang-link').forEach(function (l) {
+                var estActif = l === cible;
+                l.classList.toggle('is-active', estActif);
+                if (estActif) l.setAttribute('aria-current', 'true');
+                else l.removeAttribute('aria-current');
+            });
+        };
+
+        if (!actif || actif === cible) {
+            marquer();
+            return;
+        }
+
+        var base = selecteur.getBoundingClientRect();
+        var depart = actif.getBoundingClientRect();
+        var arrivee = cible.getBoundingClientRect();
+
+        var pastille = document.createElement('span');
+        pastille.className = 'lang-pill';
+        pastille.setAttribute('aria-hidden', 'true');
+        pastille.style.left = (depart.left - base.left) + 'px';
+        pastille.style.top = (depart.top - base.top) + 'px';
+        pastille.style.width = depart.width + 'px';
+        pastille.style.height = depart.height + 'px';
+
+        // En premier enfant : les liens, rendus positionnés par `is-sliding`,
+        // se dessinent alors par-dessus.
+        selecteur.insertBefore(pastille, selecteur.firstChild);
+        selecteur.classList.add('is-sliding');
+        marquer();
+
+        // Un cycle de rendu avant de lancer le mouvement, sinon la position
+        // de départ n'est jamais peinte et la pastille apparaît arrivée.
+        requestAnimationFrame(function () {
+            pastille.style.transform = 'translateX(' + (arrivee.left - depart.left) + 'px)';
+            pastille.style.width = arrivee.width + 'px';
+        });
+    };
+
+    /* Retour arrière : la page peut être restaurée telle qu'elle a été
+       quittée, contenu effacé compris. On la remet en état. */
+    window.addEventListener('pageshow', function (e) {
+        if (!e.persisted) return;
+        document.documentElement.classList.remove('is-leaving');
+        document.querySelectorAll('.theme-ripple, .lang-pill').forEach(function (n) { n.remove(); });
+        document.querySelectorAll('.lang-switch').forEach(function (s) { s.classList.remove('is-sliding'); });
+    });
+
     /* ── Header : ombre au scroll ──
        Le listener est passif et le travail est repoussé dans un rAF, pour ne pas
        recalculer le style à chaque évènement de scroll. */
@@ -116,7 +204,7 @@
         });
 
         if (toggle) {
-            toggle.addEventListener('click', function () {
+            var basculer = function () {
                 var sombre = root.getAttribute('data-theme') === 'dark';
                 if (sombre) {
                     root.removeAttribute('data-theme');
@@ -127,6 +215,13 @@
                     localStorage.setItem('theme', sombre ? 'light' : 'dark');
                 } catch (e) { /* stockage indisponible : le choix ne survit pas à la page */ }
                 libelle();
+            };
+
+            toggle.addEventListener('click', function () {
+                basculer();
+                // Les couleurs se fondent d'elles-mêmes (transition CSS) ;
+                // l'onde ne fait qu'indiquer d'où vient le changement.
+                if (motionOk) onde(toggle);
             });
         }
 
@@ -155,10 +250,27 @@
         selecteur.addEventListener('click', function (e) {
             var lien = e.target.closest('a[lang]');
             if (!lien) return;
+
+            var code = lien.getAttribute('lang');
+
             try {
-                localStorage.setItem('lang', lien.getAttribute('lang'));
+                localStorage.setItem('lang', code);
                 sessionStorage.setItem('lang-auto', '1');
             } catch (err) { /* stockage indisponible : le choix ne survit pas à la page */ }
+
+            // Ouverture dans un autre onglet, langue déjà affichée, mouvement
+            // refusé : on laisse le navigateur faire, sans mise en scène.
+            if (!motionOk || e.defaultPrevented || e.button !== 0 ||
+                e.metaKey || e.ctrlKey || e.shiftKey || e.altKey ||
+                lien.target === '_blank' || lien.pathname === location.pathname) return;
+
+            e.preventDefault();
+
+            glisserPastille(selecteur, lien);
+            document.documentElement.classList.add('is-leaving');
+
+            // Le temps que le contenu sorte et que la pastille arrive
+            setTimeout(function () { location.href = lien.href; }, 400);
         });
     })();
 
